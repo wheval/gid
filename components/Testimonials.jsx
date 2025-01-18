@@ -45,6 +45,10 @@ const Testimonials = () => {
   return (
     <section className="px-4 py-12">
       <div className="md:max-w-3xl md:mx-auto md:px-0 relative">
+        <div className="mx-4 mb-4">
+          <h1 className="font-bold text-2xl mb-2">Testimonials</h1>
+          <p>See what other beneficiaries has to say</p>
+        </div>
         <div className="bg-white shadow-lg rounded-xl p-6 md:flex md:items-center md:justify-between md:text-left md:p-8 mx-16">
           {/* Mobile View */}
           <div className="text-center md:hidden">

@@ -1,9 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
+import "swiper/css/pagination";
 import Image from "next/image";
 
 const images = [
@@ -49,8 +50,13 @@ const Throwback = () => {
             delay: 1500,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
-          className="max-w-full"
+          pagination={{
+            clickable: true,
+            bulletClass: `swiper-pagination-bullet swiper-pagination-testClass`,
+            bulletActiveClass: `swiper-pagination-bullet-active swiper-pagination-bullet-active-main`,
+          }}
+          modules={[Autoplay, Pagination]}
+          className="max-w-full pb-12"
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
@@ -69,6 +75,32 @@ const Throwback = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <style jsx global>{`
+          .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            opacity: 0.6;
+            margin: 0 4px;
+          }
+
+          .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #000;
+          }
+
+          .swiper-pagination {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+          }
+        `}</style>
       </div>
     </section>
   );
