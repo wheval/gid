@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 const IMAGES = {
   background: {
@@ -65,13 +66,15 @@ const Register = () => {
       <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[calc(100vh-5rem)]">
         {/* Logo Section */}
         <div className="flex items-center gap-8 my-10">
-          <Image
-            src={IMAGES.gidaLogo.src}
-            width={IMAGES.gidaLogo.width}
-            height={IMAGES.gidaLogo.width}
-            alt={IMAGES.gidaLogo.alt}
-            className="w-24"
-          />
+          <Link href="/">
+            <Image
+              src={IMAGES.gidaLogo.src}
+              width={IMAGES.gidaLogo.width}
+              height={IMAGES.gidaLogo.width}
+              alt={IMAGES.gidaLogo.alt}
+              className="w-24"
+            />
+          </Link>
           <span className="text-xl font-bold">×</span>
           <Image
             src={IMAGES.starknet.src}
@@ -119,58 +122,60 @@ const Register = () => {
           )}
 
           {showFields && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="First name"
-                className="border bg-transparent px-4 py-2 rounded-lg"
-              />
-              <input
-                type="text"
-                placeholder="Last name"
-                className="border bg-transparent px-4 py-2 rounded-lg"
-              />
-              <input
-                type="email"
-                placeholder="Mail"
-                className="border bg-transparent px-4 py-2 rounded-lg"
-              />
-              <input
-                type="text"
-                placeholder="Phone number"
-                className="border bg-transparent px-4 py-2 rounded-lg"
-              />
-              <select className="border bg-transparent px-4 py-2 rounded-lg">
-                <option>Gender</option>
-                <option>Male</option>
-                <option>Female</option>
-              </select>
-              <select className="border bg-transparent px-4 py-2 rounded-lg">
-                <option>How did you hear about the bootcamp?</option>
-                <option>X (Formerly Twitter) </option>
-                <option>Instagram</option>
-                <option>Facebook</option>
-                <option>WhatsaApp</option>
-                <option>From A Friend</option>
-              </select>
-              <select className="border bg-transparent px-4 py-2 rounded-lg">
-                <option>Already a web2 developer?</option>
-                <option>Yes</option>
-                <option>No</option>
-              </select>
-              <select className="border bg-transparent px-4 py-2 rounded-lg">
-                <option>What's your level of proficiency?</option>
-                <option>Novice</option>
-                <option>Beginner</option>
-                <option>Intermediate</option>
-                <option>Advanced</option>
-              </select>
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="First name"
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
+                <input
+                  type="text"
+                  placeholder="Last name"
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
+                <input
+                  type="email"
+                  placeholder="Mail"
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
+                <input
+                  type="text"
+                  placeholder="Phone number"
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
+                <select className="border bg-transparent px-4 py-2 rounded-lg">
+                  <option>Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+                <select className="border bg-transparent px-4 py-2 rounded-lg">
+                  <option>How did you hear about the bootcamp?</option>
+                  <option>X (Formerly Twitter) </option>
+                  <option>Instagram</option>
+                  <option>Facebook</option>
+                  <option>WhatsaApp</option>
+                  <option>From A Friend</option>
+                </select>
+                <select className="border bg-transparent px-4 py-2 rounded-lg">
+                  <option>Already a web2 developer?</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+                <select className="border bg-transparent px-4 py-2 rounded-lg">
+                  <option>What's your level of proficiency?</option>
+                  <option>Novice</option>
+                  <option>Beginner</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                </select>
+              </div>
               <button
                 type="submit"
                 disabled={isLoading || !email}
                 className="w-full bg-[#900A15] hover:bg-[#a20b17] disabled:bg-[#9b4950]
-                     disabled:cursor-not-allowed uppercase px-6 py-3 rounded-full
-                     transition-colors duration-200 font-medium"
+                disabled:cursor-not-allowed uppercase px-6 py-3 mt-6 rounded-full
+                transition-colors duration-200 font-medium"
               >
                 {isLoading ? "Processing..." : "Submit"}
               </button>
