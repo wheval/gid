@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NavLink from "@/reusables/NavLink";
+import NavLink from "./NavLink";
 import Link from "next/link";
 
 const Header = () => {

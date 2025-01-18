@@ -14,22 +14,22 @@ const FAQ = () => {
     {
       question: "What is the Cairo Web3 Developers Bootcamp?",
       answer:
-        "It is a comprehensive program designed to train developers in Web3 technologies using Cairo.",
+        "THe Cairo web3 Developers bootcamp is an intensive training programme designed to equip web2 developers with the skills and knowledge needed to transition into web3 development, focusing on blockchain technology.",
     },
     {
       question: "Who is this bootcamp for?",
       answer:
-        "The bootcamp is for developers, blockchain enthusiasts, and anyone interested in Web3 development.",
+        "The target audience for the bootcamp is web2 developers with 1+ years of experience looking to transition into web3 development.",
     },
     {
       question: "How long is the bootcamp?",
       answer:
-        "The bootcamp lasts for 8 weeks, with flexible schedules to accommodate participants.",
+        "The bootcamp is going to last for 8 weeks - From 24th February to 14th April.",
     },
     {
       question: "What is the cost of the bootcamp?",
       answer:
-        "The bootcamp is free for selected participants, with funding from sponsors.",
+        "The tuition for the bootcamp is fully spondored by starknet Foundation.",
     },
   ];
 
@@ -55,7 +55,7 @@ const FAQ = () => {
                 </span>
               </h1>
               {openIndex === index && (
-                <p className="mt-4 text-gray-300 transition-opacity duration-300">
+                <p className="mt-4 text-gray-300 transition-opacity duration-300 capitalize">
                   {faq.answer}
                 </p>
               )}
