@@ -38,9 +38,9 @@ const Testimonials = () => {
 
   return (
     <section className="max-w-6xl mx-auto px-8 py-12">
-      <div className="flex items-center justify-between gap-8">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Testimonial Content */}
-        <div className="flex gap-8 items-start animate-slideIn">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center md:items-start animate-slideIn">
           <div>
             <Image
               src={testimonials[currentIndex].image}
@@ -51,11 +51,11 @@ const Testimonials = () => {
             />
           </div>
 
-          <div className="flex-1">
+          <div className="flex-1 text-center md:text-left">
             <h1 className="text-2xl md:text-3xl font-semibold mb-2 md:mb-4 text-gray-800">
               {testimonials[currentIndex].name}
             </h1>
-            <p className="text-base md:text-lg text-gray-600 md:leading-relaxed leading-6">
+            <p className="text-base md:text-lg text-gray-600 md:leading-relaxed leading-6 max-w-md md:max-w-full">
               {testimonials[currentIndex].testimonial}
             </p>
           </div>

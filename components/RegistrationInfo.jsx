@@ -6,10 +6,10 @@ const RegistrationInfo = () => {
     <section>
       <div className="bg-[#BD1522] w-full flex justify-evenly items-center py-16">
         <div className="font-bold text-center text-white">
-          <div className="text-5xl">000</div>
+          <div className=" text-3xl md:text-5xl">000</div>
           <div className="text-lg">Registrants</div>
         </div>
-        <Link href="/register" className="bg-white rounded-full px-28 py-3 text-[#BD1522] font-bold text-lg">
+        <Link href="/register" className="bg-white rounded-full px-14 md:px-28 py-2 md:py-3 text-[#BD1522] font-bold text-base md:text-lg">
           Register
         </Link>
       </div>

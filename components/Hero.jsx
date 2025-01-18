@@ -26,9 +26,9 @@ const Hero = () => {
             width={5000}
             height={5000}
             alt="Foreground Image 2"
-            className="w-28"
+            className="w-28 hidden md:inline-block"
           />
-          <span>X</span>
+          <span className="hidden md:inline-block">X</span>
           <Image
             src="/assets/starknet.png"
             width={5000}
@@ -46,32 +46,32 @@ const Hero = () => {
         />
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 max-w-3xl text-xs capitalize">
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
-            Understand Rust And Cairo
+            Mentorship Opportunities
           </div>
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
-            Mentorship Opportunities
+            Understand Rust And Cairo
           </div>
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             learn web3/blockchain development
           </div>
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
-            Network with fellow developers and build projects 
-          </div>
-          <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Hybrid - virtual classes & physical meet ups
           </div>
+          <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
+            Network with fellow developers and build projects
+          </div>
         </div>
-        <div className="text-sm md:text-base bg-black flex items-center justify-center w-full text-center py-4 mt-12 gap-6 md:gap-8">
+        <div className="text-sm md:text-base bg-black flex items-center justify-center w-full text-center py-4 mt-12 gap-8">
           <div className="flex items-center gap-2">
             <MdOutlineCalendarMonth className="inline ml-2" />
-            <span>14th January - 14th February 2025</span>
+            <span>14th Jan - 14th Feb 2025</span>
           </div>
 
           <div className="flex items-center gap-2">
-            <CiLocationOn className="inline ml-2" />
+            <CiLocationOn />
             <span>
-              Virtual <SiGooglemeet className="inline text-red-500" /> and
-              <FaYoutube className="inline text-red-500 ml-1" />
+              Virtual <SiGooglemeet className="inline  mx-1 text-red-500" /> and
+              <FaYoutube className="inline text-red-500 ml-2" />
             </span>
           </div>
         </div>
