@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { LiaGreaterThanSolid } from "react-icons/lia";
+import { LiaGreaterThanSolid, LiaLessThanSolid } from "react-icons/lia";
 
 const testimonials = [
   {
@@ -36,39 +36,74 @@ const Testimonials = () => {
     );
   };
 
-  return (
-    <section className="max-w-6xl mx-auto px-8 py-12">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* Testimonial Content */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center md:items-start animate-slideIn">
-          <div>
-            <Image
-              src={testimonials[currentIndex].image}
-              height={1000}
-              width={1000}
-              alt={`${testimonials[currentIndex].name}'s testimonial`}
-              className="w-32 md:w-48 rounded-lg shadow-lg"
-            />
-          </div>
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
 
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-2xl md:text-3xl font-semibold mb-2 md:mb-4 text-gray-800">
-              {testimonials[currentIndex].name}
-            </h1>
-            <p className="text-base md:text-lg text-gray-600 md:leading-relaxed leading-6 max-w-md md:max-w-full">
+  return (
+    <section className="px-4 py-12">
+      <div className="md:max-w-3xl md:mx-auto md:px-0">
+        <div className="bg-white shadow-lg rounded-xl p-6 md:flex md:items-center md:justify-between md:text-left md:p-8">
+          {/* Mobile View */}
+          <div className="text-center md:hidden">
+            <div className="flex justify-center">
+              <Image
+                src={testimonials[currentIndex].image}
+                height={80}
+                width={80}
+                alt={`${testimonials[currentIndex].name}'s avatar`}
+                className="w-20 h-20 rounded-full border-4 border-gray-200 shadow-md"
+              />
+            </div>
+            <p className="text-gray-600 text-sm leading-relaxed mt-4">
               {testimonials[currentIndex].testimonial}
             </p>
+            <h3 className="text-gray-800 text-lg font-semibold mt-4">
+              {testimonials[currentIndex].name}
+            </h3>
+            <p className="text-gray-500 text-sm">Executive Engineer</p>
+          </div>
+
+          {/* Desktop View */}
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            <Image
+              src={testimonials[currentIndex].image}
+              height={100}
+              width={100}
+              alt={`${testimonials[currentIndex].name}'s avatar`}
+              className="w-24 md:w-48 h-24 md:h-48 rounded-full border-4 border-gray-200 shadow-md"
+            />
+            <div>
+              <p className="text-gray-600 text-base leading-relaxed">
+                {testimonials[currentIndex].testimonial}
+              </p>
+              <h3 className="text-gray-800 text-lg font-semibold mt-4">
+                {testimonials[currentIndex].name}
+              </h3>
+              <p className="text-gray-500 text-sm">GIDA Member</p>
+            </div>
           </div>
         </div>
 
-        {/* Next Button */}
-        <button
-          onClick={handleNext}
-          className="p-3 rounded-full transition-all shadow-md"
-          aria-label="Next testimonial"
-        >
-          <LiaGreaterThanSolid className="w-6 h-6" />
-        </button>
+        {/* Navigation Buttons */}
+        <div className="flex justify-between items-center mt-6 md:mt-8">
+          <button
+            onClick={handlePrev}
+            className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition shadow"
+            aria-label="Previous testimonial"
+          >
+            <LiaLessThanSolid className="text-gray-700 w-5 h-5" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition shadow"
+            aria-label="Next testimonial"
+          >
+            <LiaGreaterThanSolid className="text-gray-700 w-5 h-5" />
+          </button>
+        </div>
       </div>
     </section>
   );

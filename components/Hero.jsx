@@ -42,7 +42,7 @@ const Hero = () => {
           width={500}
           height={500}
           alt="Foreground Image 1"
-          className="mb-4 w-[300px] h-[300px] md:w-[500px] md:h-[500px]"
+          className="mb-4 w-[300px] md:w-[500px] "
         />
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 max-w-3xl text-xs capitalize">
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">

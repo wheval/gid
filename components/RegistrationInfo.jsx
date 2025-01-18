@@ -9,26 +9,35 @@ const RegistrationInfo = () => {
           <div className=" text-3xl md:text-5xl">000</div>
           <div className="text-lg">Registrants</div>
         </div>
-        <Link href="/register" className="bg-white rounded-full px-14 md:px-28 py-2 md:py-3 text-[#BD1522] font-bold text-base md:text-lg">
+        <Link
+          href="/register"
+          className="bg-white rounded-full px-14 md:px-28 py-2 md:py-3 text-[#BD1522] font-bold text-base md:text-lg"
+        >
           Register
         </Link>
       </div>
       <div className="bg-white text-black flex items-center justify-between p-8 md:p-12 flex-col md:flex-row gap-12 font-[400]">
         <div className="flex-1">
           <h1 className="text-2xl font-bold mb-6">Bootcamp Overview</h1>
-          <div className="text-sm md:text-xl text-justify" >
+          <div className="text-sm md:text-xl text-justify">
             <p className="mb-4">
-              Are you a Web2 developer looking to pivot into the rapidly growing
-              field of Web3 development? The Cairo Web3 Developers Bootcamp is
-              specifically designed for you!
+              GIDA in collaboration with Starknet Foundation presents an
+              exciting Web3 developer Bootcamp opportunity for you to learn
+              everything there about building Web3 apps on Starknet using Cairo
+              for FREE.
+            </p>
+            <p className="mb-4">
+              This program is mainly for existing developers, either Web2 (HTML,
+              CSS, Js, React, Node, etc) or Web3 (Solidity, Rust), or just
+              anyone who has some coding knowledge and looking to navigate
+              further into Web3/blockchain development.
             </p>
             <p>
-              This intensive bootcamp is tailored to equip Web2 developers with
-              the necessary skills and knowledge to transition into Web3
-              development, focusing on blockchain technology. Our expert
-              instructors will guide you through a comprehensive curriculum,
-              covering the fundamentals of blockchain, smart contracts, and
-              decentralized applications (dApps).
+              It runs for 8 weeks and we will have weekly IRL meetups for
+              learners every weekend in several cities where we have more
+              attendees domiciled in, for a collaborative learning experience.
+              Classes holds online/virtually 2 times a week (Mondays &
+              Wednesdays) only, with an assignment given every Friday.
             </p>
           </div>
         </div>
