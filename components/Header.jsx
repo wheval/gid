@@ -2,6 +2,7 @@ import Image from "next/image";
 import NavLink from "@/reusables/NavLink";
 import Link from "next/link";
 
+
 const Header = () => {
   return (
     <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm max-w-[90vw] z-50">
