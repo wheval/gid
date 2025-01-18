@@ -55,7 +55,7 @@ const Hero = () => {
             learn web3/blockchain development
           </div>
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
-            network with fellow developers and build projects
+            Network with fellow developers and build projects
           </div>
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Hybrid - virtual classes & physical meet ups
