@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
+import { SiGooglemeet } from "react-icons/si";
+import { FaYoutube } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -40,22 +42,22 @@ const Hero = () => {
           width={500}
           height={500}
           alt="Foreground Image 1"
-          className="mb-4"
+          className="mb-4 w-[300px] h-[300px] md:w-[500px] md:h-[500px]"
         />
-        <div className="flex flex-wrap items-center justify-center gap-4 max-w-3xl text-xs capitalize">
-          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 max-w-3xl text-xs capitalize">
+          <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Understand Rust And Cairo
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
+          <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Mentorship Opportunities
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
+          <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             learn web3/blockchain development
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
+          <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             network with fellow developers and build projects
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
+          <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Hybrid - virtual classes & physical meet ups
           </div>
         </div>
@@ -67,7 +69,10 @@ const Hero = () => {
 
           <div className="flex items-center gap-2">
             <CiLocationOn className="inline ml-2" />
-            <span>Virtual (Google meet and youtube)</span>
+            <span>
+              Virtual <SiGooglemeet className="inline text-red-500" /> and
+              <FaYoutube className="inline text-red-500 ml-1" />
+            </span>
           </div>
         </div>
       </div>

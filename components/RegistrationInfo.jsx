@@ -13,7 +13,7 @@ const RegistrationInfo = () => {
           Register
         </Link>
       </div>
-      <div className="bg-white text-black flex items-center justify-between p-8 md:p-12 gap-12 font-[400]">
+      <div className="bg-white text-black flex items-center justify-between p-8 md:p-12 flex-col md:flex-row gap-12 font-[400]">
         <div className="flex-1">
           <h1 className="text-2xl font-bold mb-6">Bootcamp Overview</h1>
           <div className="text-sm md:text-xl text-justify" >
@@ -38,7 +38,7 @@ const RegistrationInfo = () => {
             width={2000}
             height={2000}
             alt="hero"
-            className="w-full rotate-12"
+            className="w-full rotate-12 scale-75 md:scale-100"
           />
         </div>
       </div>

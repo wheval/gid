@@ -8,31 +8,22 @@ const testimonials = [
     id: 1,
     name: "Ayo Festus",
     image: "/assets/testimonial1.png",
-    testimonial: [
-      "It Was Amazing Journey",
-      "I Learned From Various Well Skilled Tutor",
-      "I Got So Much Value And I'm Glad I Didn't Miss This Opportunity",
-    ],
+    testimonial:
+      "It was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
   },
   {
     id: 2,
     name: "Femi Oje",
     image: "/assets/testimonial1.png",
-    testimonial: [
-      "The GIDA Was Amazing Journey",
-      "I Learned From Various Well Skilled Tutor",
-      "I Got So Much Value And I'm Glad I Didn't Miss This Opportunity",
-    ],
+    testimonial:
+      "The GIDA experience was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
   },
   {
     id: 3,
     name: "Gideon Bature",
     image: "/assets/testimonial1.png",
-    testimonial: [
-      "My Name Is Gideon",
-      "It Was Amazing Journey I Learned From Various Well Skilled Tutor",
-      "I Got So Much Value And I'm Glad I Didn't Miss This Opportunity",
-    ],
+    testimonial:
+      "My name is Gideon. It was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
   },
 ];
 
@@ -56,24 +47,17 @@ const Testimonials = () => {
               height={1000}
               width={1000}
               alt={`${testimonials[currentIndex].name}'s testimonial`}
-              className="w-48 rounded-lg shadow-lg"
+              className="w-32 md:w-48 rounded-lg shadow-lg"
             />
           </div>
 
           <div className="flex-1">
-            <h1 className="text-3xl font-semibold mb-4 text-gray-800">
+            <h1 className="text-2xl md:text-3xl font-semibold mb-2 md:mb-4 text-gray-800">
               {testimonials[currentIndex].name}
             </h1>
-            <div className="space-y-3">
-              {testimonials[currentIndex].testimonial.map((line, index) => (
-                <p
-                  key={index}
-                  className="text-lg text-gray-600 leading-relaxed"
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
+            <p className="text-base md:text-lg text-gray-600 md:leading-relaxed leading-6">
+              {testimonials[currentIndex].testimonial}
+            </p>
           </div>
         </div>
 
