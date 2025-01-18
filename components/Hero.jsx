@@ -59,7 +59,7 @@ const Hero = () => {
             Hybrid - virtual classes & physical meet ups
           </div>
         </div>
-        <div className="bg-black flex items-center justify-center w-full text-center py-4 mt-4 gap-8">
+        <div className="bg-black flex items-center justify-center w-full text-center py-4 mt-12 gap-8">
           <div className="flex items-center gap-2">
             <MdOutlineCalendarMonth className="inline ml-2" />
             <span>14th January - 14th February 2025</span>
