@@ -18,13 +18,13 @@ const Hero = () => {
 
       {/* Foreground Images */}
       <div className="flex flex-col items-center justify-center h-full">
-        <div className="flex gap-8 my-10">
+        <div className="flex items-center gap-8 my-10">
           <Image
             src="/assets/gidaLogo.png"
             width={5000}
             height={5000}
             alt="Foreground Image 2"
-            className="w-24"
+            className="w-28"
           />
           <span>X</span>
           <Image
@@ -32,7 +32,7 @@ const Hero = () => {
             width={5000}
             height={5000}
             alt="Foreground Image 2"
-            className="w-24"
+            className="w-28"
           />
         </div>
         <Image
@@ -43,19 +43,19 @@ const Hero = () => {
           className="mb-4"
         />
         <div className="flex flex-wrap items-center justify-center gap-4 max-w-3xl text-xs capitalize">
-          <div className="bg-[#101114] rounded-md px-8 py-4">
+          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Understand Rust And Cairo
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4">
+          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Mentorship Opportunities
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4">
+          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             learn web3/blockchain development
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4">
+          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             network with fellow developers and build projects
           </div>
-          <div className="bg-[#101114] rounded-md px-8 py-4">
+          <div className="bg-[#101114] rounded-md px-8 py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
             Hybrid - virtual classes & physical meet ups
           </div>
         </div>

@@ -1,6 +1,8 @@
+import FAQ from "@/components/FAQ";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import RegistrationInfo from "@/components/RegistrationInfo";
+import Testimonials from "@/components/Testimonials";
 import Throwback from "@/components/Throwback";
 
 export default function Home() {
@@ -10,6 +12,8 @@ export default function Home() {
         <Hero/>
         <RegistrationInfo/>
         <Throwback/>
+        <Testimonials/>
+        <FAQ/>
     </div>
   );
 }

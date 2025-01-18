@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const RegistrationInfo = () => {
   return (
@@ -8,25 +9,28 @@ const RegistrationInfo = () => {
           <div className="text-5xl">000</div>
           <div className="text-lg">Registrants</div>
         </div>
-        <button className="bg-white rounded-full px-28 py-3 text-[#BD1522] font-bold text-lg">
+        <Link href="/register" className="bg-white rounded-full px-28 py-3 text-[#BD1522] font-bold text-lg">
           Register
-        </button>
+        </Link>
       </div>
-      <div className="bg-white text-black flex justify-between p-8 md:p-12 gap-4 md:gap-12">
+      <div className="bg-white text-black flex items-center justify-between p-8 md:p-12 gap-12 font-[400]">
         <div className="flex-1">
           <h1 className="text-2xl font-bold mb-6">Bootcamp Overview</h1>
-          <p>
-            Lörem ipsum ologi ontogram i onde plus for. Covid-19 hödide bevis
-            kovaprera exore. Homonat trir, i homosk. Vuxenvälling
-            bröllopsklänning kaning. Sogt beligt när ponde en barar. Bedåst
-            nesat och Maudeffekten nätvandra. Global hektar. Kjolprotest dän
-            plask oras multiska. Sess tebelt trivera polygt antesode. Folig
-            e-demokrati heteroheledes kroktigt. Preska hin av trädmord. Didägt
-            desm när belogi elökätt. Hembränd hemimäsamma: trenegt. Kande
-            vaheten. Rössa monode sespebel. Viligt antiform till pronde.
-            Fodoligt mimusm egor medan nipynat. Jinar vuhöska. Makronat
-            selfiepinne koscheria. Panas ped dens, pevinde.
-          </p>
+          <div className="text-sm md:text-xl text-justify" >
+            <p className="mb-4">
+              Are you a Web2 developer looking to pivot into the rapidly growing
+              field of Web3 development? The Cairo Web3 Developers Bootcamp is
+              specifically designed for you!
+            </p>
+            <p>
+              This intensive bootcamp is tailored to equip Web2 developers with
+              the necessary skills and knowledge to transition into Web3
+              development, focusing on blockchain technology. Our expert
+              instructors will guide you through a comprehensive curriculum,
+              covering the fundamentals of blockchain, smart contracts, and
+              decentralized applications (dApps).
+            </p>
+          </div>
         </div>
         <div className="flex-shrink-0 flex-1">
           <Image

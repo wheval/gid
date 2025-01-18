@@ -26,23 +26,46 @@ const Throwback = () => {
 
         <Swiper
           spaceBetween={20}
-          slidesPerView="3"
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              // mobile
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            768: {
+              // tablet
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1200: {
+              // desktop
+              slidesPerView: 3,
+              spaceBetween: 25,
+            },
+          }}
           loop={true}
           autoplay={{
             delay: 1500,
             disableOnInteraction: false,
           }}
           modules={[Autoplay]}
-          className="max-w-full">
+          className="max-w-full"
+        >
           {images.map((img, index) => (
-            <SwiperSlide key={index} style={{ width: "auto" }}>
-              <Image
-                src={img}
-                alt={`Throwback image ${index + 1}`}
-                width={500}
-                height={500}
-                className="rounded-lg shadow-lg w-48 h-48 object-cover"
-              />
+            <SwiperSlide key={index}>
+              <div className="w-full h-full">
+                <Image
+                  src={img}
+                  alt={`Throwback image ${index + 1}`}
+                  width={500}
+                  height={500}
+                  className="rounded-lg shadow-lg object-cover 
+                    w-full h-[200px]
+                    md:h-[300px] 
+                    lg:h-[400px]"
+                />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

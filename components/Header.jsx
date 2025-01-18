@@ -5,7 +5,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm max-w-[90vw] z-50">
-      <div className="flex justify-between items-center gap-8  px-8 py-4 rounded-full bg-[#68687a] z-50">
+      <div className="flex justify-between items-center gap-8  px-6 py-3 rounded-full bg-opacity-50 backdrop-blur-[200px]  z-50">
         <div className="flex-shrink-0">
           <Image
             src="/assets/gidaLogo.png"
@@ -29,7 +29,8 @@ const Header = () => {
           </button>
           <Link
             href="/register"
-            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-4 py-2 rounded-full">
+            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-4 py-2 rounded-full"
+          >
             register
           </Link>
         </div>
