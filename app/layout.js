@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 
 const clashDisplay = localFont({
   src: "./font/ClashDisplay-Variable.ttf",
-  variable: "--font-montserrat",
-  weight: "100 900",
+  variable: "--font-clashDisplay",
+  weight: "100 400 600 900",
 });
 
 export const metadata = {

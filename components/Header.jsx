@@ -2,14 +2,13 @@ import Image from "next/image";
 import NavLink from "@/reusables/NavLink";
 import Link from "next/link";
 
-
 const Header = () => {
   return (
     <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm max-w-[90vw] z-50">
-      <div className="flex justify-between items-center gap-8  px-6 py-3 rounded-full bg-opacity-50 backdrop-blur-[200px]  z-50">
+      <div className="flex justify-between items-center gap-8  px-6 py-3 rounded-full bg-opacity-50 backdrop-blur-[900px] z-50">
         <div className="flex-shrink-0">
           <Image
-            src="/assets/gidaLogo.png"
+            src="/assets/gidaLogo.svg"
             width={2000}
             height={2000}
             alt="hero"
@@ -17,7 +16,12 @@ const Header = () => {
           />
         </div>
         <nav className="uppercase gap-2 hidden md:flex">
-          <NavLink href="/">Home</NavLink>
+          <NavLink
+            className="hover:underline decoration-yellow-500 decoration-2 underline-offset-4"
+            href="/"
+          >
+            Home
+          </NavLink>
           <NavLink href="/">Bootcamp</NavLink>
           <NavLink href="/">Courses</NavLink>
           <NavLink href="/">Events</NavLink>

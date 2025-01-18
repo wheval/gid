@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="flex flex-col items-center justify-center h-full">
         <div className="flex items-center gap-8 my-10">
           <Image
-            src="/assets/gidaLogo.png"
+            src="/assets/gidaLogo.svg"
             width={5000}
             height={5000}
             alt="Foreground Image 2"

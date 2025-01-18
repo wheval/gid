@@ -13,17 +13,17 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Femi Oje",
-    image: "/assets/testimonial1.png",
+    name: "Gideon Bature",
+    image: "/assets/testimonial2.jpeg",
     testimonial:
-      "The GIDA experience was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
+      "My name is Gideon. It was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
   },
   {
     id: 3,
-    name: "Gideon Bature",
-    image: "/assets/testimonial1.png",
+    name: "Femi Oje",
+    image: "/assets/testimonial3.jpeg",
     testimonial:
-      "My name is Gideon. It was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
+      "The GIDA experience was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
   },
 ];
 
@@ -44,17 +44,17 @@ const Testimonials = () => {
 
   return (
     <section className="px-4 py-12">
-      <div className="md:max-w-3xl md:mx-auto md:px-0">
-        <div className="bg-white shadow-lg rounded-xl p-6 md:flex md:items-center md:justify-between md:text-left md:p-8">
+      <div className="md:max-w-3xl md:mx-auto md:px-0 relative">
+        <div className="bg-white shadow-lg rounded-xl p-6 md:flex md:items-center md:justify-between md:text-left md:p-8 mx-16">
           {/* Mobile View */}
           <div className="text-center md:hidden">
             <div className="flex justify-center">
               <Image
                 src={testimonials[currentIndex].image}
-                height={80}
-                width={80}
+                height={1000}
+                width={1000}
                 alt={`${testimonials[currentIndex].name}'s avatar`}
-                className="w-20 h-20 rounded-full border-4 border-gray-200 shadow-md"
+                className="w-32 h-32 rounded-full border-2 border-gray-200 shadow-md"
               />
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mt-4">
@@ -63,17 +63,17 @@ const Testimonials = () => {
             <h3 className="text-gray-800 text-lg font-semibold mt-4">
               {testimonials[currentIndex].name}
             </h3>
-            <p className="text-gray-500 text-sm">Executive Engineer</p>
+            <p className="text-gray-500 text-sm">BlockhChain Enthusiast</p>
           </div>
 
           {/* Desktop View */}
           <div className="hidden md:flex md:items-center md:space-x-6">
             <Image
               src={testimonials[currentIndex].image}
-              height={100}
-              width={100}
+              height={1000}
+              width={1000}
               alt={`${testimonials[currentIndex].name}'s avatar`}
-              className="w-24 md:w-48 h-24 md:h-48 rounded-full border-4 border-gray-200 shadow-md"
+              className="w-48 min-w-48 h-48 rounded-full border-4 border-gray-200 shadow-md"
             />
             <div>
               <p className="text-gray-600 text-base leading-relaxed">
@@ -87,18 +87,18 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-between items-center mt-6 md:mt-8">
+        {/* Navigation Buttons - Now absolutely positioned */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-2 pointer-events-none">
           <button
             onClick={handlePrev}
-            className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition shadow"
+            className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition shadow pointer-events-auto"
             aria-label="Previous testimonial"
           >
             <LiaLessThanSolid className="text-gray-700 w-5 h-5" />
           </button>
           <button
             onClick={handleNext}
-            className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition shadow"
+            className="p-3 rounded-full bg-gray-200 hover:bg-gray-300 transition shadow pointer-events-auto"
             aria-label="Next testimonial"
           >
             <LiaGreaterThanSolid className="text-gray-700 w-5 h-5" />
