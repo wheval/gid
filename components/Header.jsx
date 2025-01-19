@@ -15,14 +15,13 @@ const Header = () => {
             className="w-24"
           />
         </div>
-        <nav className="uppercase gap-2 hidden md:flex">
+        <nav className="uppercase gap-2 hidden lg:flex">
           <NavLink
             className="hover:underline decoration-yellow-500 decoration-2 underline-offset-4"
             href="/"
           >
-            Home
+            Bootcamp
           </NavLink>
-          <NavLink href="/">Bootcamp</NavLink>
           <NavLink href="/">Courses</NavLink>
           <NavLink href="/">Events</NavLink>
           <NavLink href="/">About</NavLink>
