@@ -12,9 +12,10 @@ const Hero = () => {
         <Image
           src="/assets/blurbg.png"
           alt="Background"
-          layout="fill"
+          width={1000}
+          height={1000}
           quality={100}
-          className="object-cover"
+          className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 bg-neutral-950/50"></div>
       </div>
