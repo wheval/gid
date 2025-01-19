@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import Link from "next/link";
 
 const IMAGES = {
   background: {
@@ -14,7 +13,7 @@ const IMAGES = {
     width: 96,
   },
   starknet: {
-    src: "/assets/starknet.png",
+    src: "/assets/starknet.svg",
     alt: "Starknet Logo",
     width: 96,
   },
@@ -66,15 +65,14 @@ const Register = () => {
       <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[calc(100vh-5rem)]">
         {/* Logo Section */}
         <div className="flex items-center gap-8 my-10">
-          <Link href="/">
-            <Image
-              src={IMAGES.gidaLogo.src}
-              width={IMAGES.gidaLogo.width}
-              height={IMAGES.gidaLogo.width}
-              alt={IMAGES.gidaLogo.alt}
-              className="w-24"
-            />
-          </Link>
+          <Image
+            src={IMAGES.gidaLogo.src}
+            width={IMAGES.gidaLogo.width}
+            height={IMAGES.gidaLogo.width}
+            alt={IMAGES.gidaLogo.alt}
+            className="w-24"
+          />
+
           <span className="text-xl font-bold">×</span>
           <Image
             src={IMAGES.starknet.src}

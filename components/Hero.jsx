@@ -16,6 +16,7 @@ const Hero = () => {
           objectFit="cover"
           quality={100}
         />
+        <div className="absolute inset-0 bg-neutral-950/50"></div>
       </div>
 
       {/* Foreground Images */}
@@ -30,7 +31,7 @@ const Hero = () => {
           />
           <span className="hidden md:inline-block">X</span>
           <Image
-            src="/assets/starknet.png"
+            src="/assets/starknet.svg"
             width={5000}
             height={5000}
             alt="Foreground Image 2"
