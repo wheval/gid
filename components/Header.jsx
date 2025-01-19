@@ -15,7 +15,7 @@ const Header = () => {
             className="w-24"
           />
         </div>
-        <nav className="uppercase gap-2 hidden lg:flex">
+        <nav className="uppercase gap-6 hidden lg:flex">
           <NavLink
             className="hover:underline decoration-yellow-500 decoration-2 underline-offset-4"
             href="/"
