@@ -29,7 +29,7 @@ const Header = () => {
           <NavLink href="/">Blog</NavLink>
         </nav>
         <div className="flex gap-2 uppercase">
-          <button className="bg-gradient-to-r from-[#F7C338] hover:from-[#dfb02d] to-[#FF4B59] hover:to-[#ee3f4d] text-white line-clamp-1 rounded-full uppercase font-bold px-4 py-2 hidden md:block">
+          <button className="bg-gradient-to-r from-[#F7C338] hover:from-[#dfb02d] to-[#FF4B59] hover:to-[#ee3f4d] text-white rounded-full uppercase font-bold px-4 py-2 hidden md:block">
             connect wallet
           </button>
           <Link

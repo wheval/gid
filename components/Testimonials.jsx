@@ -9,21 +9,21 @@ const testimonials = [
     name: "Ayo Festus",
     image: "/assets/testimonial1.png",
     testimonial:
-      "It was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
+      "It was amazing journey. I learned from various well skilled tutor. I got so much value and am glad i did not miss this opportunity",
   },
   {
     id: 2,
     name: "Gideon Bature",
-    image: "/assets/testimonial2.jpeg",
+    image: "/assets/testimonial4.jpeg",
     testimonial:
-      "My name is Gideon. It was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
+      "My name is Gideon Bature, a Software Engineer. I learnt a lot in the GIDA Starknet-Cairo bootcamp,  the community (GIDA) and tutors were super helpful, always answering our questions and helpful, giving us assignments for us to apply what we have learnt inorder to have a much better understanding of it. Thank you so much for this opportunity GIDA.",
   },
   {
     id: 3,
     name: "Femi Oje",
-    image: "/assets/testimonial3.jpeg",
+    image: "/assets/testimonial5.jpeg",
     testimonial:
-      "The GIDA experience was an amazing journey. I learned from various well-skilled tutors. I got so much value, and I'm glad I didn't miss this opportunity.",
+      "The GIDA x Starknet Bootcamp was my gateway into the world of Web3, as my prior experience was primarily in Web2. The program provided exceptional support in bridging this gap. The mentors were incredibly helpful, offering all the necessary resources and patiently answering every question I had, ensuring a seamless learning experience. While I had to dedicate personal time to studying (as expected), their guidance made the transition both smooth and enjoyable. My advice to anyone considering this bootcamp is simple: stay consistent, and the results will follow.",
   },
 ];
 
