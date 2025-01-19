@@ -8,20 +8,23 @@ const testimonials = [
     id: 1,
     name: "Ayo Festus",
     image: "/assets/testimonial1.png",
+    role: "Blockchain Enthusiast",
     testimonial:
-      "It was amazing journey. I learned from various well skilled tutor. I got so much value and am glad i did not miss this opportunity",
+      "It was amazing journey with GIDA. I learned from various well skilled tutors. I got so much value and am glad i did not miss this opportunity. Thank you so much for this opportunity.",
   },
   {
     id: 2,
     name: "Gideon Bature",
     image: "/assets/testimonial4.jpeg",
+    role: "GIDA Member",
     testimonial:
-      "My name is Gideon Bature, a Software Engineer. I learnt a lot in the GIDA Starknet-Cairo bootcamp,  the community (GIDA) and tutors were super helpful, always answering our questions and helpful, giving us assignments for us to apply what we have learnt inorder to have a much better understanding of it. Thank you so much for this opportunity GIDA.",
+      "My name is Gideon Bature, a Software Engineer. I learnt a lot in the GIDA Starknet-Cairo bootcamp,  the community (GIDA) and tutors were super helpful, always answering our questions and helpful, giving us assignments for us to apply what we have learnt inorder to have a much better understanding of it. Thank you so much for this opportunity GIDA.",
   },
   {
     id: 3,
     name: "Femi Oje",
     image: "/assets/testimonial5.jpeg",
+    role: "GIDA Member",
     testimonial:
       "The GIDA x Starknet Bootcamp was my gateway into the world of Web3, as my prior experience was primarily in Web2. The program provided exceptional support in bridging this gap. The mentors were incredibly helpful, offering all the necessary resources and patiently answering every question I had, ensuring a seamless learning experience. While I had to dedicate personal time to studying (as expected), their guidance made the transition both smooth and enjoyable. My advice to anyone considering this bootcamp is simple: stay consistent, and the results will follow.",
   },
@@ -47,7 +50,7 @@ const Testimonials = () => {
       <div className="md:max-w-3xl md:mx-auto md:px-0 relative">
         <div className="mx-4 mb-4">
           <h1 className="font-bold text-2xl mb-2">Testimonials</h1>
-          <p>See what other beneficiaries has to say</p>
+          <p>See what other people has to say about GIDA</p>
         </div>
         <div className="bg-white shadow-lg rounded-xl p-6 md:flex md:items-center md:justify-between md:text-left md:p-8 mx-16">
           {/* Mobile View */}
@@ -58,16 +61,20 @@ const Testimonials = () => {
                 height={1000}
                 width={1000}
                 alt={`${testimonials[currentIndex].name}'s avatar`}
-                className="w-32 h-32 rounded-full border-2 border-gray-200 shadow-md"
+                className="w-32 h-32 rounded-full border-2 border-gray-200 shadow-md object-cover"
               />
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed mt-4">
-              {testimonials[currentIndex].testimonial}
-            </p>
-            <h3 className="text-gray-800 text-lg font-semibold mt-4">
+            <div className="mt-4 h-24 overflow-y-auto custom-scrollbar">
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {testimonials[currentIndex].testimonial}
+              </p>
+            </div>
+            <h3 className="text-gray-800 text-lg font-semibold">
               {testimonials[currentIndex].name}
             </h3>
-            <p className="text-gray-500 text-sm">BlockhChain Enthusiast</p>
+            <p className="text-gray-500 text-sm">
+              {testimonials[currentIndex].role}
+            </p>
           </div>
 
           {/* Desktop View */}
@@ -77,21 +84,25 @@ const Testimonials = () => {
               height={1000}
               width={1000}
               alt={`${testimonials[currentIndex].name}'s avatar`}
-              className="w-48 min-w-48 h-48 rounded-full border-4 border-gray-200 shadow-md"
+              className="w-48 min-w-48 h-48 rounded-full border-4 border-gray-200 shadow-md object-cover"
             />
-            <div>
-              <p className="text-gray-600 text-base leading-relaxed">
-                {testimonials[currentIndex].testimonial}
-              </p>
+            <div className="flex-1">
+              <div className="h-28 overflow-y-auto custom-scrollbar">
+                <p className="text-gray-600 text-base leading-relaxed">
+                  {testimonials[currentIndex].testimonial}
+                </p>
+              </div>
               <h3 className="text-gray-800 text-lg font-semibold mt-4">
                 {testimonials[currentIndex].name}
               </h3>
-              <p className="text-gray-500 text-sm">GIDA Member</p>
+              <p className="text-gray-500 text-sm">
+                {testimonials[currentIndex].role}
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Navigation Buttons - Now absolutely positioned */}
+        {/* Navigation Buttons */}
         <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-2 pointer-events-none">
           <button
             onClick={handlePrev}
@@ -109,6 +120,31 @@ const Testimonials = () => {
           </button>
         </div>
       </div>
+
+      {/* Add custom scrollbar styles */}
+      <style jsx global>{`
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #cbd5e0 transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background-color: #cbd5e0;
+          border-radius: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background-color: #a0aec0;
+        }
+      `}</style>
     </section>
   );
 };

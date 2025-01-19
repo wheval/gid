@@ -9,7 +9,7 @@ const IMAGES = {
     alt: "Background",
   },
   gidaLogo: {
-    src: "/assets/gidaLogo.png",
+    src: "/assets/gidaLogo.svg",
     alt: "Gida Logo",
     width: 96,
   },
