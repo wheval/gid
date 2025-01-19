@@ -1,15 +1,18 @@
-"use client"; // Add this if using in a client component (if required for interactivity)
-
+"use client";
 import Link from "next/link";
 
 const Footer = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("coming soon");
+  };
   return (
     <footer className="bg-[#900A15] text-white py-12">
       <div className="w-full px-6 grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* About Section */}
         <div>
           <h2 className="text-xl font-bold mb-4">About</h2>
-          <ul className="space-y-2 text-gray-100" >
+          <ul className="space-y-2 text-gray-100">
             <li>
               <Link href="/about-gida" className="hover:underline">
                 About GIDA
@@ -129,7 +132,7 @@ const Footer = () => {
             Bootcamps, classes, events may only run once or twice a month. Enter
             your email below to stay in the loop.
           </p>
-          <form className="flex items-center">
+          <form className="flex items-center" onSubmit={handleSubmit}>
             <input
               type="email"
               placeholder="your@gmail.com"

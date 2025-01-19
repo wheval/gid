@@ -13,8 +13,8 @@ const Hero = () => {
           src="/assets/blurbg.png"
           alt="Background"
           layout="fill"
-          objectFit="cover"
           quality={100}
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-neutral-950/50"></div>
       </div>

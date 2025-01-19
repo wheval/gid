@@ -70,16 +70,16 @@ const Register = () => {
             width={IMAGES.gidaLogo.width}
             height={IMAGES.gidaLogo.width}
             alt={IMAGES.gidaLogo.alt}
-            className="w-24"
+            className="w-28 hidden md:inline-block"
           />
 
-          <span className="text-xl font-bold">×</span>
+          <span className="text-xl font-bold hidden md:inline-block ">x</span>
           <Image
             src={IMAGES.starknet.src}
             width={IMAGES.starknet.width}
             height={IMAGES.starknet.width}
             alt={IMAGES.starknet.alt}
-            className="w-24"
+            className="w-28"
           />
         </div>
 
@@ -134,7 +134,7 @@ const Register = () => {
                 />
                 <input
                   type="email"
-                  placeholder="Mail"
+                  placeholder="E-mail"
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
                 <input

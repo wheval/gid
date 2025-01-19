@@ -30,7 +30,7 @@ const Header = () => {
         </nav>
         <div className="flex gap-2 uppercase">
           <button className="bg-gradient-to-r from-[#F7C338] hover:from-[#dfb02d] to-[#FF4B59] hover:to-[#ee3f4d] text-white rounded-full uppercase font-bold px-4 py-2 hidden md:block">
-            connect wallet
+            chain up
           </button>
           <Link
             href="/register"
