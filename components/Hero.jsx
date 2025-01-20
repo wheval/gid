@@ -71,7 +71,7 @@ const Hero = () => {
           <div className="flex items-center gap-2">
             <CiLocationOn />
             <span>
-              Virtual
+              IRL
               <Image
                 src="/assets/meet.svg"
                 width={1000}
