@@ -4,10 +4,10 @@ import React from 'react'
 const Supporters = () => {
   return (
     <div className='w-full p-6 pt-9 h-[50vh] bg-[#A20812] text-white text-center relative'>
-        <p className="font-semibold text-[2.5rem]">OUR SUPPORTERS</p>
+        <p className="font-semibold text-[2.5rem] mt-2">OUR SUPPORTERS</p>
         <Image className='absolute left-0 top-[0] z-10' width={413} height={301} src="/assets/boxes.svg" />
         <Image className='absolute z-10 right-0 top-[-5%]' width={294} height={323} src="/assets/btc_shadow.svg" />
-        <div className='flex gap-4 items-center mt-4'>
+        <div className='flex gap-4 items-center justify-center mt-4 overflow-x-hidden'>
           <Image src="/assets/logos/snafrica.svg" width={200} height={67} />
           <Image src="/assets/logos/snfoundation.svg" width={200} height={67} />
           <Image src="/assets/logos/web3bridge.svg" width={200} height={67} />

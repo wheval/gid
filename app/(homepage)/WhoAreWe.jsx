@@ -3,7 +3,7 @@ import React from 'react'
 
 const WhoAreWe = () => {
 return (
-    <div className='w-full min-h-[95vh] flex items-center justify-center bg-[#A20812] text-white'>
+    <div className='w-full min-h-[95vh] px-12 py-6 flex items-center justify-center bg-[#A20812] text-white'>
             <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
                     <div className='flex flex-col items-start gap-6 flex-1'>
                             <div className='flex flex-col gap-4'>
@@ -14,15 +14,15 @@ return (
                             </div>
                             <div className='flex items-center gap-12 mt-3'>
                                     <div className='flex flex-col gap-0 items-start'>
-                                            <p className='text-[6rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5k+</p>
+                                            <p className='xl:text-[6rem] text-[4rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5k+</p>
                                             <p className='font-lato font-light'>Community Members</p>
                                     </div>
                                     <div className='flex flex-col gap-0 items-start'>
-                                            <p className='text-[6rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>10+</p>
+                                            <p className='xl:text-[6rem] text-[4rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>10+</p>
                                             <p className='font-lato font-light'>Bootcamps</p>
                                     </div>
                                     <div className='flex flex-col gap-0 items-start'>
-                                            <p className='text-[6rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5</p>
+                                            <p className='xl:text-[6rem] text-[4rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5</p>
                                             <p className='font-lato font-light'>IRL Events</p>
                                     </div>
                             </div>
