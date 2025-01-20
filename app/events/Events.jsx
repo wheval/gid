@@ -54,11 +54,13 @@ const Events = () => {
         },
     ]
     return (
-        <div className="p-20">
-            <h2 className="font-bold text-white text-4xl mb-8">Events</h2>
-            <div className="flex gap-6 flex-wrap md:justify-center">
+        <div className="p-2 md:p-20">
+            <h2 className="font-bold text-white text-4xl mb-8 text-center">Events</h2>
+            <div className="flex gap-6 flex-wrap justify-center">
                 {events.map((each, index) => (
-                    <div key={index} className="flex-shrink-0 w-80 md:w-[40%] lg:w-[30%]">
+                    <div
+                        key={index}
+                        className="flex-shrink-0 w-full sm:w-[80%] md:w-[60%] lg:w-[30%]">
                         <EventCard
                             eventImage={each.eventImageSrc}
                             eventTitle={each.eventTitle}
@@ -71,6 +73,7 @@ const Events = () => {
                 ))}
             </div>
         </div>
+
     )
 }
 

@@ -13,7 +13,7 @@ const EventCard = ({
   eventLocation
 }) => {
   return (
-    <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+    <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
       {/* Event Image */}
       <div className="relative w-full h-56">
         <Image
@@ -21,7 +21,7 @@ const EventCard = ({
           alt={eventTitle}
           layout="fill"
           objectFit="cover"
-          className="rounded-t-lg"
+          className="rounded-3xl p-3"
         />
       </div>
 
@@ -56,7 +56,7 @@ const EventCard = ({
 
 
         {/* Call to Action Button */}
-        <button className="mt-5 w-full bg-[#A20812] hover:bg-[#bd3c45] text-white font-semibold py-2 px-4 rounded-md transition-all">
+        <button className="mt-5 w-full bg-[#A20812] hover:bg-white hover:text-[#A20812] hover:outline hover:outline-2 hover:outline-[#A20812] text-white font-semibold py-2 px-4 rounded-[2rem] transition-all">
           Learn More
         </button>
       </div>
