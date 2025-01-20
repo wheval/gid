@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="fixed text-white top-5 left-0 right-0 mx-auto sm:text-sm text-xs max-w-[90vw] z-50">
+    <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm sm:text-base  max-w-[90vw] z-50">
       <div className="flex justify-between items-center gap-8 px-8 sm:px-16 py-3 sm:py-4 rounded-[50px] bg-white/25 bg-opacity-50 backdrop-blur-[900px] z-50">
         <div className="flex-shrink-0">
           <Image
@@ -36,7 +36,7 @@ const Header = () => {
           </Link>
           <Link
             href="/register"
-            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-2 sm:px-4 py-1.5 sm:py-2 rounded-full"
+            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-2 sm:px-4 py-1.5 sm:py-2 rounded-full font-[550]"
           >
             register
           </Link>

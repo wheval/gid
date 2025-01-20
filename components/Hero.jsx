@@ -32,7 +32,7 @@ const Hero = () => {
           <Image
             src="/assets/starknet.svg"
             width={5000}
-            height={5000}
+            height={auto}
             alt="Foreground Image 2"
             className="w-28"
           />

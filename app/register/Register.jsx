@@ -44,7 +44,8 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
   const [success, setSuccess] = useState(false);
-
+  const [errorMsg, setErrorMsq] = useState("");
+  const [mail, setMail] = useState("");
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === "checkbox") {
@@ -58,12 +59,16 @@ const Register = () => {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
+  //  handler to close the modal
+  const handleCloseModal = () => {
+    setSuccess(false);
+  };
 
   const updateFormFields = (e) => {
     e.preventDefault();
     setShowFields(true);
   };
-  //https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -101,13 +106,33 @@ const Register = () => {
         const result = await response.json();
         console.log("Form submission successful:", result);
         setSuccess(true);
+        setMail(formData.email);
+
+        // setFormData({
+        //   email: "",
+        //   firstName: "",
+        //   lastName: "",
+        //   phone: "",
+        //   gender: "",
+        //   status: "",
+        //   institution: "",
+        //   proficiency: "",
+        //   stack: "",
+        //   country: "",
+        //   state: "",
+        //   otherState: "",
+        //   city: "",
+        // });
       } else {
-        console.error("Failed to submit form:", await response.text());
-        alert("Failed to submit the form. Please try again.");
+        console.log("Failed to submit form:", response.status);
+        console.log("Failed to submit form:", await response.text());
+        if (response?.status == 400) {
+          setErrorMsq("All fields are required");
+        }
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("An error occurred while submitting the form.");
+      setErrorMsq("An error occurred while submitting the form.");
     } finally {
       setIsLoading(false);
     }
@@ -399,7 +424,13 @@ const Register = () => {
           )}
         </form>
       </div>
-      {success && <RegisterSuccess />}
+      {success && <RegisterSuccess email={mail} onClose={handleCloseModal} />}
+      {errorMsg && (
+        <div className="mb-8 mx-2 font-[550] text-center text-red-500 mt-1">
+          {" "}
+          {errorMsg}{" "}
+        </div>
+      )}
     </main>
   );
 };

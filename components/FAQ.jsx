@@ -29,7 +29,7 @@ const FAQ = () => {
     {
       question: "What is the cost of the bootcamp?",
       answer:
-        "The tuition for the bootcamp is fully spondored by starknet Foundation.",
+        "The tuition for the bootcamp is fully sponsored by starknet Foundation.",
     },
     {
       question:
