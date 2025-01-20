@@ -25,21 +25,89 @@ const IMAGES = {
 };
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    gender: "",
+    status: "",
+    institution: "",
+    proficiency: "",
+    stack: "",
+    country: "",
+    state: "",
+    otherState: "",
+    city: "",
+  });
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
 
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if (type === "checkbox") {
+      setFormData((prev) => ({
+        ...prev,
+        stack: checked
+          ? [...prev.stack, value]
+          : prev.stack.filter((item) => item !== value),
+      }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const updateFormFields = (e) => {
+    e.preventDefault();
+    setShowFields(true);
+    console.log("Form submitted with email:", formData.email);
+  };
+  //https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    try {
-      // Simulate form validation and submission logic
-      console.log("Form submitted with email:", email);
 
-      // Assuming the email is valid, show additional fields
-      setShowFields(true);
+    try {
+      const data = new FormData();
+
+      Object.entries(formData).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach((val) => data.append(key, val));
+        } else {
+          data.append(key, value);
+        }
+      });
+
+      console.log("FormData object:", [...data.entries()]); // Debugging purpose
+
+      // If your API expects JSON, convert FormData to a JSON object
+      const jsonData = JSON.stringify(Object.fromEntries(data.entries()));
+      console.log("JSON Payload:", jsonData);
+
+      const response = await fetch(
+        "https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register",
+        {
+          method: "POST",
+          body: jsonData, // Use jsonData instead of data if the server expects JSON
+          headers: {
+            "Content-Type": "application/json", // Required when sending JSON
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Form submission successful:", result);
+        alert("Registration successful");
+      } else {
+        console.error("Failed to submit form:", await response.text());
+        alert("Failed to submit the form. Please try again.");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      alert("An error occurred while submitting the form.");
     } finally {
       setIsLoading(false);
     }
@@ -105,8 +173,8 @@ const Register = () => {
                 type="email"
                 name="email"
                 id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+                onChange={handleChange}
                 required
                 className="w-full border bg-transparent outline-none px-8 py-3 rounded-lg 
                          focus:ring-2 focus:ring-white/50 transition-shadow"
@@ -124,47 +192,81 @@ const Register = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="firstName"
                   placeholder="First name"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
                 <input
                   type="text"
+                  name="lastName"
                   placeholder="Last name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
+                <input
+                  type="number"
+                  name="phone"
+                  placeholder="Phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
                 <input
                   type="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="E-mail"
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
-                <input
-                  type="text"
-                  placeholder="Phone number"
+
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
-                />
-                <select className="border bg-transparent px-4 py-2 rounded-lg">
-                  <option>Gender</option>
-                  <option>Male</option>
-                  <option>Female</option>
+                >
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
                 </select>
-                <select className="border bg-transparent px-4 py-2 rounded-lg">
-                  <option>Current Status</option>
-                  <option>Student in Tertiary Institution</option>
-                  <option>Recent Graduate/NYSC</option>
-                  <option>Working at a Company</option>
-                  <option>An Entrepreneur/ Self- employed</option>
+                <select
+                  name="status"
+                  value={formData.status}
+                  onChange={handleChange}
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                >
+                  <option value="">Current Status</option>
+                  <option value="student">
+                    Student in Tertiary Institution
+                  </option>
+                  <option value="graduate">Recent Graduate/NYSC</option>
+                  <option value="employed">Working at a Company</option>
+                  <option value="entrepreneur">
+                    An Entrepreneur/ Self- employed
+                  </option>
                 </select>
                 <input
                   type="text"
+                  name="institution"
+                  value={formData.institution}
+                  onChange={handleChange}
                   placeholder="Specify Institution (if you are a student)"
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
-                <select className="border bg-transparent px-4 py-2 rounded-lg">
-                  <option>What's your level of proficiency?</option>
-                  <option>Novice</option>
-                  <option>Beginner</option>
-                  <option>Intermediate</option>
-                  <option>Advanced</option>
+                <select
+                  name="proficiency"
+                  value={formData.proficiency}
+                  onChange={handleChange}
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                >
+                  <option value="">What's your level of proficiency?</option>
+                  <option value="Novice">Novice</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
                 </select>
               </div>
               {/* choose stack */}
@@ -175,7 +277,11 @@ const Register = () => {
                     {/* Frontend Developer */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="checkbox"
+                        type="radio"
+                        name="stack"
+                        value="Frontend Developer"
+                        checked={formData.stack === "Frontend Developer"}
+                        onChange={handleChange}
                         className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
                       />
                       <span className="text-gray-300">
@@ -186,7 +292,11 @@ const Register = () => {
                     {/* Backend Developer */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="checkbox"
+                        type="radio"
+                        name="stack"
+                        value="Backend Developer"
+                        checked={formData.stack === "Backend Developer"}
+                        onChange={handleChange}
                         className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
                       />
                       <span className="text-gray-300">
@@ -197,7 +307,11 @@ const Register = () => {
                     {/* Blockchain Dev */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="checkbox"
+                        type="radio"
+                        name="stack"
+                        value="Blockchain Developer"
+                        checked={formData.stack === "Blockchain Developer"}
+                        onChange={handleChange}
                         className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
                       />
                       <span className="text-gray-300">
@@ -208,7 +322,11 @@ const Register = () => {
                     {/* Not an existing dev */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="checkbox"
+                        type="radio"
+                        name="stack"
+                        value="New Developer"
+                        checked={formData.stack === "New Developer"}
+                        onChange={handleChange}
                         className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
                       />
                       <span className="text-gray-300">
@@ -228,20 +346,32 @@ const Register = () => {
                   <input
                     type="text"
                     placeholder="Country"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleChange}
                     className="border bg-transparent px-4 py-2 rounded-lg"
                   />
                   <input
                     type="text"
+                    name="state"
+                    value={formData.state}
+                    onChange={handleChange}
                     placeholder="State"
                     className="border bg-transparent px-4 py-2 rounded-lg"
                   />
                   <input
                     type="text"
+                    name="otherState"
+                    value={formData.otherState}
+                    onChange={handleChange}
                     placeholder="Specify State If you’re not in Nigeria"
                     className="border bg-transparent px-4 py-2 rounded-lg"
                   />
                   <input
                     type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
                     placeholder="City"
                     className="border bg-transparent px-4 py-2 rounded-lg"
                   />
@@ -249,7 +379,7 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                disabled={isLoading || !email}
+                disabled={isLoading || !formData.email}
                 className="w-full bg-[#900A15] hover:bg-[#a20b17] disabled:bg-[#9b4950]
                 disabled:cursor-not-allowed uppercase px-6 py-3 mt-6 rounded-full
                 transition-colors duration-200 font-medium"
@@ -261,8 +391,8 @@ const Register = () => {
 
           {!showFields && (
             <button
-              type="submit"
-              disabled={isLoading || !email}
+              onClick={updateFormFields}
+              disabled={isLoading || !formData.email}
               className="w-full bg-[#900A15] hover:bg-[#a20b17] disabled:bg-[#9b4950]
                      disabled:cursor-not-allowed uppercase px-6 py-3 rounded-full
                      transition-colors duration-200 font-medium"

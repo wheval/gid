@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="w-full px-6 grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* About Section */}
         <div>
-          <h2 className="text-xl font-bold mb-4">About</h2>
+          <h2 className="text-xl font-[550] mb-4">About</h2>
           <ul className="space-y-2 text-gray-100">
             <li>
               <Link href="/about-gida" className="hover:underline">
@@ -38,7 +38,7 @@ const Footer = () => {
 
         {/* Events Section */}
         <div>
-          <h2 className="text-xl font-bold mb-4">Events</h2>
+          <h2 className="text-xl font-[550] mb-4">Events</h2>
           <ul className="space-y-2 text-gray-100">
             <li>
               <Link href="/events" className="hover:underline">
@@ -60,7 +60,7 @@ const Footer = () => {
 
         {/* Contact Section */}
         <div>
-          <h2 className="text-xl font-bold mb-4">Contact</h2>
+          <h2 className="text-xl font-[550] mb-4">Contact</h2>
           <ul className="space-y-2 text-gray-100">
             <li>
               <Link
@@ -127,7 +127,7 @@ const Footer = () => {
 
         {/* Stay in the Loop Section */}
         <div>
-          <h2 className="text-xl font-bold mb-4">Stay in the loop</h2>
+          <h2 className="text-xl font-[550] mb-4">Stay in the loop</h2>
           <p className="text-gray-300 mb-4">
             Bootcamps, classes, events may only run once or twice a month. Enter
             your email below to stay in the loop.
@@ -140,7 +140,7 @@ const Footer = () => {
             />
             <button
               type="submit"
-              className="py-2 px-6 rounded-r-full bg-[#3D0007] text-white font-bold hover:bg-[#4E0A11] transition-colors"
+              className="py-2 px-6 rounded-r-full bg-[#3D0007] text-white font-[550] hover:bg-[#4E0A11] transition-colors"
             >
               Subscribe
             </button>

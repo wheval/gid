@@ -1,61 +1,9 @@
 "use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/pagination";
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
+import Autoplay from 'embla-carousel-autoplay';
 
-<style jsx global>{`
-  .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: #ffffff;
-    opacity: 0.6;
-    margin: 0 5px;
-    border-radius: 50%;
-  }
-
-  .swiper-pagination-bullet-active {
-    background: #000000;
-    opacity: 1;
-  }
-
-  .swiper-pagination {
-    position: relative;
-    bottom: -40px; /* Further pushed pagination down */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .custom-nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #000000;
-    font-size: 24px;
-    font-weight: bold;
-    width: 40px;
-    height: 40px;
-    background: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-
-  .custom-prev-btn {
-    left: -50px; /* Positioning left arrow */
-  }
-
-  .custom-next-btn {
-    right: -50px; /* Positioning right arrow */
-  }
-`}</style>;
 const images = [
   "/assets/throwback1.jpg",
   "/assets/throwback2.jpg",
@@ -65,60 +13,109 @@ const images = [
   "/assets/throwback6.jpg",
   "/assets/throwback7.jpg",
 ];
+
 const Throwback = () => {
+  // Create autoplay plugin instance
+  const autoplayOptions = {
+    delay: 2000,
+    rootNode: (emblaRoot) => emblaRoot.parentElement,
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+  };
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      slidesToScroll: 1,
+      breakpoints: {
+        "(min-width: 768px)": { slidesToScroll: 2 },
+        "(min-width: 1024px)": { slidesToScroll: 3 },
+      },
+      loop: true,
+    },
+    [Autoplay(autoplayOptions)]
+  );
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
+
+  const scrollTo = useCallback(
+    (index) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  );
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    setScrollSnaps(emblaApi.scrollSnapList());
+
+    emblaApi.on("select", () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    });
+  }, [emblaApi]);
+
   return (
-    <section className="bg-gradient-to-tr from-[#FF4B59] to-[#F7C338] text-black px-8 md:px-12 py-20">
-      <div>
-        <h1 className="text-2xl font-bold mb-6">
-          Throwback to Cairo Bootcamp 1.0
-        </h1>
+    <section className="bg-gradient-to-r from-[#FF4B59] to-[#F7C338] text-black px-4 md:px-8 py-16">
+      <h1 className="text-3xl font-bold mb-8">Throw Back To Cairo Bootcamp 1.0</h1>
 
-        <Swiper
-          spaceBetween={20}
-          slidesPerView={1}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1200: {
-              slidesPerView: 3,
-              spaceBetween: 25,
-            },
-          }}
-          loop={true}
-          autoplay={{
-            delay: 1500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Autoplay, Pagination]}
-          className="max-w-full pb-12 relative"
-        >
-          {images.map((img, index) => (
-            <SwiperSlide key={index}>
-              <div className="w-full h-full">
-                <Image
-                  src={img}
-                  alt={`Throwback image ${index + 1}`}
-                  width={500}
-                  height={500}
-                  className="rounded-lg shadow-lg object-cover grayscale
-                    w-full h-[300px]
-                    md:h-[300px] 
-                    lg:h-[400px]"
-                />
-              </div>
-            </SwiperSlide>
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4"
+            >
+              <Image
+                src={image}
+                alt={`Throwback ${index + 1}`}
+                width={500}
+                height={500}
+                className="rounded-lg w-full h-[300px] object-cover grayscale"
+              />
+            </div>
           ))}
+        </div>
+      </div>
 
-        </Swiper>
+      {/* Navigation Controls Container */}
+      <div className="flex items-center justify-center gap-16 mt-8">
+        {/* Previous Button */}
+        <button
+          className="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md"
+          onClick={scrollPrev}
+        >
+          <span className="text-5xl">&lsaquo;</span>
+        </button>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-2">
+          {scrollSnaps.map((_, index) => (
+            <button
+              key={index}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === selectedIndex
+                  ? "w-6 bg-white"
+                  : "w-2 bg-white/50"
+              }`}
+              onClick={() => scrollTo(index)}
+            />
+          ))}
+        </div>
+
+        {/* Next Button */}
+        <button
+          className="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md"
+          onClick={scrollNext}
+        >
+          <span className="text-5xl">&rsaquo;</span>
+        </button>
       </div>
     </section>
   );
