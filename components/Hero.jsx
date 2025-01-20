@@ -24,15 +24,15 @@ const Hero = () => {
           <Image
             src="/assets/gidaLogo.svg"
             width={5000}
-            height={5000}
+            height={1000}
             alt="Foreground Image 2"
             className="w-28 hidden md:inline-block"
           />
           <span className="hidden md:inline-block">X</span>
           <Image
             src="/assets/starknet.svg"
-            width={5000}
-            height={auto}
+            width={1000}
+            height={1000}
             alt="Foreground Image 2"
             className="w-28"
           />

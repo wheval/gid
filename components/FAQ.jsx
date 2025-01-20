@@ -14,7 +14,7 @@ const FAQ = () => {
     {
       question: "What is the Cairo Web3 Developers Bootcamp?",
       answer:
-        "THe Cairo web3 Developers bootcamp is an intensive training programme designed to equip web2 developers with the skills and knowledge needed to transition into web3 development, focusing on blockchain technology.",
+        "The Cairo web3 Developers bootcamp is an intensive training programme designed to equip web2 developers with the skills and knowledge needed to transition into web3 development, focusing on blockchain technology.",
     },
     {
       question: "Who is this bootcamp for?",
