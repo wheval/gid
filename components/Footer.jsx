@@ -7,8 +7,8 @@ const Footer = () => {
     alert("coming soon");
   };
   return (
-    <footer className="bg-[#900A15] text-white py-12">
-      <div className="w-full px-6 grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-[#900A15] text-white py-16">
+      <div className="w-full px-6 grid grid-cols-2  sm:grid-cols-3 gap-8">
         {/* About Section */}
         <div>
           <h2 className="text-xl font-[550] mb-4">About</h2>
@@ -124,28 +124,28 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+      </div>
 
-        {/* Stay in the Loop Section */}
-        <div>
-          <h2 className="text-xl font-[550] mb-4">Stay in the loop</h2>
-          <p className="text-gray-300 mb-4">
-            Bootcamps, classes, events may only run once or twice a month. Enter
-            your email below to stay in the loop.
-          </p>
-          <form className="flex items-center" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              placeholder="your@gmail.com"
-              className="flex-1 py-2 px-4 rounded-l-full bg-[#650810] text-white placeholder-gray-400 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="py-2 px-6 rounded-r-full bg-[#3D0007] text-white font-[550] hover:bg-[#4E0A11] transition-colors"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
+      {/* Stay in the Loop Section */}
+      <div className="px-6 mt-8 max-w-md">
+        <h2 className="text-xl font-[550] mb-4">Stay in the loop</h2>
+        <p className="text-gray-300 mb-4">
+          Bootcamps, classes, events may only run once or twice a month. Enter
+          your email below to stay in the loop.
+        </p>
+        <form className="flex items-center" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="example@gmail.com"
+            className="flex-1 py-2 px-4 rounded-l-full bg-[#650810] text-white placeholder-gray-400 focus:outline-none "
+          />
+          <button
+            type="submit"
+            className="py-2 px-6 rounded-r-full bg-[#3D0007] text-white font-[550] hover:bg-[#4E0A11] transition-colors"
+          >
+            Subscribe
+          </button>
+        </form>
       </div>
     </footer>
   );
