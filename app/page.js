@@ -7,6 +7,7 @@ import JoinCommunity from "./(homepage)/JoinCommunity";
 import HeroSection from "./(homepage)/HeroSection";
 import GidaDeveloperComSection from "./(homepage)/GidaDeveloperComSection";
 import ReadyToLearn from "./(homepage)/ReadyToLearn";
+import Newsletter from "./(homepage)/Newsletter";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <WhyWeDifferent/>
         <JoinCommunity />
         <GidaDeveloperComSection />
+        <Newsletter />
         <ReadyToLearn />
         <Footer/>
     </div>
