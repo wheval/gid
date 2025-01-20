@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         clash: ['var(--font-clashDisplay)'],
         lato: ['var(--font-lato)'],
+        abhaya: ['var(--font-abhaya)'],
       },
     },
   },
