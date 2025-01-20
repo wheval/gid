@@ -23,7 +23,7 @@ const Header = () => {
             Bootcamp
           </NavLink>
           <NavLink href="/">Courses</NavLink>
-          <NavLink href="/">Events</NavLink>
+          <NavLink href="/events">Events</NavLink>
           <NavLink href="/">About</NavLink>
           <NavLink href="/">Blog</NavLink>
         </nav>
