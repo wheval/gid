@@ -1,5 +1,4 @@
 import NavLink from '@/components/NavLink'
-import React from 'react'
 
 const GidaDeveloperComSection = () => {
   return (
