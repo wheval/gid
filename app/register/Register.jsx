@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import RegisterSuccess from "./RegisterSuccess";
 
 const IMAGES = {
   background: {
@@ -42,6 +43,7 @@ const Register = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -98,7 +100,7 @@ const Register = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submission successful:", result);
-        alert("Registration successful");
+        setSuccess(true);
       } else {
         console.error("Failed to submit form:", await response.text());
         alert("Failed to submit the form. Please try again.");
@@ -262,7 +264,7 @@ const Register = () => {
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 >
                   <option value="">What's your level of proficiency?</option>
-                  <option value="none">No existing coding knowledge</option>
+                  <option value="novice">No existing coding knowledge</option>
                   <option value="beginner">Beginner</option>
                   <option value="intermediate">Intermediate</option>
                   <option value="professional">Professional</option>
@@ -397,6 +399,7 @@ const Register = () => {
           )}
         </form>
       </div>
+      {success && <RegisterSuccess />}
     </main>
   );
 };
