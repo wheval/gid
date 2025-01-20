@@ -12,5 +12,5 @@
 }
 
 body {
-  @apply max-w-[1500px] w-full bg-white text-black;
+  @apply max-w-[3000px] w-full bg-white text-black mx-auto;
 }
