@@ -8,6 +8,7 @@ import HeroSection from "./(homepage)/HeroSection";
 import GidaDeveloperComSection from "./(homepage)/GidaDeveloperComSection";
 import ReadyToLearn from "./(homepage)/ReadyToLearn";
 import Newsletter from "./(homepage)/Newsletter";
+import Partnership from "./(homepage)/Partnership";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <WhyWeDifferent/>
         <JoinCommunity />
         <GidaDeveloperComSection />
+        <Partnership />
         <Newsletter />
         <ReadyToLearn />
         <Footer/>
