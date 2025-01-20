@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import BlurImg from '../../public/assets/blurbg.png';
+import CalendarIcon from '../../public/assets/calendar.svg';
+import LocationIcon from '../../public/assets/location.svg';
 
 const EventCard = ({
   eventImageSrc,
@@ -15,7 +17,7 @@ const EventCard = ({
       {/* Event Image */}
       <div className="relative w-full h-56">
         <Image
-          src={BlurImg}
+          src={eventImageSrc || BlurImg}
           alt={eventTitle}
           layout="fill"
           objectFit="cover"
@@ -33,7 +35,7 @@ const EventCard = ({
           {eventTags?.map((tag, index) => (
             <span
               key={index}
-              className="text-xs font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full"
+              className="text-xs font-semibold text-[#A20812] bg-[#f7cbce] px-3 py-1 rounded-full"
             >
               {tag}
             </span>
@@ -41,14 +43,14 @@ const EventCard = ({
         </div>
 
         {/* Event Timeline & Location */}
-        <div className="mt-4 text-gray-500 text-sm">
+        <div className="mt-4 text-gray-500 text-sm space-y-2">
           <div className="flex items-center gap-2">
-            <span className="material-icons text-blue-500">event</span>
-            {eventTimeline}
+            <Image src={CalendarIcon} alt="Calendar Icon" width={20} height={20} />
+            <span>{eventTimeline}</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="material-icons text-red-500">place</span>
-            {eventLocation}
+            <Image src={LocationIcon} alt="Location Icon" width={20} height={20} />
+            <span>{eventLocation}</span>
           </div>
         </div>
 
