@@ -3,7 +3,7 @@ import React from 'react'
 
 const WhoAreWe = () => {
 return (
-    <div className='w-full min-h-screen flex items-center justify-center p-16 bg-[#A20812] text-white'>
+    <div className='w-full min-h-[95vh] flex items-center justify-center bg-[#A20812] text-white'>
             <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
                     <div className='flex flex-col items-start gap-6 flex-1'>
                             <div className='flex flex-col gap-4'>
