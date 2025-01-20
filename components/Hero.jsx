@@ -2,7 +2,6 @@ import Image from "next/image";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 
-
 const Hero = () => {
   return (
     <div className="pt-20 text-white relative min-w-full h-screen max-h-screen">
@@ -69,9 +68,10 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <CiLocationOn />
+            <CiLocationOn className="hidden lg:block" />
+            <span className="hidden lg:block"> Virtual on</span>
             <span>
-              IRL
+              <span className="hidden md:block">Virtual on</span>
               <Image
                 src="/assets/meet.svg"
                 width={1000}
@@ -87,6 +87,7 @@ const Hero = () => {
                 alt="youtube"
                 className="inline  mx-1 text-red-500 w-5"
               />
+              <span>+ IRL Meetups</span>
             </span>
           </div>
         </div>

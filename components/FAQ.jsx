@@ -53,7 +53,7 @@ const FAQ = () => {
   return (
     <section className="max-w-4xl mx-auto px-6 py-12">
       <div>
-        <h1 className="text-3xl font-extrabold mb-8 text-gray-800">FAQ</h1>
+        <h1 className="text-3xl font-bold mb-8 text-gray-800">FAQ</h1>
         <div className="flex flex-col gap-6">
           {faqs.map((faq, index) => (
             <div
@@ -62,7 +62,7 @@ const FAQ = () => {
             >
               <h1
                 onClick={() => toggleFAQ(index)}
-                className="text-lg font-bold cursor-pointer flex justify-between items-center"
+                className="text-lg font-[550] cursor-pointer flex justify-between items-center capitalize"
               >
                 {faq.question}
                 <span className="text-lg">
