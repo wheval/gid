@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Hero = () => {
+const HeroSection = () => {
 return (
     <div className='w-full min-h-[95vh] flex flex-col justify-center items-center text-center text-white bg-[url("/assets/homepage_hero_bg.svg")] bg-cover bg-center bg-no-repeat'>
             <div className="flex flex-col gap-y-6 max-w-[70%] items-center">
@@ -22,4 +22,4 @@ return (
   )
 }
 
-export default Hero
+export default HeroSection
