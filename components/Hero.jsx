@@ -71,7 +71,6 @@ const Hero = () => {
             <CiLocationOn className="hidden lg:block" />
             <span className="hidden lg:block"> Virtual on</span>
             <span>
-              <span className="hidden md:block">Virtual on</span>
               <Image
                 src="/assets/meet.svg"
                 width={1000}
