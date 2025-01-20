@@ -40,7 +40,6 @@ const Register = () => {
     otherState: "",
     city: "",
   });
-  const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
 
@@ -61,7 +60,6 @@ const Register = () => {
   const updateFormFields = (e) => {
     e.preventDefault();
     setShowFields(true);
-    console.log("Form submitted with email:", formData.email);
   };
   //https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register
   const handleSubmit = async (e) => {
@@ -218,6 +216,7 @@ const Register = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
+                  disabled
                   placeholder="E-mail"
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
@@ -263,10 +262,10 @@ const Register = () => {
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 >
                   <option value="">What's your level of proficiency?</option>
-                  <option value="Novice">Novice</option>
-                  <option value="Beginner">Beginner</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Advanced">Advanced</option>
+                  <option value="none">No existing coding knowledge</option>
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="professional">Professional</option>
                 </select>
               </div>
               {/* choose stack */}
@@ -279,10 +278,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="Frontend Developer"
-                        checked={formData.stack === "Frontend Developer"}
+                        value="frontend"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Frontend Developer (HTML, CSS, JS, React)
@@ -294,10 +292,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="Backend Developer"
-                        checked={formData.stack === "Backend Developer"}
+                        value="backend"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Backend Developer (React, Python, Node, etc)
@@ -309,10 +306,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="Blockchain Developer"
-                        checked={formData.stack === "Blockchain Developer"}
+                        value="blockchain"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Blockchain Dev (Solidity, Rust)
@@ -324,10 +320,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="New Developer"
-                        checked={formData.stack === "New Developer"}
+                        value="none"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Not an existing dev. Just starting out
