@@ -2,6 +2,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import Autoplay from 'embla-carousel-autoplay';
 
 const images = [
   "/assets/throwback1.jpg",
@@ -14,14 +15,25 @@ const images = [
 ];
 
 const Throwback = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    slidesToScroll: 1,
-    breakpoints: {
-      "(min-width: 768px)": { slidesToScroll: 2 },
-      "(min-width: 1024px)": { slidesToScroll: 3 },
+  // Create autoplay plugin instance
+  const autoplayOptions = {
+    delay: 2000,
+    rootNode: (emblaRoot) => emblaRoot.parentElement,
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+  };
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      slidesToScroll: 1,
+      breakpoints: {
+        "(min-width: 768px)": { slidesToScroll: 2 },
+        "(min-width: 1024px)": { slidesToScroll: 3 },
+      },
+      loop: true,
     },
-    loop: true,
-  });
+    [Autoplay(autoplayOptions)]
+  );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
@@ -65,7 +77,7 @@ const Throwback = () => {
                 alt={`Throwback ${index + 1}`}
                 width={500}
                 height={500}
-                className="rounded-lg w-full h-[300px] object-cover"
+                className="rounded-lg w-full h-[300px] object-cover grayscale"
               />
             </div>
           ))}
