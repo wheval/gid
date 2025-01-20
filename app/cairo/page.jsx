@@ -1,3 +1,4 @@
+import Curriculum from "@/components/Curriculum";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -12,6 +13,7 @@ export default function Cairo() {
       <Header />
       <Hero />
       <RegistrationInfo />
+      <Curriculum />
       <Throwback />
       <Testimonials />
       <FAQ />

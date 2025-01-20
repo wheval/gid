@@ -1,4 +1,3 @@
-import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Supporters from "./(homepage)/Supporters";
 import WhoAreWe from "./(homepage)/WhoAreWe";
@@ -9,6 +8,7 @@ import GidaDeveloperComSection from "./(homepage)/GidaDeveloperComSection";
 import ReadyToLearn from "./(homepage)/ReadyToLearn";
 import Newsletter from "./(homepage)/Newsletter";
 import Partnership from "./(homepage)/Partnership";
+
 
 export default function Home() {
   return (

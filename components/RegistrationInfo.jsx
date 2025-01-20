@@ -1,17 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import Countdown from "./Countdown";
 
 const RegistrationInfo = () => {
   return (
     <section>
-      <div className="bg-[#BD1522] w-full flex justify-evenly items-center py-16">
+      <div className="bg-[#BD1522] w-full flex justify-evenly items-center py-16 flex-col md:flex-row">
         <div className="font-bold text-center text-white">
-          <div className=" text-3xl md:text-5xl">000</div>
+          <div className=" text-2xl md:text-5xl">000</div>
           <div className="text-lg">Registrants</div>
         </div>
+        <div className="text-gray-400 hidden md:block">|</div>
+        <div className="text-gray-400 block md:hidden">___</div>
+        <Countdown /> 
+        <div className="text-gray-400 hidden md:block">|</div>
+        <div className="text-gray-400 block md:hidden">___</div>
         <Link
           href="/register"
-          className="bg-white rounded-full px-14 md:px-28 py-2 md:py-3 text-[#BD1522] font-bold text-base md:text-lg"
+          className="bg-white rounded-full px-12 md:px-28 py-2 md:py-3 text-[#BD1522] font-bold text-base md:text-lg mt-4 md:mt-0"
         >
           Register
         </Link>
