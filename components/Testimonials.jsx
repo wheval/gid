@@ -6,14 +6,22 @@ import { LiaGreaterThanSolid, LiaLessThanSolid } from "react-icons/lia";
 const testimonials = [
   {
     id: 1,
-    name: "Ayo Festus",
-    image: "/assets/testimonial1.png",
+    name: "Maxwell C. Ngwu",
+    image: "/assets/testimonial2.jpg",
     role: "Blockchain Enthusiast",
     testimonial:
-      "It was amazing journey with GIDA. I learned from various well skilled tutors. I got so much value and am glad i did not miss this opportunity. Thank you so much for this opportunity.",
+      "As a full stack web developer, I always wanted, at some point, to upskill into blockchain development. And that was when I came across GIDA Starknet / Cairo Bootcamp, and surprisingly it was free. I knew then that I had to grab the opportunity. Amidst the struggle and toil of 8 weeks of intensive and progressive learning, I was able to get a solid foundation on blockchain dev. GIDA is more than an Academy, it's a family of like minds. Thanks Starknet Africa!!! Thanks GIDA Academy!!!.",
   },
   {
     id: 2,
+    name: "Ayo Festus",
+    image: "/assets/testimonial1.png",
+    role: "GIDA Member",
+    testimonial:
+      "It was amazing journey I learned from various well skilled tutor I got so much value and I’m glad i didn't miss this opportunity Thank you so much for this opportunity GIDA.",
+  },
+  {
+    id: 3,
     name: "Gideon Bature",
     image: "/assets/testimonial4.jpeg",
     role: "GIDA Member",
@@ -21,12 +29,20 @@ const testimonials = [
       "My name is Gideon Bature, a Software Engineer. I learnt a lot in the GIDA Starknet-Cairo bootcamp,  the community (GIDA) and tutors were super helpful, always answering our questions and helpful, giving us assignments for us to apply what we have learnt inorder to have a much better understanding of it. Thank you so much for this opportunity GIDA.",
   },
   {
-    id: 3,
+    id: 4,
     name: "Femi Oje",
     image: "/assets/testimonial5.jpeg",
     role: "GIDA Member",
     testimonial:
       "The GIDA x Starknet Bootcamp was my gateway into the world of Web3, as my prior experience was primarily in Web2. The program provided exceptional support in bridging this gap. The mentors were incredibly helpful, offering all the necessary resources and patiently answering every question I had, ensuring a seamless learning experience. While I had to dedicate personal time to studying (as expected), their guidance made the transition both smooth and enjoyable. My advice to anyone considering this bootcamp is simple: stay consistent, and the results will follow.",
+  },
+  {
+    id: 5,
+    name: "Anih Wisdom Somadina",
+    image: "/assets/testimonial3.jpg",
+    role: "GIDA Member",
+    testimonial:
+      "About my experience, Really had a great learning experience during the Gida-cairo boot camp. Ranging from humane tutors  and friendly colleagues. The tutors took their time explaining every concept down to their least in a very passionate way. They give room for questions and answer them no matter how casual they may sound.",
   },
 ];
 
@@ -49,8 +65,11 @@ const Testimonials = () => {
     <section className="px-4 py-12">
       <div className="md:max-w-3xl md:mx-auto md:px-0 relative">
         <div className="mx-4 mb-4">
-          <h1 className="font-bold text-2xl mb-2">Testimonials</h1>
-          <p>See what other people has to say about GIDA</p>
+          <h1 className="font-bold text-2xl mb-2 flex flex-col capitalize">
+            <span>See what Our Alumini from</span>
+
+            <span>cairo bootcamp 1.0 are saying</span>
+          </h1>
         </div>
         <div className="bg-white shadow-lg rounded-xl p-6 md:flex md:items-center md:justify-between md:text-left md:p-8 mx-16">
           {/* Mobile View */}

@@ -31,14 +31,29 @@ const FAQ = () => {
       answer:
         "The tuition for the bootcamp is fully spondored by starknet Foundation.",
     },
+    {
+      question:
+        "what are the basic criteria for participating in  this FREE developer Bootcamp? ",
+      answer: "  ",
+    },
+    {
+      question: "What is the nature of the class schedule?",
+      answer: " ",
+    },
+    {
+      question: "Is there certification upon completion of the bootcamp?",
+      answer: " ",
+    },
+    {
+      question: "How does the hybrid system  of this bootcamp work?",
+      answer: " ",
+    },
   ];
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-12">
       <div>
-        <h1 className="text-3xl font-extrabold mb-8 text-gray-800">
-          FAQ
-        </h1>
+        <h1 className="text-3xl font-extrabold mb-8 text-gray-800">FAQ</h1>
         <div className="flex flex-col gap-6">
           {faqs.map((faq, index) => (
             <div

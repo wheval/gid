@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
-import { SiGooglemeet } from "react-icons/si";
-import { FaYoutube } from "react-icons/fa";
+
 
 const Hero = () => {
   return (
@@ -72,8 +71,22 @@ const Hero = () => {
           <div className="flex items-center gap-2">
             <CiLocationOn />
             <span>
-              Virtual <SiGooglemeet className="inline  mx-1 text-red-500" /> and
-              <FaYoutube className="inline text-red-500 ml-2" />
+              Virtual
+              <Image
+                src="/assets/meet.svg"
+                width={1000}
+                height={1000}
+                alt="google meet"
+                className="inline  mx-1 text-red-500 w-5"
+              />
+              and
+              <Image
+                src="/assets/youtube.svg"
+                width={1000}
+                height={1000}
+                alt="youtube"
+                className="inline  mx-1 text-red-500 w-5"
+              />
             </span>
           </div>
         </div>

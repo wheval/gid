@@ -10,12 +10,12 @@ const IMAGES = {
   gidaLogo: {
     src: "/assets/gidaLogo.svg",
     alt: "Gida Logo",
-    width: 96,
+    width: 500,
   },
   starknet: {
     src: "/assets/starknet.svg",
     alt: "Starknet Logo",
-    width: 96,
+    width: 500,
   },
   combined: {
     src: "/assets/gidaxstark.png",
@@ -62,7 +62,7 @@ const Register = () => {
         <div className="absolute inset-0 bg-neutral-950/50"></div>
       </div>
 
-      <div className="container mx-auto px-4 flex flex-col items-center justify-center min-h-[calc(100vh-5rem)]">
+      <div className="container mx-auto px-4 flex flex-col items-center pt-20 justify-center min-h-[calc(100vh-5rem)]">
         {/* Logo Section */}
         <div className="flex items-center gap-8 my-10">
           <Image
@@ -79,7 +79,7 @@ const Register = () => {
             width={IMAGES.starknet.width}
             height={IMAGES.starknet.width}
             alt={IMAGES.starknet.alt}
-            className="w-28"
+            className="w-28 object-cover"
           />
         </div>
 
@@ -92,7 +92,7 @@ const Register = () => {
         />
 
         {/* Form Section */}
-        <form onSubmit={handleSubmit} className="w-full max-w-2xl space-y-8">
+        <form onSubmit={handleSubmit} className="w-full max-w-3xl space-y-8">
           {!showFields && (
             <div className="relative">
               <label
@@ -148,18 +148,17 @@ const Register = () => {
                   <option>Female</option>
                 </select>
                 <select className="border bg-transparent px-4 py-2 rounded-lg">
-                  <option>How did you hear about the bootcamp?</option>
-                  <option>X (Formerly Twitter) </option>
-                  <option>Instagram</option>
-                  <option>Facebook</option>
-                  <option>WhatsaApp</option>
-                  <option>From A Friend</option>
+                  <option>Current Status</option>
+                  <option>Student in Tertiary Institution</option>
+                  <option>Recent Graduate/NYSC</option>
+                  <option>Working at a Company</option>
+                  <option>An Entrepreneur/ Self- employed</option>
                 </select>
-                <select className="border bg-transparent px-4 py-2 rounded-lg">
-                  <option>Already a web2 developer?</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
+                <input
+                  type="text"
+                  placeholder="Specify Institution (if you are a student)"
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
                 <select className="border bg-transparent px-4 py-2 rounded-lg">
                   <option>What's your level of proficiency?</option>
                   <option>Novice</option>
@@ -167,6 +166,86 @@ const Register = () => {
                   <option>Intermediate</option>
                   <option>Advanced</option>
                 </select>
+              </div>
+              {/* choose stack */}
+              <div>
+                <h1 className="text-xl font-bold my-5">Choose Your Stack</h1>
+                <div>
+                  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Frontend Developer */}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                      />
+                      <span className="text-gray-300">
+                        Frontend Developer (HTML, CSS, JS, React)
+                      </span>
+                    </label>
+
+                    {/* Backend Developer */}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                      />
+                      <span className="text-gray-300">
+                        Backend Developer (React, Python, Node, etc)
+                      </span>
+                    </label>
+
+                    {/* Blockchain Dev */}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                      />
+                      <span className="text-gray-300">
+                        Blockchain Dev (Solidity, Rust)
+                      </span>
+                    </label>
+
+                    {/* Not an existing dev */}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                      />
+                      <span className="text-gray-300">
+                        Not an existing dev. Just starting out
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* bootcamp location */}
+              <div>
+                <h1 className="text-xl font-bold mt-8 mb-4 capitalize">
+                  your location, during the 8 weeks of this bootcamp
+                </h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Country"
+                    className="border bg-transparent px-4 py-2 rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    placeholder="State"
+                    className="border bg-transparent px-4 py-2 rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Specify State If you’re not in Nigeria"
+                    className="border bg-transparent px-4 py-2 rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    placeholder="City"
+                    className="border bg-transparent px-4 py-2 rounded-lg"
+                  />
+                </div>
               </div>
               <button
                 type="submit"

@@ -1,5 +1,9 @@
-import React from 'react';
+
 import Events from './Events';
+export const metadata = {
+  title: "Events || GIDA",
+  description: "Register for the GIDA Bootcamp",
+};
 
 const page = () => {
   return (
