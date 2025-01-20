@@ -10,6 +10,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--color-primary)",
+        accent: "var(--color-accent)",
+      },
+      fontFamily: {
+        clash: ['var(--font-clashDisplay)'],
+        lato: ['var(--font-lato)'],
+        abhaya: ['var(--font-abhaya)'],
       },
     },
   },

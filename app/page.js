@@ -1,12 +1,24 @@
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
+import Supporters from "./(homepage)/Supporters";
+import WhoAreWe from "./(homepage)/WhoAreWe";
+import WhyWeDifferent from "./(homepage)/WhyWeDifferent";
+import JoinCommunity from "./(homepage)/JoinCommunity";
+import HeroSection from "./(homepage)/HeroSection";
+import GidaDeveloperComSection from "./(homepage)/GidaDeveloperComSection";
+import ReadyToLearn from "./(homepage)/ReadyToLearn";
+
 
 export default function Home() {
   return (
     <div className=" font-[family-name:var(--font-geist-sans)]">
-      <Hero />
-
-      <Footer />
+        <HeroSection />
+        <Supporters />
+        <WhoAreWe />
+        <WhyWeDifferent/>
+        <JoinCommunity />
+        <GidaDeveloperComSection />
+        <ReadyToLearn />
+        <Footer/>
     </div>
   );
 }
