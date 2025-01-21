@@ -8,6 +8,8 @@ import GidaDeveloperComSection from "./(homepage)/GidaDeveloperComSection";
 import ReadyToLearn from "./(homepage)/ReadyToLearn";
 import Newsletter from "./(homepage)/Newsletter";
 import Partnership from "./(homepage)/Partnership";
+import TeamSection from "./(homepage)/TeamSection";
+import FifaSection from "./(homepage)/FifaSection";
 import Activities from "./(homepage)/Activities";
 
 
@@ -21,6 +23,8 @@ export default function Home() {
         <JoinCommunity />
         <GidaDeveloperComSection />
         <Activities/>
+        <FifaSection />
+        <TeamSection />
         <Partnership />
         <Newsletter />
         <ReadyToLearn />
