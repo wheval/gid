@@ -7,7 +7,7 @@ const Supporters = () => {
         <Image className='absolute left-[-60%] sm:left-0 top-[0] z-10' width={413} height={301} src="/assets/boxes.svg" />
         <Image className='absolute z-10 right-[-50%] sm:right-0 top-[-5%]' width={294} height={323} src="/assets/btc_shadow.svg" />
         <div className='relative w-full overflow-hidden'>
-          <div className='flex gap-4 animate-infinite-scroll'>
+          <div className='flex gap-4 items-center lg:gap-6 animate-infinite-scroll'>
             <Image src="/assets/logos/snafrica.svg" width={200} height={67} />
             <Image src="/assets/logos/snfoundation.svg" width={200} height={67} />
             <Image src="/assets/logos/web3bridge.svg" width={200} height={67} />
@@ -15,6 +15,8 @@ const Supporters = () => {
             <Image src="/assets/logos/yellowcard.svg" width={200} height={67} />
             <Image src="/assets/logos/arb.svg" width={200} height={67} />
             <Image src="/assets/logos/bitget.svg" width={200} height={67} />
+            <Image src="/assets/logos/bybit.svg" width={160} height={50} />
+            <Image src="/assets/logos/bitkeep.svg" width={200} height={67} />
             {/* Duplicate logos */}
             <Image src="/assets/logos/snafrica.svg" width={200} height={67} />
             <Image src="/assets/logos/snfoundation.svg" width={200} height={67} />
@@ -23,6 +25,8 @@ const Supporters = () => {
             <Image src="/assets/logos/yellowcard.svg" width={200} height={67} />
             <Image src="/assets/logos/arb.svg" width={200} height={67} />
             <Image src="/assets/logos/bitget.svg" width={200} height={67} />
+            <Image src="/assets/logos/bybit.svg" width={160} height={50} />
+            <Image src="/assets/logos/bitkeep.svg" width={200} height={67} />
           </div>
         </div>
         <div className='overflow-hidden hidden sm:block mt-[20px] lg:mt-[50px] w-full'>

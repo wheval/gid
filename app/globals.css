@@ -20,7 +20,7 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-200px * 7)); 
+    transform: translateX(calc(-200px * 9)); /* Changed from 7 to 9 to match number of unique logos */
   }
 }
 

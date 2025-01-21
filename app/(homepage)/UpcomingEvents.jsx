@@ -11,7 +11,6 @@ return (
                             </h3>
                             <p className="font-lato text-sm sm:text-base lg:mt-[-20px] lg:text-[1.5rem] lg:w-[55ch] tracking-tighter capitalize">See all our events tailored to help you accelerate faster in your tech journey</p>
                     </div>
-                    <Link href="/chainup">
                         <div className="relative scale-90 sm:scale-100">
                             <div className="w-full shadow-sm max-w-full lg:max-w-[850px] rounded-[28px] relative z-30 overflow-hidden flex flex-col items-center justify-center">
                                     <Image src="/assets/chain-up-roadshows-all-city.png" className="max-w-full w-full" width={800} height={600} alt="" />
@@ -47,7 +46,6 @@ return (
                             <div className="absolute bg-[#EDEDED] w-full h-[84%] shadow-sm sm:w-[800px] sm:h-[470px] z-10 rounded-[15px] top-[28%] left-[-6%]"></div>
                             <div className="absolute bg-[#FFFFFF] hidden sm:block shadow-sm w-full h-[70%] sm:w-[800px] sm:h-[440px] z-0 rounded-[15px] top-[38%] left-[-9%]"></div>
                         </div>
-                    </Link> 
             </div>
     </div>
 )
