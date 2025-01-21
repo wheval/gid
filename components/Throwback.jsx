@@ -80,7 +80,7 @@ const Throwback = () => {
                 alt={`Throwback ${index + 1}`}
                 width={500}
                 height={500}
-                className="rounded-lg w-[300px] h-[300px] object-cover grayscale mx-auto"
+                className="rounded-2xl w-[300px] h-[300px] object-cover grayscale mx-auto"
               />
             </div>
           ))}

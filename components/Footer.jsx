@@ -20,7 +20,7 @@ const Footer = () => {
             </li>
             <li>
               <Link href="/sponsorship" className="hover:underline">
-                Sponsorship
+                Partnerships
               </Link>
             </li>
             <li>
@@ -127,26 +127,33 @@ const Footer = () => {
       </div>
 
       {/* Stay in the Loop Section */}
-      <div className="px-6 mt-8 max-w-md">
+      <div className="px-6 mt-8 max-w-lg">
         <h2 className="text-xl font-[550] mb-4">Stay in the loop</h2>
         <p className="text-gray-300 mb-4">
-          Bootcamps, classes, events may only run once or twice a month. Enter
-          your email below to stay in the loop.
+          Stay informed on upcoming Bootcamps, classes, events and upcoming
+          activities we have lined up. Enter your email below to stay in the
+          loop.
         </p>
-        <form className="flex items-center" onSubmit={handleSubmit}>
+        <form className="flex justify-between items-center bg-white rounded-full px-2 py-1.5 w-full">
           <input
             type="email"
-            placeholder="example@gmail.com"
-            className="flex-1 py-2 px-4 rounded-l-full bg-[#650810] w-full text-white placeholder-gray-400 focus:outline-none "
+            placeholder="your@gmail.com"
+            className="flex-1 py-2 px-6 text-gray-900 bg-transparent placeholder-gray-500 focus:outline-none max-w-[200px]"
           />
           <button
             type="submit"
-            className="py-2 px-6 rounded-r-full bg-[#3D0007] text-white font-[550] hover:bg-[#4E0A11] transition-colors"
+            className="py-2.5 px-5 rounded-full bg-[#8B0000] text-white font-semibold hover:bg-[#660000] transition-colors"
           >
             Subscribe
           </button>
         </form>
+      </div>
 
+      {/* copyright section */}
+      <div className="text-center text-sm mt-12">
+        <p>
+          Copyright © 2025 Ginakev Digital Academy - GIDA™. All rights reserved.
+        </p>
       </div>
     </footer>
   );

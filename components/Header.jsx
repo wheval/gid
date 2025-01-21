@@ -4,7 +4,6 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-
     <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm sm:text-base  max-w-[90vw] z-50">
       <div className="flex justify-between items-center gap-8 px-8 sm:px-16 py-3 sm:py-4 rounded-[50px] bg-white/25 bg-opacity-50 backdrop-blur-[900px] z-50">
         <div className="flex-shrink-0">
@@ -18,9 +17,9 @@ const Header = () => {
             />
           </Link>
         </div>
-        <nav className="uppercase gap-6 hidden lg:flex">
+        <nav className="uppercase gap-4 hidden lg:flex">
           <NavLink
-            className="hover:underline decoration-yellow-500 decoration-2 underline-offset-4 font-[550]"
+            className="hover:underline decoration-yellow-500 decoration-2 underline-offset-8 font-[550]"
             href="/cairo"
           >
             Bootcamp
