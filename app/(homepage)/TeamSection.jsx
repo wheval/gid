@@ -36,20 +36,20 @@ const team = [
 
 const TeamSection = () => {
 return (
-    <div className="w-full p-16 bg-[#EDF0FC] relative">
+    <div className="w-full py-12 px-8 lg:p-16 bg-[#EDF0FC] relative">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[rgba(247,195,56,0.5)] to-[rgba(255,75,89,0.5)] blur-[190px]"></div>
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[rgba(247,195,56,0.5)] to-[rgba(255,75,89,0.5)] blur-[190px]"></div>
             <div className="max-w-screen-2xl mx-auto text-center relative z-10">
                     <h3 className="font-semibold text-black text-[2.5rem]">MEET THE TEAM</h3>
                     <p className="font-lato text-[1.5rem] mb-10">Get familiar with the power house making things happen at GIDA</p>
-                    <div className="flex gap-8 items-center">
+                    <div className="flex md:flex-row md:flex-wrap xl:flex-nowrap flex-col gap-8 justify-center items-center">
                             {
                                     team.map((teamMember) => (
                                             <MemberCard key={teamMember.name} name={teamMember.name} role={teamMember.role} image={teamMember.image} socials={teamMember.socials} />
                                     ))
                             }
                     </div>
-                    <div className="flex justify-end mt-8">
+                    <div className="flex justify-center lg:justify-end mt-8">
                             <div className="flex flex-col gap-2 items-center justify-center">
                                     <Image src="/assets/team/others.png" alt="" width={277} height={57} />
                                     <div className="flex items-center justify-center gap-2 text-primary">
