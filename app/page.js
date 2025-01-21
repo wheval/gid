@@ -1,16 +1,31 @@
-import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import RegistrationInfo from "@/components/RegistrationInfo";
-import Testimonials from "@/components/Testimonials";
-import Throwback from "@/components/Throwback";
+import Supporters from "./(homepage)/Supporters";
+import WhoAreWe from "./(homepage)/WhoAreWe";
+import WhyWeDifferent from "./(homepage)/WhyWeDifferent";
+import JoinCommunity from "./(homepage)/JoinCommunity";
 import HeroSection from "./(homepage)/HeroSection";
+import GidaDeveloperComSection from "./(homepage)/GidaDeveloperComSection";
+import ReadyToLearn from "./(homepage)/ReadyToLearn";
+import Newsletter from "./(homepage)/Newsletter";
+import Partnership from "./(homepage)/Partnership";
+import Activities from "./(homepage)/Activities";
+
 
 export default function Home() {
   return (
     <div className=" font-[family-name:var(--font-geist-sans)]">
         <HeroSection />
-        <FAQ/>
+        <Supporters />
+        <WhoAreWe />
+        <WhyWeDifferent/>
+        <JoinCommunity />
+        <GidaDeveloperComSection />
+        <Activities/>
+        <Partnership />
+        <Newsletter />
+        <ReadyToLearn />
         <Footer/>
+        
     </div>
   );
 }

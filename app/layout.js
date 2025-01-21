@@ -1,6 +1,6 @@
 import "./globals.css";
 import localFont from "next/font/local";
-import { Lato } from 'next/font/google';
+import { Lato, Abhaya_Libre } from 'next/font/google';
 import Header from "@/components/Header";
 
 const clashDisplay = localFont({
@@ -15,6 +15,12 @@ const lato = Lato({
   variable: '--font-lato',
 });
 
+const abhayaLibre = Abhaya_Libre({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-abhaya-libre',
+});
+
 export const metadata = {
   title: "GIDA",
   description: "Ginakev Digital Academy ",
@@ -23,7 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${clashDisplay.variable} ${lato.variable} antialiased font-[family-name:var(--font-clashDisplay)]`}>
+      <body className={`${clashDisplay.variable} ${lato.variable} ${abhayaLibre.variable} antialiased font-[family-name:var(--font-clashDisplay)]`}>
         <Header />
         {children}
       </body>

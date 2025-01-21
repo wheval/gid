@@ -31,14 +31,29 @@ const FAQ = () => {
       answer:
         "The tuition for the bootcamp is fully spondored by starknet Foundation.",
     },
+    {
+      question:
+        "what are the basic criteria for participating in  this FREE developer Bootcamp? ",
+      answer: " A good PC/Laptop is compulsory (not phone), Strong Internet connection, Zeal to learn and Consistency in attending classes and practicing what is taught, Must be Present in all classes within the 8 weeks learning period (don't miss classes) ",
+    },
+    {
+      question: "What is the nature of the class schedule?",
+      answer: "Classes holds online/virtually 2 times a week (Mondays & Wednesdays) only, with a test/assignment day every Friday. And runs for 8 weeks. ",
+    },
+    {
+      question: "Is there certification upon completion of the bootcamp?",
+      answer: "We will be giving Certificates by end of the Bootcamp only to those who actively participated in the Training. Active participation implies - attending classes without missing, doing the weekly assignments, doing the weekly tests.",
+    },
+    {
+      question: "How does the hybrid system  of this bootcamp work?",
+      answer: " We intend to have weekly physical/IRL meetups for learners every Sundays in 20 cities where we have the most bootcamp participants domiciled in. This hybrid model (online classes + physical meetups) will help ensure for a collaborative learning experience. ",
+    },
   ];
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-12">
       <div>
-        <h1 className="text-3xl font-extrabold mb-8 text-gray-800">
-          FAQ
-        </h1>
+        <h1 className="text-3xl font-bold mb-8 text-gray-800">FAQ</h1>
         <div className="flex flex-col gap-6">
           {faqs.map((faq, index) => (
             <div
@@ -47,7 +62,7 @@ const FAQ = () => {
             >
               <h1
                 onClick={() => toggleFAQ(index)}
-                className="text-lg font-bold cursor-pointer flex justify-between items-center"
+                className="text-lg font-[550] cursor-pointer flex justify-between items-center capitalize"
               >
                 {faq.question}
                 <span className="text-lg">
