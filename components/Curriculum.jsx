@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
-
+import { GoPlus } from "react-icons/go";
+import { LuMinus } from "react-icons/lu";
 const Curriculum = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -135,8 +135,8 @@ const Curriculum = () => {
               }
             >
               {item.week}
-              <span className="font-[100]">
-                {activeIndex === index ? <FaMinus /> : <FaPlus />}
+              <span className="!font-[100]">
+                {activeIndex === index ? <LuMinus /> : <GoPlus/>}
               </span>
             </h2>
             <p

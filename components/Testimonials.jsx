@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { LiaGreaterThanSolid, LiaLessThanSolid } from "react-icons/lia";
+import { LiaGreaterThanSolid } from "react-icons/lia";
 
 const testimonials = [
   {
@@ -24,7 +24,7 @@ const testimonials = [
     id: 3,
     name: "Gideon Bature",
     image: "/assets/testimonial4.jpeg",
-    role: "Web2 Developer",
+    role: "Smart Contract Developer",
     testimonial:
       "It was a great learning experience. The tutors and community were very helpful, always answering questions and providing assignments to deepen our understanding. Thanks, GIDA, for this opportunity!",
   },
@@ -40,7 +40,7 @@ const testimonials = [
     id: 5,
     name: "Anih Wisdom Somadina",
     image: "/assets/testimonial3.jpg",
-    role: "Web2 Developer",
+    role: "Smart Contract Developer",
     testimonial:
       "The GIDA-Cairo bootcamp was an enriching experience with passionate tutors and friendly colleagues. Every concept was explained thoroughly, and all questions were welcomed. Thanks, GIDA, for this great opportunity!",
   },
