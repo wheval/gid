@@ -12,7 +12,7 @@ const GidaDeveloperComSection = () => {
           />
         </div>
         <div className="lg:w-[44ch]">
-          <h1 className="text-5xl font-semibold mb-7 leading-[1.3]">GIDA Developer Community</h1>
+          <h1 className="lg:text-5xl text-[2.5rem] font-semibold mb-7 leading-[1.3]">GIDA Developer Community</h1>
           <p className="mb-8 font-lato text-xl" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>At GIDA, we pride ourself in the training of developers to become world class engineers and have organized & still actively organising bootcamps to that effect.</p>
           <p className="mb-8 font-lato text-xl" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>We've got an active Web2 & Web3 developer community, with our devs active in various ecosystems - Starknet, EVM, Ethereum, Lisk, Base, etc.</p>
           <p className="mb-8 font-lato text-xl" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>We teach HTML, CSS, Javascript, React to intending web developers, and for existing web devs looking to migrate to Blockchain development, we teach them Cairo and Solidity.</p>

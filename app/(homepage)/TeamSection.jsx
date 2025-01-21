@@ -41,7 +41,7 @@ return (
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[rgba(247,195,56,0.5)] to-[rgba(255,75,89,0.5)] blur-[190px]"></div>
             <div className="max-w-screen-2xl mx-auto text-center relative z-10">
                     <h3 className="font-semibold text-black text-[2.5rem]">MEET THE TEAM</h3>
-                    <p className="font-lato text-[1.5rem] mb-10">Get familiar with the power house making things happen at GIDA</p>
+                    <p className="font-lato text-[1.1rem] lg:text-[1.5rem] mb-10">Get familiar with the power house making things happen at GIDA</p>
                     <div className="flex md:flex-row md:flex-wrap xl:flex-nowrap flex-col gap-8 justify-center items-center">
                             {
                                     team.map((teamMember) => (

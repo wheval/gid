@@ -6,10 +6,10 @@ return (
     <div className="px-4 sm:px-8 py-8 sm:py-16 text-white bg-red-800">
             <div className="max-w-screen-2xl mx-auto flex flex-col gap-10 sm:gap-20 mb-10 sm:mb-20 items-center justify-center">
                     <div className="text-center">
-                            <h3 className="font-semibold text-[1.5rem] sm:text-[2rem] lg:text-[3.125rem]">
+                            <h3 className="font-semibold text-[2rem] lg:text-[3.125rem]">
                                     Upcoming Events
                             </h3>
-                            <p className="font-lato text-sm sm:text-base lg:mt-[-20px] lg:text-[1.5rem] lg:w-[55ch] tracking-tighter capitalize">See all our events tailored to help you accelerate faster in your tech journey</p>
+                            <p className="font-lato text-sm sm:text-base lg:mt-[-10px] lg:text-[1.5rem] lg:w-[55ch] tracking-tighter capitalize">See all our events tailored to help you accelerate faster in your tech journey</p>
                     </div>
                         <div className="relative scale-90 sm:scale-100">
                             <div className="w-full shadow-sm max-w-full lg:max-w-[850px] rounded-[28px] relative z-30 overflow-hidden flex flex-col items-center justify-center">
