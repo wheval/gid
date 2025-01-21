@@ -21,7 +21,7 @@ const Activities = () => {
 
       {/* Image Section */}
       <div className=" h-screen w-full md:w-1/2 relative">
-        <img src="/assets/leftarrow.png" className='absolute w-14 -left-8 top-1/3 z-10' alt="" />
+        <img src="/assets/leftarrow.png" className='absolute w-14 -left-8 top-1/3 z-10 cursor-pointer' alt="" />
         {/* First Image */}
         <div className="absolute w-80 h-80  left-0 top-20">
           <img
@@ -38,7 +38,7 @@ const Activities = () => {
             alt="Activities 2"
           />
         </div>
-        <img src="/assets/rightarrow.png" className='absolute w-14 -right-64 lg:-right-1 top-1/3 z-10' alt="" />
+        <img src="/assets/rightarrow.png" className='absolute w-14 -right-64 lg:-right-1 top-1/3 z-10 cursor-pointer' alt="" />
       </div>
     </div>
   );
