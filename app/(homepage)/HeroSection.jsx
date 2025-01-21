@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const HeroSection = () => {
 return (
@@ -13,8 +14,8 @@ return (
                         <p className="lg:text-[1.5rem] font-lato lg:w-[50ch]">We've been committed to driving tech, digital literacy and Blockchain / Web3 adoption in Africa since 2020</p>
                 </div>
                 <div className='flex gap-4'>
-                    <button className="bg-[#900A15] hover:bg-[#a20b17] text-white font-semibold px-[21px] py-[12px] rounded-full">Our Bootcamps</button>
-                    <button className="bg-white hover:bg-[#ddd] text-primary font-semibold px-[21px] py-[12px] rounded-full">Our Events</button>
+                    <Link href="/cairo"><button className="bg-[#900A15] hover:bg-[#a20b17] text-white font-semibold px-[21px] py-[12px] rounded-full">Our Bootcamps</button></Link> 
+                    <Link href="/events"> <button className="bg-white hover:bg-[#ddd] text-primary font-semibold px-[21px] py-[12px] rounded-full">Our Events</button></Link>
                 </div>
             </div>
     </div>

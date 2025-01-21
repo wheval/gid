@@ -9,6 +9,7 @@ import ReadyToLearn from "./(homepage)/ReadyToLearn";
 import Newsletter from "./(homepage)/Newsletter";
 import Partnership from "./(homepage)/Partnership";
 import TeamSection from "./(homepage)/TeamSection";
+import FifaSection from "./(homepage)/FifaSection";
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <WhyWeDifferent/>
         <JoinCommunity />
         <GidaDeveloperComSection />
+        <FifaSection />
         <TeamSection />
         <Partnership />
         <Newsletter />
