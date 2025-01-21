@@ -8,7 +8,7 @@ const Footer = () => {
   };
   return (
     <footer className="bg-[#900A15] text-white py-16">
-      <div className="w-full px-6 grid grid-cols-2  sm:grid-cols-3 gap-8">
+      <div className="w-full px-6 grid grid-cols-2  sm:grid-cols-3 gap-8  justify-items-stretch">
         {/* About Section */}
         <div>
           <h2 className="text-xl font-[550] mb-4">About</h2>

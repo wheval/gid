@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const Curriculum = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -128,12 +129,15 @@ const Curriculum = () => {
             className="bg-yellow-500 text-black p-4 rounded-md shadow-md"
           >
             <h2
-              className="font-[550] cursor-pointer"
+              className="font-[550] cursor-pointer flex justify-between"
               onClick={() =>
                 setActiveIndex(activeIndex === index ? null : index)
               }
             >
               {item.week}
+              <span className="font-[100]">
+                {activeIndex === index ? <FaMinus /> : <FaPlus />}
+              </span>
             </h2>
             <p
               className="mb-2 cursor-pointer"
@@ -144,11 +148,16 @@ const Curriculum = () => {
               {item.title}
             </p>
             {activeIndex === index && (
-               <ul className="mt-2 px-4">
-               {item.details.map((detail, idx) => (
-                 <li key={idx} className={detail.startsWith('-') ? "" : "font-[550]"}>{detail}</li>
-               ))}
-             </ul>
+              <ul className="mt-2 px-4">
+                {item.details.map((detail, idx) => (
+                  <li
+                    key={idx}
+                    className={detail.startsWith("-") ? "" : "font-[550]"}
+                  >
+                    {detail}
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
         ))}
