@@ -11,6 +11,7 @@ import Partnership from "./(homepage)/Partnership";
 import TeamSection from "./(homepage)/TeamSection";
 import FifaSection from "./(homepage)/FifaSection";
 import Activities from "./(homepage)/Activities";
+import GidaMOT from "./(homepage)/GidaMOT";
 
 
 export default function Home() {
@@ -23,12 +24,14 @@ export default function Home() {
         <JoinCommunity />
         <GidaDeveloperComSection />
         <Activities/>
+        <GidaMOT/>
         <FifaSection />
         <TeamSection />
         <Partnership />
         <Newsletter />
         <ReadyToLearn />
         <Footer/>
+        
         
     </div>
   );
