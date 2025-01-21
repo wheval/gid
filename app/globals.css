@@ -13,5 +13,22 @@
 
 body {
   @apply max-w-[3000px] w-full bg-white text-black mx-auto;
+}
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 7)); 
+  }
+}
+
+.animate-infinite-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
 }
