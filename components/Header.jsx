@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
+
     <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm sm:text-base  max-w-[90vw] z-50">
       <div className="flex justify-between items-center gap-8 px-8 sm:px-16 py-3 sm:py-4 rounded-[50px] bg-white/25 bg-opacity-50 backdrop-blur-[900px] z-50">
         <div className="flex-shrink-0">
@@ -29,6 +30,7 @@ const Header = () => {
           <NavLink href="/">About</NavLink>
           <NavLink href="/">Blog</NavLink>
         </nav>
+
         <div className="flex gap-1 sm:gap-2 uppercase">
           <Link
             href="/chainup"

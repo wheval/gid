@@ -2,27 +2,27 @@ import Image from 'next/image'
 
 const WhoAreWe = () => {
 return (
-    <div className='w-full min-h-[95vh] px-12 py-6 flex items-center justify-center bg-[#A20812] text-white'>
-            <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
+    <div className='w-full px-4 py-12 pb-20 lg:pb-32 lg:px-12 lg:py-16 flex items-center justify-center bg-[#A20812] text-white mt-[-3px]'>
+            <div className="max-w-[1440px] mb-4 lg:mb-4 mx-auto w-full flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
                     <div className='flex flex-col items-start gap-6 flex-1'>
                             <div className='flex flex-col gap-4'>
                                     <h2 className='font-semibold capitalize text-[2.5rem]'>WHO ARE WE?</h2>
-                                    <p className='font-lato text-[1.25rem] max-w-[44ch] tracking-[1%]'>GIDA™ is an Edu-Tech platform & academy empowering the next generation of tech talents. We train people via both virtual and IRL sessions aimed at raising blockchain experts, Web3 users and seasoned builders.</p>  
+                                    <p className='font-lato lg:lg:text-[1.25rem] max-w-[44ch] tracking-[1%]'>GIDA™ is an Edu-Tech platform & academy empowering the next generation of tech talents. We train people via both virtual and IRL sessions aimed at raising blockchain experts, Web3 users and seasoned builders.</p>  
                     
-                                    <p className='font-lato text-[1.25rem] max-w-[44ch] tracking-[1%]'>We&apos;ve got thriving developer community, traders community, DEFI community and other sub-communities relevant in web3.</p>
+                                    <p className='font-lato lg:text-[1.25rem] max-w-[44ch] tracking-[1%]'>We&apos;ve got thriving developer community, traders community, DEFI community and other sub-communities relevant in web3.</p>
                             </div>
-                            <div className='flex items-center gap-12 mt-3'>
+                            <div className='flex items-center lg:gap-12 gap-4 mt-3'>
                                     <div className='flex flex-col gap-0 items-start'>
-                                            <p className='xl:text-[6rem] text-[4rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5k+</p>
-                                            <p className='font-lato font-light'>Community Members</p>
+                                            <p className='xl:text-[6rem] text-[3rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5k+</p>
+                                            <p className='font-lato text-sm lg:text-base font-light'>Community Members</p>
                                     </div>
                                     <div className='flex flex-col gap-0 items-start'>
-                                            <p className='xl:text-[6rem] text-[4rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>10+</p>
-                                            <p className='font-lato font-light'>Bootcamps</p>
+                                            <p className='xl:text-[6rem] text-[3rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>10+</p>
+                                            <p className='font-lato text-sm lg:text-base font-light'>Bootcamps</p>
                                     </div>
                                     <div className='flex flex-col gap-0 items-start'>
-                                            <p className='xl:text-[6rem] text-[4rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5</p>
-                                            <p className='font-lato font-light'>IRL Events</p>
+                                            <p className='xl:text-[6rem] text-[3rem] leading-none font-[family-name:var(--font-abhaya-libre)]'>5</p>
+                                            <p className='font-lato text-sm lg:text-base font-light'>IRL Events</p>
                                     </div>
                             </div>
                             <div className='flex items-center gap-x-4 mt-4'>
