@@ -1,8 +1,7 @@
 "use client";
-
 import React, { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
-
+import { GoPlus } from "react-icons/go";
+import { LuMinus } from "react-icons/lu";
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -34,19 +33,23 @@ const FAQ = () => {
     {
       question:
         "what are the basic criteria for participating in  this FREE developer Bootcamp? ",
-      answer: " A good PC/Laptop is compulsory (not phone), Strong Internet connection, Zeal to learn and Consistency in attending classes and practicing what is taught, Must be Present in all classes within the 8 weeks learning period (don't miss classes) ",
+      answer:
+        " A good PC/Laptop is compulsory (not phone), Strong Internet connection, Zeal to learn and Consistency in attending classes and practicing what is taught, Must be Present in all classes within the 8 weeks learning period (don't miss classes) ",
     },
     {
       question: "What is the nature of the class schedule?",
-      answer: "Classes holds online/virtually 2 times a week (Mondays & Wednesdays) only, with a test/assignment day every Friday. And runs for 8 weeks. ",
+      answer:
+        "Classes holds online/virtually 2 times a week (Mondays & Wednesdays) only, with a test/assignment day every Friday. And runs for 8 weeks. ",
     },
     {
       question: "Is there certification upon completion of the bootcamp?",
-      answer: "We will be giving Certificates by end of the Bootcamp only to those who actively participated in the Training. Active participation implies - attending classes without missing, doing the weekly assignments, doing the weekly tests.",
+      answer:
+        "We will be giving Certificates by end of the Bootcamp only to those who actively participated in the Training. Active participation implies - attending classes without missing, doing the weekly assignments, doing the weekly tests.",
     },
     {
       question: "How does the hybrid system  of this bootcamp work?",
-      answer: " We intend to have weekly physical/IRL meetups for learners every Sundays in 20 cities where we have the most bootcamp participants domiciled in. This hybrid model (online classes + physical meetups) will help ensure for a collaborative learning experience. ",
+      answer:
+        " We intend to have weekly physical/IRL meetups for learners every Sundays in 20 cities where we have the most bootcamp participants domiciled in. This hybrid model (online classes + physical meetups) will help ensure for a collaborative learning experience. ",
     },
   ];
 
@@ -66,7 +69,7 @@ const FAQ = () => {
               >
                 {faq.question}
                 <span className="text-lg">
-                  {openIndex === index ? <FaMinus /> : <FaPlus />}
+                  {openIndex === index ? <LuMinus /> : <GoPlus />}
                 </span>
               </h1>
               {openIndex === index && (

@@ -1,10 +1,10 @@
 import { FaTelegram, FaWhatsapp } from "react-icons/fa";
-import { IoClose } from "react-icons/io5"; // Import close icon
+import { IoClose } from "react-icons/io5";
 
 const RegisterSuccess = ({ email, onClose }) => {
   // Add onClose prop
   return (
-    <div className="fixed inset-0 flex items-center justify-center p-4 bg-gradient-to-tr from-[#FF4B59]/50 to-[#F7C338]/50">
+    <div className="fixed inset-0 flex items-center justify-center p-4 bg-gradient-to-tr from-[#FF4B59]/40 to-[#F7C338]/40 backdrop-blur-lg">
       <div className="bg-white rounded-3xl p-8 max-w-md w-full text-center relative text-black">
         {/* Add close button */}
         <button
@@ -16,11 +16,11 @@ const RegisterSuccess = ({ email, onClose }) => {
 
         <h1 className="text-3xl font-bold mb-4">Congratulations!!!</h1>
 
-        <p className="text-xl mb-4">
+        <p className="text-base md:text-lg mb-2 md:mb-4">
           You Have Successfully Registered For Cairo Bootcamp 2.0
         </p>
 
-        <p className="text-lg mb-6">
+        <p className="text-base md:text-lg mb-2 md:mb-4">
           We've Sent You A Confirmation E-mail to
           <span className="underline font-[550]"> {email} </span>
         </p>

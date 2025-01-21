@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import RegisterSuccess from "./RegisterSuccess";
-
+import { useRouter } from "next/navigation";
 const IMAGES = {
   background: {
     src: "/assets/blurbg.png",
@@ -46,6 +46,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsq] = useState("");
   const [mail, setMail] = useState("");
+  const router = useRouter();
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === "checkbox") {
@@ -62,6 +63,7 @@ const Register = () => {
   //  handler to close the modal
   const handleCloseModal = () => {
     setSuccess(false);
+    router.push("/cairo");
   };
 
   const updateFormFields = (e) => {

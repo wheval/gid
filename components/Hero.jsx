@@ -4,7 +4,7 @@ import { CiLocationOn } from "react-icons/ci";
 
 const Hero = () => {
   return (
-    <div className="pt-20 text-white relative min-w-full h-screen max-h-screen">
+    <div className="pt-20 text-white relative min-w-full  max-h-max">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -23,7 +23,7 @@ const Hero = () => {
         <div className="flex items-center gap-8 my-10">
           <Image
             src="/assets/gidaLogo.svg"
-            width={5000}
+            width={1000}
             height={1000}
             alt="Foreground Image 2"
             className="w-28 hidden md:inline-block"
@@ -42,7 +42,7 @@ const Hero = () => {
           width={500}
           height={500}
           alt="Foreground Image 1"
-          className="mb-4 w-[300px] md:w-[500px] "
+          className="mb-4 w-[300px] md:w-[400px] lg:w-[450px] "
         />
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 max-w-3xl text-xs capitalize">
           <div className="bg-[#101114] rounded-md px-6 md:px-8 py-3 md:py-4 hover:bg-[#1a1b1f] hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-lg">
