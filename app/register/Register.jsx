@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import RegisterSuccess from "./RegisterSuccess";
 
 const IMAGES = {
   background: {
@@ -40,10 +41,11 @@ const Register = () => {
     otherState: "",
     city: "",
   });
-  const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
-
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsq] = useState("");
+  const [mail, setMail] = useState("");
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === "checkbox") {
@@ -57,13 +59,16 @@ const Register = () => {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
+  //  handler to close the modal
+  const handleCloseModal = () => {
+    setSuccess(false);
+  };
 
   const updateFormFields = (e) => {
     e.preventDefault();
     setShowFields(true);
-    console.log("Form submitted with email:", formData.email);
   };
-  //https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -100,14 +105,34 @@ const Register = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submission successful:", result);
-        alert("Registration successful");
+        setSuccess(true);
+        setMail(formData.email);
+
+        // setFormData({
+        //   email: "",
+        //   firstName: "",
+        //   lastName: "",
+        //   phone: "",
+        //   gender: "",
+        //   status: "",
+        //   institution: "",
+        //   proficiency: "",
+        //   stack: "",
+        //   country: "",
+        //   state: "",
+        //   otherState: "",
+        //   city: "",
+        // });
       } else {
-        console.error("Failed to submit form:", await response.text());
-        alert("Failed to submit the form. Please try again.");
+        console.log("Failed to submit form:", response.status);
+        console.log("Failed to submit form:", await response.text());
+        if (response?.status == 400) {
+          setErrorMsq("All fields are required");
+        }
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("An error occurred while submitting the form.");
+      setErrorMsq("An error occurred while submitting the form.");
     } finally {
       setIsLoading(false);
     }
@@ -218,6 +243,7 @@ const Register = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
+                  disabled
                   placeholder="E-mail"
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
@@ -263,10 +289,10 @@ const Register = () => {
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 >
                   <option value="">What's your level of proficiency?</option>
-                  <option value="Novice">Novice</option>
-                  <option value="Beginner">Beginner</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Advanced">Advanced</option>
+                  <option value="novice">No existing coding knowledge</option>
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="professional">Professional</option>
                 </select>
               </div>
               {/* choose stack */}
@@ -279,10 +305,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="Frontend Developer"
-                        checked={formData.stack === "Frontend Developer"}
+                        value="frontend"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Frontend Developer (HTML, CSS, JS, React)
@@ -294,10 +319,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="Backend Developer"
-                        checked={formData.stack === "Backend Developer"}
+                        value="backend"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Backend Developer (React, Python, Node, etc)
@@ -309,10 +333,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="Blockchain Developer"
-                        checked={formData.stack === "Blockchain Developer"}
+                        value="blockchain"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Blockchain Dev (Solidity, Rust)
@@ -324,10 +347,9 @@ const Register = () => {
                       <input
                         type="radio"
                         name="stack"
-                        value="New Developer"
-                        checked={formData.stack === "New Developer"}
+                        value="none"
                         onChange={handleChange}
-                        className="appearance-none w-5 h-5 border border-gray-400 rounded-md checked:bg-white checked:border-none"
+                        className=" w-5 h-5 border border-gray-400 rounded-md "
                       />
                       <span className="text-gray-300">
                         Not an existing dev. Just starting out
@@ -402,6 +424,13 @@ const Register = () => {
           )}
         </form>
       </div>
+      {success && <RegisterSuccess email={mail} onClose={handleCloseModal} />}
+      {errorMsg && (
+        <div className="mb-8 mx-2 font-[550] text-center text-red-500 mt-1">
+          {" "}
+          {errorMsg}{" "}
+        </div>
+      )}
     </main>
   );
 };
