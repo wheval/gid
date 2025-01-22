@@ -9,9 +9,9 @@ const bootcamps = [
     image: "cairo_bootcamp.png",
     status: "Upcoming",
     technologies: ["HTML", "Frontend", "Backend"],
-    duration: "10 Days Mar 01 - Mar 10",
+    duration: "10 Days Mar 01 - Mar 10, 2025",
     type: "Strictly Virtual",
-    sponsor: "Bitget",
+    sponsor_logo: "/assets/logos/snfoundation.svg",
   },
   {
     title: "MOT Bootcamp 2.0",
@@ -20,9 +20,9 @@ const bootcamps = [
     image: "mot_bootcamp.png",
     status: "Ongoing",
     technologies: ["XAU/USD", "Bitcoin", "Trading"],
-    duration: "10 Days Mar 01 - Mar 10",
+    duration: "10 Days Mar 01 - Mar 10, 2025",
     type: "Strictly Virtual",
-    sponsor: "Bitget",
+    sponsor_logo: "/assets/logos/bitget.svg",
   },
   {
     title: "GIDA Developer Bootcamp 1.0",
@@ -31,9 +31,9 @@ const bootcamps = [
     image: "cairo_dev_bootcamp.png",
     status: "Ended",
     technologies: ["HTML", "Frontend", "Backend"],
-    duration: "10 Days Oct 01 - Nov 10",
+    duration: "10 Days Sept 02 - Oct 26, 2024",
     type: "Strictly Virtual",
-    sponsor: "Bitget",
+    sponsor_logo: "/assets/logos/snfoundation.svg",
   },
 ];
 
@@ -100,10 +100,16 @@ export default function BootcampSection() {
                 </div>
                 <div className="p-2 pt-0">
                   <div className="w-full space-y-4">
-                    <div className="flex items-center gap-2">
+                    { bootcamp.sponsor_logo && <div className="flex items-center gap-2">
                       <span className="text-sm text-gray-600">Sponsors:</span>
-                      <span className="font-semibold">{bootcamp.sponsor}</span>
-                    </div>
+                      <Image 
+                        src={bootcamp.sponsor_logo} 
+                        alt="Sponsor logo" 
+                        width={100} 
+                        height={30} 
+                        className="h-[20px] invert w-auto object-contain"
+                      />
+                    </div>}
                     <Link
                       href="#"
                       className="block w-full text-center font-medium rounded-full py-2 px-4 bg-primary hover:bg-red-900 text-white transition-colors"

@@ -3,7 +3,7 @@ import Image from 'next/image'
 const Supporters = () => {
   return (
     <div className='w-full lg:py-6 pt-16 lg:pt-9 bg-[#A20812] text-white text-center relative overflow-hidden'>
-        <p className="font-semibold text-[2.5rem] mt-2">OUR SUPPORTERS</p>
+        <p className="font-semibold text-[2.5rem] mt-2 mb-4">OUR SUPPORTERS</p>
         <Image className='absolute left-[-60%] sm:left-0 top-[0] z-10' width={413} height={301} src="/assets/boxes.svg" />
         <Image className='absolute z-10 right-[-50%] sm:right-0 top-[-5%]' width={294} height={323} src="/assets/btc_shadow.svg" />
         <div className='relative w-full overflow-hidden'>

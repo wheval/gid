@@ -2,8 +2,8 @@ import React from 'react'
 
 const GidaMOT = () => {
   return (
-    <section className="p-8 min-h-screen min-w-full flex flex-col items-center justify-center bg-rose-50">
-      <div className='flex flex-col gap-10 items-center justify-between lg:flex-row lg:max-w-screen-2xl mx-auto'>
+    <section className="p-8 min-h-screen min-w-full lg:px-20 flex flex-col items-center justify-center bg-[#FEF8F3]">
+      <div className='flex flex-col w-full gap-14 items-center justify-between lg:flex-row lg:max-w-screen-2xl mx-auto'>
         <div className='lg:pr-10 font-lato text-xl'>
           <h1 className='text-[2.5rem] leading-[1.25] font-clash lg:text-6xl mb-4 font-semibold'>GIDA MOT League</h1>
           <p className="mb-4 tracking-tight lg:w-[50ch]" style={{ color: 'rgba(0, 0, 0, 0.7)' }}>GIDA's “Masters of Trading League‶ - MOT League 💹 is a monthly subscription based premium and exclusive community for people actively involved in Trading the Crypto Spot and Futures Market as well as the Forex Market.</p>

@@ -1,7 +1,7 @@
 
 const WhyWeDifferent = () => {
   return (
-    <div className="w-full bg-white p-2 py-12 lg:p-16">
+    <div className="w-full bg-white p-2 py-12 lg:p-20">
       <div className="w-full grid lg:grid-cols-2 grid-rows-auto max-w-screen-2xl mx-auto rounded-[50px] overflow-hidden">
         <div className="sm:h-full h-[300px]">
           <img
@@ -10,10 +10,10 @@ const WhyWeDifferent = () => {
             className="w-full h-full object-cover"
                 />
         </div>
-        <div className="p-7 bg-accent flex items-center justify-center h-full">
-          <div className="py-2 lg:px-12 flex flex-col gap-4">
-              <h1 className="text-3xl lg:text-5xl leading-relaxed lg:w-[10ch] font-semibold">Why GIDA Is Different</h1>
-              <div className="px-4 lg:px-6 font-lato lg:w-[65ch] border-l-4 border-black flex flex-col jusfify-between gap-4">
+        <div className="py-7 px-8 lg:px-0 bg-accent flex items-center justify-center h-full">
+          <div className="py-2 lg:px-16 lg:ml-10 flex flex-col gap-4">
+              <h1 className="text-3xl lg:text-[3.125rem] lg:leading-[1.5] lg:w-[10ch] font-semibold">Why GIDA Is Different</h1>
+              <div className="px-4 lg:px-6 font-lato  border-l-4 border-black flex flex-col jusfify-between gap-4 lg:gap-8">
                   <div className="">
                       <h2 className="font-medium tracking-tight text-[1.25rem] lg:text-[1.5rem]">Live Classes</h2>
                       <p>Our classes are always live and 100% practical based, with recordings always taken for reference</p>

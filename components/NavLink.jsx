@@ -1,13 +1,20 @@
-import Link from "next/link";
+'use client'
 
-const NavLink = ({ href, children }) => {
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+const NavLink = ({ href, children, className }) => {
+  const pathname = usePathname()
+  const isActive = pathname === href
+
   return (
-    <Link
+    <Link 
       href={href}
-      className="hover:underline decoration-yellow-500 decoration-2 underline-offset-8  font-[550]">
+      className={`${className} ${isActive ? 'underline' : ''}`}
+    >
       {children}
     </Link>
-  );
-};
+  )
+}
 
-export default NavLink;
+export default NavLink

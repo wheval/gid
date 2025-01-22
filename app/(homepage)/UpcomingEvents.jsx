@@ -25,19 +25,19 @@ return (
                                                     <div className="flex items-center justify-between gap-2 lg:gap-4 w-full">
                                                             <div className="flex flex-col justify-between lg:gap-4">
                                                                     <p className="font-lato text-sm sm:text-[1.1rem] text-gray-500">Mission</p>
-                                                                    <p className="font-abhaya text-2xl sm:text-[3.125rem]">1</p>
+                                                                    <p className="font-bold font-[family-name:var(--font-abhaya-libre)] text-2xl sm:text-[3.125rem]">1</p>
                                                             </div>
                                                             <div className="flex flex-col justify-between lg:gap-4">
                                                                     <p className="font-lato text-sm sm:text-[1.1rem] text-gray-500">Cities</p>
-                                                                    <p className="font-abhaya text-2xl sm:text-[3.125rem]">5</p>
+                                                                    <p className="font-bold font-[family-name:var(--font-abhaya-libre)] text-2xl sm:text-[3.125rem]">5</p>
                                                             </div>
                                                             <div className="flex flex-col justify-between lg:gap-4">
                                                                     <p className="font-lato text-sm sm:text-[1.1rem] text-gray-500">Attendees</p>
-                                                                    <p className="font-abhaya text-2xl sm:text-[3.125rem]">500+</p>
+                                                                    <p className="font-bold font-[family-name:var(--font-abhaya-libre)] text-2xl sm:text-[3.125rem]">500+</p>
                                                             </div>
                                                     </div>
                                                     <div className="flex justify-end w-full">
-                                                            <Link href="/events" ><button className="bg-primary rounded-full px-4 font-lato py-1 hover:bg-red-600 font-semibold text-white text-sm sm:text-base">See All Events</button></Link>
+                                                            <Link href="/chainup" ><button className="bg-primary rounded-full px-4 font-lato py-1 hover:bg-red-600 font-semibold text-white text-sm sm:text-base">See All Events</button></Link>
                                                     </div>
                                             </div>
                                     </div>
