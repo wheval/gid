@@ -4,8 +4,8 @@ import AboutChainUpImg from '../../../public/assets/about-chain-up.png';
 
 const AboutChainUp = () => {
     return (
-        <div className="flex flex-col space-between py-10 md:flex-row bg-[#FAB622]">
-            <div className="relative w-full h-64 px-10">
+        <div className="flex flex-col space-between p-2 md:p-20 md:flex-row bg-[#FAB622]">
+            <div className="relative w-full h-64 md:px-10">
                 <Image
                     src={AboutChainUpImg}
                     alt="about-chain-up"
@@ -15,7 +15,7 @@ const AboutChainUp = () => {
                 />
             </div>
 
-            <div className="about-chain-up px-10">
+            <div className="about-chain-up md:px-10">
                 <h2 className="font-bold">Chain Up</h2>
                 
                 <p>The GIDA Chain-Up Roadshows are a series of blockchain-focused events aimed at educating, engaging and empowering blockchain enthusiasts across 5 cities in Nigeria - Kaduna, Ibadan, Benin City, Anambra and Enugu.</p>

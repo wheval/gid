@@ -23,7 +23,7 @@ const testimonials = [
   {
     id: 3,
     name: "Gideon Bature",
-    image: "/assets/testimonial4.jpeg",
+    image: "/assets/testimonial5.jpeg",
     role: "Smart Contract Developer",
     testimonial:
       "It was a great learning experience. The tutors and community were very helpful, always answering questions and providing assignments to deepen our understanding. Thanks, GIDA, for this opportunity!",
@@ -31,7 +31,7 @@ const testimonials = [
   {
     id: 4,
     name: "Femi Oje",
-    image: "/assets/testimonial5.jpeg",
+    image: "/assets/testimonial4.jpeg",
     role: "Frontend Developer",
     testimonial:
       "Coming from a Web2 background, the GIDA x Starknet Bootcamp was my gateway into Web3. The mentors provided great support and resources, making the transition smooth and enjoyable. Consistency is key to success!",

@@ -7,7 +7,7 @@ import Image from 'next/image';
 const Hero = () => {
     return (
         <div
-            className="bg-cover bg-center h-screen w-full"
+            className="bg-cover bg-center h-fit w-full p-10"
             style={{ backgroundImage: `url(${ChainUpHeroBg.src})` }}
         >
             <div className="flex flex-col lg:flex-row items-center justify-center h-full space-y-6 lg:space-y-0 lg:space-x-32">
