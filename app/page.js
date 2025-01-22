@@ -15,6 +15,7 @@ import UpcomingEvents from "./(homepage)/UpcomingEvents";
 import BootcampSection from "./(homepage)/BootcampSection";
 import GidaMOT from "./(homepage)/GidaMOT";
 import ProfessionalTrader from "./(homepage)/ProfessionalTrader";
+import NewsSection from "./(homepage)/NewsSection";
 
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
         <BootcampSection />
         <FifaSection />
         <TeamSection />
+        <NewsSection/>
         <Partnership />
         <Newsletter />
         <ReadyToLearn />
