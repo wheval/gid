@@ -23,6 +23,7 @@ const EventsSchedule = () => {
       registered: 230,
       image: KadunaImg,
       loc: KADImg,
+      registerUrl: "/",
     },
     {
       date: "January 29, 2025",
@@ -33,6 +34,7 @@ const EventsSchedule = () => {
       registered: 230,
       image: IbadanImg,
       loc: IBImg,
+      registerUrl: "/",
     },
     {
       date: "February 01, 2025",
@@ -43,6 +45,7 @@ const EventsSchedule = () => {
       registered: 230,
       image: BeninImg,
       loc: BNIImg,
+      registerUrl: "/",
     },
     {
       date: "February 8, 2025",
@@ -54,6 +57,7 @@ const EventsSchedule = () => {
       registered: 230,
       image: AnambraImg,
       loc: ANImg,
+      registerUrl: "/",
     },
     {
       date: "February 15, 2025",
@@ -65,12 +69,13 @@ const EventsSchedule = () => {
       registered: 230,
       image: EnuguImg,
       loc: ENUImg,
+      registerUrl: "/",
     },
   ];
 
   return (
     <div className="schedule-container bg-[#F0F0F0] md:p-10">
-      <h1 className="schedule-title font-semibold text-2xl">Events Schedule</h1>
+      <h1 className="schedule-title font-semibold text-2xl p-10">Events Schedule</h1>
 
       <div className="events-list">
         {eventsScheduleData.map((event, index) => (

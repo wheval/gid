@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { FaSearchLocation } from 'react-icons/fa';
+import Link from "next/link";
 import TimeIcon from '../../../public/assets/timeIcon.svg';
 import LocationIcon from '../../../public/assets/locationIcon.svg';
 
@@ -62,9 +62,11 @@ const EventCard = ({ event }) => {
                         <span className="pl-3">{event.registered} Registered</span>
                     </div>
 
-                    <button className="bg-red-700 w-50 text-white font-bold px-6 py-3 rounded-full mt-4 hover:bg-red-800 transition">
-                        Register For Event
-                    </button>
+                    <Link href={`${event.registerUrl}`}>
+                        <button className="bg-red-700 w-50 text-white font-bold px-6 py-3 rounded-full mt-4 hover:bg-red-800 transition">
+                            Register For Event
+                        </button>
+                    </Link>
                 </div>
 
                 <div className='images md:ml-auto'>
@@ -75,7 +77,7 @@ const EventCard = ({ event }) => {
                                 alt="Event banner"
                                 layout="fill"
                                 objectFit="cover"
-                                className="p-2"
+                                className="p-2 rounded-xl"
                             />
                         </div>
 
@@ -85,7 +87,7 @@ const EventCard = ({ event }) => {
                                 alt="Event location"
                                 layout="fill"
                                 objectFit="cover"
-                                className="p-2"
+                                className="p-2 rounded-xl"
                             />
                         </div>
                     </div>

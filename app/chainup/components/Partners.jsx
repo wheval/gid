@@ -27,9 +27,9 @@ const Partners = () => {
   ]
   return (
     <div className='text-center'>
-      <h1 className="font-semibold text-2xl mb-10">Our Partners</h1>
+      <h1 className="font-semibold text-2xl m-10">Our Partners</h1>
 
-      <div className="flex flex-wrap justify-center items-center p-5">
+      <div className="flex flex-wrap justify-center items-center m-10 p-5">
         {partners.map((partner) => {
           return (
             <Image
