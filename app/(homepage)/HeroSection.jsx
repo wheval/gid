@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const HeroSection = () => {
 return (
-    <div className='w-full min-h-[95vh] flex flex-col justify-center items-center text-center text-white bg-[url("/assets/homepage_hero_bg.svg")] bg-cover bg-center bg-no-repeat'>
+    <div className='w-full min-h-[95vh] h-[95vh] flex flex-col justify-center items-center text-center text-white bg-[url("/assets/homepage_hero_bg.svg")] bg-cover bg-center bg-no-repeat'>
             <div className="flex flex-col gap-y-6 md:max-w-[70%] p-6 items-center">
                 <div className='bg-white rounded-full flex gap-2 text-black items-center p-1 pr-3'>
                         <div><Image width={100} height={50} className='sm:w-[100px] sm:h-[50px] w-[50px] h-[25px]' src="/assets/profiles_hero.svg" /></div>
