@@ -8,20 +8,17 @@ const EventCard = ({ event }) => {
     return (
         <div className="flex flex-col lg:flex-row items-center bg-[#FAF9F6] rounded-lg p-6 max-w-5xl mx-auto my-6 space-y-6 lg:space-y-0 lg:space-x-8">
 
-            {/* Date and Day */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                 <span className="text-gray-700 text-lg font-semibold">{event.date}</span>
                 <span className="text-gray-500 text-md">{event.day}</span>
                 <div className="w-2 h-2 bg-gray-600 rounded-full mt-2 hidden lg:block"></div>
             </div>
 
-            {/* Event Details Card */}
             <div className="flex flex-col md:flex-row rounded-lg p-6 w-full">
                 <div className="text">
                     <h2 className="text-gray-500 font-light text-lg">{event.time}</h2>
                     <h3 className="text-black font-normal text-2xl mt-1">{event.title}</h3>
 
-                    {/* Countdown Timer */}
                     <div className="flex items-center mb-4">
                         <Image
                             src={TimeIcon}
@@ -46,7 +43,6 @@ const EventCard = ({ event }) => {
                         </div>
                     </div>
 
-                    {/* Event Location */}
                     <div className="flex items-center mb-4">
                         <Image
                             src={LocationIcon}
@@ -58,7 +54,6 @@ const EventCard = ({ event }) => {
                         <span className="text-gray-600">{event.location}</span>
                     </div>
 
-                    {/* Access Info */}
                     <div className="flex items-center">
                         <span className="bg-green-200 text-green-700 px-2 rounded-full font-normal">
                             Free Access
@@ -72,7 +67,6 @@ const EventCard = ({ event }) => {
                     </button>
                 </div>
 
-                {/* Event Images */}
                 <div className='images md:ml-auto'>
                     <div className="flex flex-col m-auto md:ml-auto lg:flex-row items-center justify-center lg:space-x-4 h-full">
                         <div className="relative w-72 h-48 lg:w-56 lg:h-36 flex items-center">

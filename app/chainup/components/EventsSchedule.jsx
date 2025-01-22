@@ -69,8 +69,8 @@ const EventsSchedule = () => {
   ];
 
   return (
-    <div className="schedule-container bg-[#F0F0F0]">
-      <h1 className="schedule-title">Events Schedule</h1>
+    <div className="schedule-container bg-[#F0F0F0] md:p-10">
+      <h1 className="schedule-title font-semibold text-2xl">Events Schedule</h1>
 
       <div className="events-list">
         {eventsScheduleData.map((event, index) => (
