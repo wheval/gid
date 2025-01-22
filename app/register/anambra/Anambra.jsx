@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import RegisterSuccess from "./RegisterSuccess";
+
 import { useRouter } from "next/navigation";
+import RegisterSuccess from "../RegisterSuccess";
 const IMAGES = {
   background: {
     src: "/assets/blurbg.png",
@@ -25,7 +26,7 @@ const IMAGES = {
   },
 };
 
-const Register = () => {
+const Anambra = () => {
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
@@ -37,6 +38,8 @@ const Register = () => {
     proficiency: "",
     stack: "",
     country: "",
+    attendance: "",
+    terms: "",
     state: "",
     otherState: "",
     city: "",
@@ -63,7 +66,7 @@ const Register = () => {
   //  handler to close the modal
   const handleCloseModal = () => {
     setSuccess(false);
-    router.push("/cairo");
+    router.push("/chainup");
   };
 
   const updateFormFields = (e) => {
@@ -121,6 +124,8 @@ const Register = () => {
           proficiency: "",
           stack: "",
           country: "",
+          attendance: "",
+          terms: "",
           state: "",
           otherState: "",
           city: "",
@@ -290,71 +295,156 @@ const Register = () => {
                   onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 >
-                  <option value="">What's your level of proficiency?</option>
+                  <option value="">
+                    How would you describe your experience level about
+                    Blockchain Ecosystem?
+                  </option>
                   <option value="novice">No existing coding knowledge</option>
                   <option value="beginner">Beginner</option>
                   <option value="intermediate">Intermediate</option>
                   <option value="professional">Professional</option>
                 </select>
+
+                <select
+                  name="attendance"
+                  value={formData.attendance}
+                  onChange={handleChange}
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                >
+                  <option value="">
+                    Are you certain that you’ll be in attendance?
+                  </option>
+                  <option value="yes">Yes, I'll be there</option>
+                  <option value="no">Not certain</option>
+                </select>
               </div>
               {/* choose stack */}
               <div>
-                <h1 className="text-xl font-bold my-5">Choose Your Stack</h1>
+                <h1 className="text-xl font-bold mt-5">
+                  Which of These Best Defines You?
+                </h1>
+                <p className="text-gray-300 mb-5">select all that applies</p>
                 <div>
                   <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Frontend Developer */}
+                    {/* web2 Developer */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="radio"
+                        type="checkbox"
                         name="stack"
-                        value="frontend"
+                        value="web2-dev"
                         onChange={handleChange}
-                        className=" w-5 h-5 border border-gray-400 rounded-md "
+                        className="w-5 h-5 border border-gray-400 rounded-md"
                       />
                       <span className="text-gray-300">
-                        Frontend Developer (HTML, CSS, JS, React)
+                        Web 2 Developer (Frontend/Backend)
                       </span>
                     </label>
 
-                    {/* Backend Developer */}
+                    {/* Blockchain developer */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="radio"
+                        type="checkbox"
                         name="stack"
-                        value="backend"
+                        value="web3-dev"
                         onChange={handleChange}
-                        className=" w-5 h-5 border border-gray-400 rounded-md "
+                        className="w-5 h-5 border border-gray-400 rounded-md"
                       />
                       <span className="text-gray-300">
-                        Backend Developer (React, Python, Node, etc)
+                        Web 3 / Blockchain developer
                       </span>
                     </label>
 
-                    {/* Blockchain Dev */}
+                    {/* General Blockchain/Crypto enthusiast */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="radio"
+                        type="checkbox"
                         name="stack"
-                        value="blockchain"
+                        value="blockchain-enthusiast"
                         onChange={handleChange}
-                        className=" w-5 h-5 border border-gray-400 rounded-md "
+                        className="w-5 h-5 border border-gray-400 rounded-md"
                       />
                       <span className="text-gray-300">
-                        Blockchain Dev (Solidity, Rust)
+                        General Blockchain/Crypto enthusiast
                       </span>
                     </label>
 
-                    {/* Not an existing dev */}
+                    {/* Community/Social Media Manager */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
-                        type="radio"
+                        type="checkbox"
                         name="stack"
-                        value="none"
+                        value="community-manager"
                         onChange={handleChange}
-                        className=" w-5 h-5 border border-gray-400 rounded-md "
+                        className="w-5 h-5 border border-gray-400 rounded-md"
                       />
                       <span className="text-gray-300">
-                        Not an existing dev. Just starting out
+                        Community/Social Media Manager
+                      </span>
+                    </label>
+
+                    {/*Content Writer */}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="stack"
+                        value="content-writer"
+                        onChange={handleChange}
+                        className="w-5 h-5 border border-gray-400 rounded-md"
+                      />
+                      <span className="text-gray-300">Content Writer</span>
+                    </label>
+
+                    {/* UI/UX designer*/}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="stack"
+                        value="ui-ux"
+                        onChange={handleChange}
+                        className="w-5 h-5 border border-gray-400 rounded-md"
+                      />
+                      <span className="text-gray-300">UI/UX designer</span>
+                    </label>
+
+                    {/* Video Content Creator  */}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="stack"
+                        value="video-creator"
+                        onChange={handleChange}
+                        className="w-5 h-5 border border-gray-400 rounded-md"
+                      />
+                      <span className="text-gray-300">
+                        Video Content Creator
+                      </span>
+                    </label>
+
+                    {/* Crypto Trader /Forex Trader /Degen  */}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="stack"
+                        value="crypto-trader"
+                        onChange={handleChange}
+                        className="w-5 h-5 border border-gray-400 rounded-md"
+                      />
+                      <span className="text-gray-300">
+                        Crypto Trader /Forex Trader /Degen
+                      </span>
+                    </label>
+
+                    {/* Newbie*/}
+                    <label className="flex items-center space-x-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="stack"
+                        value="newbie"
+                        onChange={handleChange}
+                        className="w-5 h-5 border border-gray-400 rounded-md"
+                      />
+                      <span className="text-gray-300">
+                        Newbie (I don’t have any skill)
                       </span>
                     </label>
                   </div>
@@ -401,6 +491,51 @@ const Register = () => {
                   />
                 </div>
               </div>
+              {/* terms and conditions */}
+
+              <div className="my-4">
+                <p className="mb-2">
+                  For registering for, or attending this event, our partner,
+                  Starknet Foundation has something in stock for you. Do you
+                  consent to sharing your data with them?
+                </p>
+
+                <label className="flex items-center space-x-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="terms"
+                    value="yes"
+                    onChange={handleChange}
+                    className=" w-5 h-5 border border-gray-400 rounded-md "
+                  />
+                  <span className="text-gray-300">Yes</span>
+                </label>
+
+                <label className="flex items-center space-x-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="terms"
+                    value="no"
+                    onChange={handleChange}
+                    className="mt-1 w-5 h-5 border border-gray-400 rounded-md "
+                  />
+                  <span className="text-gray-300">No</span>
+                </label>
+
+                {/* .... */}
+                <p className="italics py-4 text-gray-300">
+                  When you submit this form, you'll be shown link to a WHATSAPP
+                  group created for this roadshow, join in there to keep in
+                  touch ahead of the event. 𝗠𝗮𝗸𝗲 𝘀𝘂𝗿𝗲 𝘁𝗼 𝗼𝗯𝘀𝗲𝗿𝘃𝗲 𝘁𝗵𝗲 𝗽𝗮𝗴𝗲 𝗶𝘁
+                  𝘀𝗵𝗼𝘄𝘀 𝘆𝗼𝘂 𝗰𝗮𝗿𝗲𝗳𝘂𝗹𝗹𝘆 𝗮𝗳𝘁𝗲𝗿 𝘀𝘂𝗯𝗺𝗶𝘁𝘁𝗶𝗻𝗴 𝘁𝗵𝗶𝘀 𝗳𝗼𝗿𝗺 𝘁𝗼 𝘀𝗲𝗲 𝘁𝗵𝗲
+                  𝗴𝗿𝗼𝘂𝗽 𝗹𝗶𝗻𝗸. It will be sent to your mail too. NB: If the
+                  WhatsApp group link isn't working, try the one sent to your
+                  email, copy it and paste on your browser and it should work.
+                  But if it still doesn't work, just send a message about it to
+                  our Telegram group and tag the admins, they'll add you to the
+                  WhatsApp group directly.
+                </p>
+              </div>
               <button
                 type="submit"
                 disabled={isLoading || !formData.email}
@@ -430,17 +565,16 @@ const Register = () => {
         <RegisterSuccess
           email={mail}
           onClose={handleCloseModal}
-          whatsapp={"https://chat.whatsapp.com/Jj7isikeRUxGhNKiB8bCT7"}
+          whatsapp={"https://chat.whatsapp.com/HFx6s3fzVWnJ9WeZKFjgcp"}
         />
       )}
       {errorMsg && (
         <div className="mb-8 mx-2 font-[550] text-center text-red-500 mt-1">
-          {" "}
-          {errorMsg}{" "}
+          {errorMsg}
         </div>
       )}
     </main>
   );
 };
 
-export default Register;
+export default Anambra;

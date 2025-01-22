@@ -1,16 +1,20 @@
-import React from 'react';
-import EventCard from './EventCard';
+"use client";
 
-import KadunaImg from '../../../public/assets/chain-up-kaduna.png';
-import KADImg from '../../../public/assets/kad.png';
-import IbadanImg from '../../../public/assets/chain-up-ibadan.png';
-import IBImg from '../../../public/assets/ib.png';
-import BeninImg from '../../../public/assets/chain-up-benin.png';
-import BNIImg from '../../../public/assets/bni.png';
-import AnambraImg from '../../../public/assets/chain-up-anambra.png';
-import ANImg from '../../../public/assets/an.png';
-import EnuguImg from '../../../public/assets/chain-up-enugu.png';
-import ENUImg from '../../../public/assets/enu.png';
+import Image from "next/image";
+import { FaLocationDot } from "react-icons/fa6";
+
+import KadunaImg from "../../../public/assets/chain-up-kaduna.png";
+import KADImg from "../../../public/assets/kad.png";
+import IbadanImg from "../../../public/assets/chain-up-ibadan.png";
+import IBImg from "../../../public/assets/ib.png";
+import BeninImg from "../../../public/assets/chain-up-benin.png";
+import BNIImg from "../../../public/assets/bni.png";
+import AnambraImg from "../../../public/assets/chain-up-anambra.png";
+import ANImg from "../../../public/assets/an.png";
+import EnuguImg from "../../../public/assets/chain-up-enugu.png";
+import ENUImg from "../../../public/assets/enu.png";
+import Link from "next/link";
+import EventCountDown from "./EventCountDown";
 
 const EventsSchedule = () => {
   const eventsScheduleData = [
@@ -23,7 +27,8 @@ const EventsSchedule = () => {
       registered: 230,
       image: KadunaImg,
       loc: KADImg,
-      registerUrl: "/",
+      registerUrl: "/register/kaduna",
+      date2: "2025-01-25",
     },
     {
       date: "January 29, 2025",
@@ -34,7 +39,8 @@ const EventsSchedule = () => {
       registered: 230,
       image: IbadanImg,
       loc: IBImg,
-      registerUrl: "/",
+      registerUrl: "/register/ibadan",
+      date2: "2025-01-29",
     },
     {
       date: "February 01, 2025",
@@ -45,7 +51,8 @@ const EventsSchedule = () => {
       registered: 230,
       image: BeninImg,
       loc: BNIImg,
-      registerUrl: "/",
+      registerUrl: "register/benin",
+      date2: "2025-02-01",
     },
     {
       date: "February 8, 2025",
@@ -57,7 +64,8 @@ const EventsSchedule = () => {
       registered: 230,
       image: AnambraImg,
       loc: ANImg,
-      registerUrl: "/",
+      registerUrl: "/register/anambra",
+      date2: "2025-02-08",
     },
     {
       date: "February 15, 2025",
@@ -69,22 +77,94 @@ const EventsSchedule = () => {
       registered: 230,
       image: EnuguImg,
       loc: ENUImg,
-      registerUrl: "/",
+      registerUrl: "/register/enugu",
+      date2: "2025-02-15",
     },
   ];
 
   return (
     <div className="schedule-container bg-[#F0F0F0] md:p-10">
-      <h1 className="schedule-title font-semibold text-2xl p-10">Events Schedule</h1>
+      <h1 className="schedule-title font-semibold text-2xl p-10">
+        Events Schedule
+      </h1>
 
-      <div className="events-list">
+      <div className="">
         {eventsScheduleData.map((event, index) => (
-          <EventCard key={index} event={event} />
-        ))}
+          <div key={index} className="bg-white rounded-lg shadow-md p-6 mb-4">
+            {/* date */}
+            <div className="text-lg">
+              {event.date}
+              <span className="text-gray-600 pl-2">{event.day}</span>
+            </div>
+            <div className=" flex flex-col lg:flex-row">
+              {/* Left Section */}
+              <div className="p-6 flex-1">
+                <div className="flex flex-col items-start">
+                  {/* Event time and title*/}
+                  <div className="flex items-center gap-2">
+                    <div className="">
+                      <div className="text-xl mt-1 text-gray-600">
+                        {event.time}
+                      </div>
+                      <h2 className="text-xl font-[550] mb-4">{event.title}</h2>
+                    </div>
+                  </div>
 
+                  {/* Event Details */}
+                  <div className="flex-1 ">
+                    {/* Countdown Timer */}
+
+                    <EventCountDown newDate={event.date2} />
+
+                    {/* Location */}
+                    <div className="flex items-start gap-2">
+                      <FaLocationDot className="text-gray-500 mt-1" />
+                      <p className="text-gray-600">{event.location}</p>
+                    </div>
+
+                    {/* Registration Info */}
+                    <div className="mt-4 flex items-center gap-4">
+                      <span className="text-green-500">Free Access</span>
+                      <span className="text-gray-600">
+                        <span className="font-[550] pr-2">
+                          {event.registered}
+                        </span>
+                        Registered
+                      </span>
+                    </div>
+
+                    {/* Register Button */}
+                    <div className="mt-4 ">
+                      <Link
+                        href={event.registerUrl}
+                        className=" bg-[#A20812] text-white px-6 py-3 rounded-full hover:bg-[#8a0710] transition-colors "
+                      >
+                        Register For Event
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Section - Images */}
+              <div className="flex flex-col sm:flex-row  scale-90 lg:scale-75 gap-x-16 gap-y-8 sm:gap-y-0">
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  className="w-1/2 object-cover rounded-lg"
+                />
+                <Image
+                  src={event.loc}
+                  alt={`${event.title} Location`}
+                  className="w-1/2 object-cover rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-  )
+  );
 };
 
 export default EventsSchedule;

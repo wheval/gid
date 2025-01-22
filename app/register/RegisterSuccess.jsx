@@ -1,7 +1,7 @@
 import { FaTelegram, FaWhatsapp } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-const RegisterSuccess = ({ email, onClose }) => {
+const RegisterSuccess = ({ email, onClose, whatsapp }) => {
   // Add onClose prop
   return (
     <div className="fixed inset-0 flex items-center justify-center p-4 bg-gradient-to-tr from-[#FF4B59]/40 to-[#F7C338]/40 backdrop-blur-lg">
@@ -27,7 +27,7 @@ const RegisterSuccess = ({ email, onClose }) => {
 
         <div className="flex flex-col gap-2 w-full justify-center items-center">
           <a
-            href="https://chat.whatsapp.com/Jj7isikeRUxGhNKiB8bCT7"
+            href={whatsapp}
             className="flex justify-center items-center bg-green-500 hover:bg-green-600 text-white mb-2 rounded-md py-1.5 px-4 w-max gap-2"
           >
             <FaWhatsapp size={28} />
