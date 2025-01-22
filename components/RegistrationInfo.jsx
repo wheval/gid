@@ -53,7 +53,7 @@ const RegistrationInfo = () => {
             width={2000}
             height={2000}
             alt="hero"
-            className="w-full rotate-12 scale-75 md:scale-100"
+            className="w-full rotate-12 scale-75 md:scale-75 lg:scale-100"
           />
         </div>
       </div>
