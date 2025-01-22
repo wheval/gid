@@ -35,7 +35,7 @@ const EventCountDown = ({ newDate }) => {
   const padNumber = (num) => num.toString().padStart(2, "0");
 
   return (
-    <div className="flex items-center  gap-4 mb-4">
+    <div className="flex items-center justify-center md:justify-start  gap-4 mb-4">
       <div className="text-center">
         <FaClock />
       </div>

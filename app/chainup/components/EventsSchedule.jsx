@@ -3,15 +3,15 @@
 import Image from "next/image";
 import { FaLocationDot } from "react-icons/fa6";
 
-import KadunaImg from "../../../public/assets/chain-up-kaduna.png";
+import KadunaImg from "../../../public/assets/chainup/kaduna.jpg";
 import KADImg from "../../../public/assets/kad.png";
-import IbadanImg from "../../../public/assets/chain-up-ibadan.png";
+import IbadanImg from "../../../public/assets/chainup/ibadan.jpg";
 import IBImg from "../../../public/assets/ib.png";
-import BeninImg from "../../../public/assets/chain-up-benin.png";
+import BeninImg from "../../../public/assets/chainup/benin.jpg";
 import BNIImg from "../../../public/assets/bni.png";
-import AnambraImg from "../../../public/assets/chain-up-anambra.png";
+import AnambraImg from "../../../public/assets/chainup/anambra.jpg";
 import ANImg from "../../../public/assets/an.png";
-import EnuguImg from "../../../public/assets/chain-up-enugu.png";
+import EnuguImg from "../../../public/assets/chainup/enugu.jpg";
 import ENUImg from "../../../public/assets/enu.png";
 import Link from "next/link";
 import EventCountDown from "./EventCountDown";
@@ -23,7 +23,7 @@ const EventsSchedule = () => {
       day: "Saturday",
       time: "10:00 AM",
       title: "CHAIN UP KADUNA",
-      location: "The Budd, 19 Algeria Crescent, Barnawa, Kaduna",
+      location: "The Budl Grid, 19 Algeria Crescent, Barnawa, Kaduna",
       registered: 230,
       image: KadunaImg,
       loc: KADImg,
@@ -47,7 +47,8 @@ const EventsSchedule = () => {
       day: "Saturday",
       time: "10:00 AM",
       title: "CHAIN UP BENIN",
-      location: "Opolo Innovation Hub, UNIBEN, Benin City, Edo State",
+      location:
+        "FAGCOOP Restaurant (upstairs), University of Benin, Benin City, Edo State",
       registered: 230,
       image: BeninImg,
       loc: BNIImg,
@@ -90,73 +91,82 @@ const EventsSchedule = () => {
 
       <div className="">
         {eventsScheduleData.map((event, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-md p-6 mb-4">
+          <div key={index} className=" p-6 mb-4">
             {/* date */}
             <div className="text-lg">
               {event.date}
               <span className="text-gray-600 pl-2">{event.day}</span>
             </div>
-            <div className=" flex flex-col lg:flex-row">
-              {/* Left Section */}
-              <div className="p-6 flex-1">
-                <div className="flex flex-col items-start">
-                  {/* Event time and title*/}
-                  <div className="flex items-center gap-2">
-                    <div className="">
-                      <div className="text-xl mt-1 text-gray-600">
-                        {event.time}
+            <div className=" flex flex-col lg:flex-row w-full ">
+              {/* this div contains all 3 main components */}
+
+              <div className=" flex flex-col items-center justify-center md:justify-between md:flex-row bg-white rounded-lg shadow-md">
+                {/* Left Section */}
+                <div className="p-6 flex-1 text-center md:text-left">
+                  <div className="flex flex-col items-center md:items-start gap-4">
+                    {/* Event time and title*/}
+                    <div className="flex items-center gap-2  text-center">
+                      <div className="">
+                        <div className="text-xl mt-1 text-gray-600">
+                          {event.time}
+                        </div>
+                        <h2 className="text-xl font-[550] mb-4">
+                          {event.title}
+                        </h2>
                       </div>
-                      <h2 className="text-xl font-[550] mb-4">{event.title}</h2>
-                    </div>
-                  </div>
-
-                  {/* Event Details */}
-                  <div className="flex-1 ">
-                    {/* Countdown Timer */}
-
-                    <EventCountDown newDate={event.date2} />
-
-                    {/* Location */}
-                    <div className="flex items-start gap-2">
-                      <FaLocationDot className="text-gray-500 mt-1" />
-                      <p className="text-gray-600">{event.location}</p>
                     </div>
 
-                    {/* Registration Info */}
-                    <div className="mt-4 flex items-center gap-4">
-                      <span className="text-green-500">Free Access</span>
-                      <span className="text-gray-600">
-                        <span className="font-[550] pr-2">
-                          {event.registered}
+                    {/* Event Details */}
+                    <div className="flex-1 items-center md:items-start">
+                      {/* Countdown Timer */}
+
+                      <EventCountDown newDate={event.date2} />
+
+                      {/* Location */}
+                      <div className="flex items-start gap-2">
+                        <FaLocationDot className="text-gray-500 mt-1" />
+                        <p className="text-gray-600">{event.location}</p>
+                      </div>
+
+                      {/* Registration Info */}
+                      <div className="mt-4 flex items-center justify-center md:justify-start gap-4">
+                        <span className="text-green-500">Free Access</span>
+                        <span className="text-gray-600">
+                          <span className="font-[550] pr-2">
+                            {event.registered}
+                          </span>
+                          Registered
                         </span>
-                        Registered
-                      </span>
-                    </div>
+                      </div>
 
-                    {/* Register Button */}
-                    <div className="mt-4 ">
-                      <Link
-                        href={event.registerUrl}
-                        className=" bg-[#A20812] text-white px-6 py-3 rounded-full hover:bg-[#8a0710] transition-colors "
-                      >
-                        Register For Event
-                      </Link>
+                      {/* Register Button */}
+                      <div className="mt-4 ">
+                        <Link
+                          href={event.registerUrl}
+                          className=" bg-[#A20812] text-white px-6 py-3 rounded-full hover:bg-[#8a0710] transition-colors "
+                        >
+                          Register For Event
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Right Section - Images */}
-              <div className="flex flex-col sm:flex-row  scale-90 lg:scale-75 gap-x-16 gap-y-8 sm:gap-y-0">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  className="w-1/2 object-cover rounded-lg"
-                />
+                {/* Right Section - 1 Image */}
+                <div className="flex">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    className="scale-75 md:scale-100 object-cover rounded-lg !max-h[285px] w-[305px]"
+                  />
+                </div>
+              </div>
+              <div className="flex ml-0 lg:ml-12 items-center  lg:justify-end justify-center mt-2 lg:mt-0">
+                {/* absolute right - last image */}
                 <Image
                   src={event.loc}
                   alt={`${event.title} Location`}
-                  className="w-1/2 object-cover rounded-lg"
+                  className=" w-[500] lg:w-[390px] scale-75 md:scale-100 object-cover rounded-lg !max-h-[285px] h-[285px]"
                 />
               </div>
             </div>
