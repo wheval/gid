@@ -18,15 +18,14 @@ const Header = () => {
           </Link>
         </div>
         <nav className="uppercase gap-4 hidden lg:flex">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/">About</NavLink>
           <NavLink
             className="hover:underline decoration-yellow-500 decoration-2 underline-offset-8 font-[550]"
-            href="/cairo"
+            href="/events"
           >
-            Bootcamp
+            Events
           </NavLink>
-          <NavLink href="/">Courses</NavLink>
-          <NavLink href="/events">Events</NavLink>
-          <NavLink href="/">About</NavLink>
           <NavLink href="/">Blog</NavLink>
         </nav>
 
@@ -41,7 +40,7 @@ const Header = () => {
             href="/cairo"
             className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-2 sm:px-4 py-1.5 sm:py-2 rounded-full font-[550]"
           >
-            register
+            bootcamp
           </Link>
         </div>
       </div>

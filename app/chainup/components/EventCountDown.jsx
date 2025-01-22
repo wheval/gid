@@ -61,6 +61,14 @@ const EventCountDown = ({ newDate }) => {
           </span>
         </div>
       </div>
+      <div className="text-center">
+        <div className="text-sm mt-1">Seconds</div>
+        <div className="bg-gray-100 p-2 rounded">
+          <span className="text-lg font-[550]">
+            {padNumber(timeLeft.seconds)}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

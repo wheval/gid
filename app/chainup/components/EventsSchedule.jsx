@@ -4,15 +4,15 @@ import Image from "next/image";
 import { FaLocationDot } from "react-icons/fa6";
 
 import KadunaImg from "../../../public/assets/chainup/kaduna.jpg";
-import KADImg from "../../../public/assets/kad.png";
+import KADImg from "../../../public/assets/chainup/Rectangle191.jpg";
 import IbadanImg from "../../../public/assets/chainup/ibadan.jpg";
-import IBImg from "../../../public/assets/ib.png";
+import IBImg from "../../../public/assets/chainup/Rectangle190.jpg";
 import BeninImg from "../../../public/assets/chainup/benin.jpg";
-import BNIImg from "../../../public/assets/bni.png";
+import BNIImg from "../../../public/assets/chainup/Rectangle187.png";
 import AnambraImg from "../../../public/assets/chainup/anambra.jpg";
-import ANImg from "../../../public/assets/an.png";
+import ANImg from "../../../public/assets/chainup/Rectangle188.png";
 import EnuguImg from "../../../public/assets/chainup/enugu.jpg";
-import ENUImg from "../../../public/assets/enu.png";
+import ENUImg from "../../../public/assets/chainup/Rectangle189.png";
 import Link from "next/link";
 import EventCountDown from "./EventCountDown";
 
@@ -24,7 +24,7 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP KADUNA",
       location: "The Budl Grid, 19 Algeria Crescent, Barnawa, Kaduna",
-      registered: 230,
+      registered: 0,
       image: KadunaImg,
       loc: KADImg,
       registerUrl: "/register/kaduna",
@@ -36,7 +36,7 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP IBADAN",
       location: "Seminar Room, ICC, University Of Ibadan Second Gate, Ibadan",
-      registered: 230,
+      registered: 100,
       image: IbadanImg,
       loc: IBImg,
       registerUrl: "/register/ibadan",
@@ -49,7 +49,7 @@ const EventsSchedule = () => {
       title: "CHAIN UP BENIN",
       location:
         "FAGCOOP Restaurant (upstairs), University of Benin, Benin City, Edo State",
-      registered: 230,
+      registered: 100,
       image: BeninImg,
       loc: BNIImg,
       registerUrl: "register/benin",
@@ -62,7 +62,7 @@ const EventsSchedule = () => {
       title: "CHAIN UP ANAMBRA",
       location:
         "Nawé Schools, Fab Amich House, 89 Club Road, Regina, Opposite Obalaku/Awka, Anambra State",
-      registered: 230,
+      registered: 100,
       image: AnambraImg,
       loc: ANImg,
       registerUrl: "/register/anambra",
@@ -75,7 +75,7 @@ const EventsSchedule = () => {
       title: "CHAIN UP ENUGU",
       location:
         "Lion Science Park, Off Sullivan Chime Drive, Greenhouse Gate, UNN Campus, Enugu State",
-      registered: 230,
+      registered: 100,
       image: EnuguImg,
       loc: ENUImg,
       registerUrl: "/register/enugu",
@@ -100,7 +100,7 @@ const EventsSchedule = () => {
             <div className=" flex flex-col lg:flex-row w-full ">
               {/* this div contains all 3 main components */}
 
-              <div className=" flex flex-col items-center justify-center md:justify-between md:flex-row bg-white rounded-lg shadow-md">
+              <div className=" flex flex-col items-center justify-center md:justify-between md:flex-row bg-white rounded-lg shadow-md px-5">
                 {/* Left Section */}
                 <div className="p-6 flex-1 text-center md:text-left">
                   <div className="flex flex-col items-center md:items-start gap-4">
@@ -125,7 +125,9 @@ const EventsSchedule = () => {
                       {/* Location */}
                       <div className="flex items-start gap-2">
                         <FaLocationDot className="text-gray-500 mt-1" />
-                        <p className="text-gray-600">{event.location}</p>
+                        <p className="text-gray-600 max-w-sm">
+                          {event.location}
+                        </p>
                       </div>
 
                       {/* Registration Info */}

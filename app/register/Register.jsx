@@ -40,6 +40,8 @@ const Register = () => {
     state: "",
     otherState: "",
     city: "",
+    github: "",
+    starknet: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
@@ -65,17 +67,102 @@ const Register = () => {
     setSuccess(false);
     router.push("/cairo");
   };
-
   const updateFormFields = (e) => {
     e.preventDefault();
+    if (!formData.email) {
+      setErrorMsq("Email is required");
+      return;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setErrorMsq("Please enter a valid email address");
+      return;
+    }
+    setErrorMsq("");
     setShowFields(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    if (!formData.firstName) {
+      setErrorMsq("First name is required");
+
+      return;
+    } else if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
+      setErrorMsq("First name must contain only letters");
+
+      return;
+    }
+    if (!formData.lastName) {
+      setErrorMsq("Last name is required");
+
+      return;
+    } else if (!/^[a-zA-Z]+$/.test(formData.lastName)) {
+      setErrorMsq("Last name must contain only letters");
+
+      return;
+    }
+
+    if (!formData.phone) {
+      setErrorMsq("Phone number is required");
+
+      return;
+    } else if (!/^\d{10,15}$/.test(formData.phone)) {
+      setErrorMsq("Phone number must be 10-15 digits long");
+
+      return;
+    }
+
+    if (!formData.gender) {
+      setErrorMsq("Gender is required");
+
+      return;
+    }
+
+    if (!formData.status) {
+      setErrorMsq("Status is required");
+
+      return;
+    }
+
+    if (!formData.proficiency) {
+      setErrorMsq("Proficiency level is required");
+      return;
+    }
+
+    if (!formData.stack || formData.stack.length === 0) {
+      setErrorMsq("Please select at least one technology stack");
+      return;
+    }
+
+    if (!formData.country) {
+      setErrorMsq("Country is required");
+
+      return;
+    }
+
+    if (!formData.state && !formData.otherState) {
+      setErrorMsq("Please provide a state or other state");
+
+      return;
+    }
+
+    if (!formData.city) {
+      setErrorMsq("City is required");
+
+      return;
+    }
+    if (!formData.github) {
+      setErrorMsq("Github Link is required");
+
+      return;
+    }
+    if (!formData.starknet) {
+      setErrorMsq("Starknet Wallet is required");
+
+      return;
+    }
 
     try {
+      setIsLoading(true);
       const data = new FormData();
 
       Object.entries(formData).forEach(([key, value]) => {
@@ -124,6 +211,8 @@ const Register = () => {
           state: "",
           otherState: "",
           city: "",
+          github: "",
+          starknet: "",
         });
       } else {
         console.log("Failed to submit form:", response.status);
@@ -141,7 +230,7 @@ const Register = () => {
   };
 
   return (
-    <main className=" text-white relative min-h-screen">
+    <main className=" text-white relative min-h-screen pb-4">
       {/* Background Image */}
       <div className="fixed inset-0 -z-10">
         <Image
@@ -296,12 +385,22 @@ const Register = () => {
                   <option value="intermediate">Intermediate</option>
                   <option value="professional">Professional</option>
                 </select>
+                <input
+                  type="text"
+                  name="github"
+                  placeholder="Enter your GitHub profile link"
+                  value={formData.github}
+                  onChange={handleChange}
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
               </div>
               {/* choose stack */}
               <div>
-                <h1 className="text-xl font-bold my-5">Choose Your Stack</h1>
+                <h1 className="text-xl font-bold mt-12 mb-1">
+                  What{"'"}s your current Stack?
+                </h1>
                 <div>
-                  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Frontend Developer */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
@@ -361,6 +460,48 @@ const Register = () => {
                 </div>
               </div>
 
+              {/* starknet */}
+              <div>
+                <h1 className="text-xl font-bold mb-3 mt-12">
+                  Submit link to your Starknet mainnet wallet address.
+                </h1>
+                <p className="mb-2 text-sm">
+                  We'll be airdropping you an onchain NFT Certificate upon
+                  successful completion of the bootcamp.
+                </p>
+                <p className="pb-4 text-sm">
+                  NB: You can get a starknet wallet from
+                  <a
+                    href="https://argent.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-blue-500 px-2"
+                  >
+                    Argent
+                  </a>
+                  or
+                  <a
+                    href="http://braavos.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-blue-500 px-2"
+                  >
+                    Braavos
+                  </a>
+                  wallets. The apps are on playstore/app store, and on chrome
+                  extensions store.
+                </p>
+                <div>
+                  <input
+                    type="text"
+                    name="starknet"
+                    placeholder="Enter your Starknet Wallet Address from Argent / Braavos "
+                    value={formData.starknet}
+                    onChange={handleChange}
+                    className="border bg-transparent px-4 w-full py-2 rounded-lg"
+                  />{" "}
+                </div>
+              </div>
               {/* bootcamp location */}
               <div>
                 <h1 className="text-xl font-bold mt-8 mb-4 capitalize">
@@ -408,7 +549,7 @@ const Register = () => {
                 disabled:cursor-not-allowed uppercase px-6 py-3 mt-6 rounded-full
                 transition-colors duration-200 font-medium"
               >
-                {isLoading ? "Processing..." : "Submit"}
+                {isLoading ? "submitting..." : "Submit"}
               </button>
             </div>
           )}

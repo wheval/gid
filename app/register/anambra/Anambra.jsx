@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import RegisterSuccess from "../RegisterSuccess";
 const IMAGES = {
   background: {
-    src: "/assets/blurbg.png",
+    src: "/assets/chain-up-hero-bg.png",
     alt: "Background",
   },
   gidaLogo: {
@@ -20,13 +20,13 @@ const IMAGES = {
     width: 500,
   },
   combined: {
-    src: "/assets/gidaxstark.png",
+    src: "/assets/chainup/main1.png",
     alt: "Gida x Starknet",
-    width: 250,
+    width: 350,
   },
 };
 
-const Anambra = () => {
+const Ibadan = () => {
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",
@@ -37,12 +37,8 @@ const Anambra = () => {
     institution: "",
     proficiency: "",
     stack: "",
-    country: "",
     attendance: "",
     terms: "",
-    state: "",
-    otherState: "",
-    city: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
@@ -71,14 +67,79 @@ const Anambra = () => {
 
   const updateFormFields = (e) => {
     e.preventDefault();
+    if (!formData.email) {
+      setErrorMsq("Email is required");
+      return;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setErrorMsq("Please enter a valid email address");
+      return;
+    }
+    setErrorMsq("");
     setShowFields(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    if (!formData.firstName) {
+      setErrorMsq("First name is required");
 
+      return;
+    } else if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
+      setErrorMsq("First name must contain only letters");
+
+      return;
+    }
+    if (!formData.lastName) {
+      setErrorMsq("Last name is required");
+
+      return;
+    } else if (!/^[a-zA-Z]+$/.test(formData.lastName)) {
+      setErrorMsq("Last name must contain only letters");
+
+      return;
+    }
+
+    if (!formData.phone) {
+      setErrorMsq("Phone number is required");
+
+      return;
+    } else if (!/^\d{10,15}$/.test(formData.phone)) {
+      setErrorMsq("Phone number must be 10-15 digits long");
+
+      return;
+    }
+
+    if (!formData.gender) {
+      setErrorMsq("Gender is required");
+
+      return;
+    }
+
+    if (!formData.status) {
+      setErrorMsq("Status is required");
+
+      return;
+    }
+    if (!formData.proficiency) {
+      setErrorMsq("Proficiency level is required");
+      return;
+    }
+
+    if (!formData.stack || formData.stack.length === 0) {
+      setErrorMsq("Please select at least one technology stack");
+      return;
+    }
+    if (!formData.attendance || formData.stack.attendance === 0) {
+      setErrorMsq("Please specify if you will attend or not");
+      return;
+    }
+    if (!formData.terms) {
+      setErrorMsq("Please agree to the Terms and Conditions to proceed.");
+      return;
+    }
     try {
+      setIsLoading(true);
+
       const data = new FormData();
 
       Object.entries(formData).forEach(([key, value]) => {
@@ -123,12 +184,8 @@ const Anambra = () => {
           institution: "",
           proficiency: "",
           stack: "",
-          country: "",
           attendance: "",
           terms: "",
-          state: "",
-          otherState: "",
-          city: "",
         });
       } else {
         console.log("Failed to submit form:", response.status);
@@ -146,7 +203,7 @@ const Anambra = () => {
   };
 
   return (
-    <main className=" text-white relative min-h-screen">
+    <main className=" text-white relative min-h-screen pb-4">
       {/* Background Image */}
       <div className="fixed inset-0 -z-10">
         <Image
@@ -157,7 +214,7 @@ const Anambra = () => {
           quality={100}
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx0fHRsdHSIgIRwlJCsrJCQkKysrMDIwMjAyMDI6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojr/2wBDARUXFyAeIB4gHiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICr/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-          className="object-cover"
+          className="object-cover blur-[4px]"
         />
         <div className="absolute inset-0 bg-neutral-950/50"></div>
       </div>
@@ -290,22 +347,6 @@ const Anambra = () => {
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
                 <select
-                  name="proficiency"
-                  value={formData.proficiency}
-                  onChange={handleChange}
-                  className="border bg-transparent px-4 py-2 rounded-lg"
-                >
-                  <option value="">
-                    How would you describe your experience level about
-                    Blockchain Ecosystem?
-                  </option>
-                  <option value="novice">No existing coding knowledge</option>
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">Intermediate</option>
-                  <option value="professional">Professional</option>
-                </select>
-
-                <select
                   name="attendance"
                   value={formData.attendance}
                   onChange={handleChange}
@@ -318,14 +359,15 @@ const Anambra = () => {
                   <option value="no">Not certain</option>
                 </select>
               </div>
+
               {/* choose stack */}
               <div>
-                <h1 className="text-xl font-bold mt-5">
+                <h1 className="text-xl font-bold mt-8">
                   Which of These Best Defines You?
                 </h1>
-                <p className="text-gray-300 mb-5">select all that applies</p>
+                <p className="text-gray-300 mb-5">Select all that applies</p>
                 <div>
-                  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-2">
                     {/* web2 Developer */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
@@ -451,53 +493,69 @@ const Anambra = () => {
                 </div>
               </div>
 
-              {/* bootcamp location */}
-              <div>
-                <h1 className="text-xl font-bold mt-8 mb-4 capitalize">
-                  your location, during the 8 weeks of this bootcamp
-                </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* experience level */}
+              <div className="my-4 pt-4">
+                <p className="mb-2 mt-4 text-xl font-[550]">
+                  How would you describe your experience level about Blockchain
+                  Niche & Ecosystem?
+                </p>
+                <label className="flex items-center space-x-3 cursor-pointer">
                   <input
-                    type="text"
-                    placeholder="Country"
-                    name="country"
-                    value={formData.country}
+                    type="radio"
+                    name="proficiency"
+                    value="newbie"
                     onChange={handleChange}
-                    className="border bg-transparent px-4 py-2 rounded-lg"
+                    className=" w-5 h-5 border border-gray-400 rounded-md "
                   />
+                  <span className="text-gray-300">
+                    Total newbie (Just starting out)
+                  </span>
+                </label>
+                <label className="flex items-center space-x-3 cursor-pointer">
                   <input
-                    type="text"
-                    name="state"
-                    value={formData.state}
+                    type="radio"
+                    name="proficiency"
+                    value="beginner"
                     onChange={handleChange}
-                    placeholder="State"
-                    className="border bg-transparent px-4 py-2 rounded-lg"
+                    className="mt-1 w-5 h-5 border border-gray-400 rounded-md "
                   />
+                  <span className="text-gray-300">
+                    Beginner (started learning about it already)
+                  </span>
+                </label>
+                <label className="flex items-center space-x-3 cursor-pointer">
                   <input
-                    type="text"
-                    name="otherState"
-                    value={formData.otherState}
+                    type="radio"
+                    name="proficiency"
+                    value="intermediate"
                     onChange={handleChange}
-                    placeholder="Specify State If you’re not in Nigeria"
-                    className="border bg-transparent px-4 py-2 rounded-lg"
+                    className="mt-1 w-5 h-5 border border-gray-400 rounded-md "
                   />
+                  <span className="text-gray-300">
+                    Intermediate (Already into the ecosystem but still trying to
+                    find footing)
+                  </span>
+                </label>
+                <label className="flex items-center space-x-3 cursor-pointer">
                   <input
-                    type="text"
-                    name="city"
-                    value={formData.city}
+                    type="radio"
+                    name="proficiency"
+                    value="advanced"
                     onChange={handleChange}
-                    placeholder="City"
-                    className="border bg-transparent px-4 py-2 rounded-lg"
+                    className="mt-1 w-5 h-5 border border-gray-400 rounded-md "
                   />
-                </div>
+                  <span className="text-gray-300">
+                    Advanced (I know my left from my right)
+                  </span>
+                </label>
               </div>
-              {/* terms and conditions */}
 
-              <div className="my-4">
-                <p className="mb-2">
-                  For registering for, or attending this event, our partner,
-                  Starknet Foundation has something in stock for you. Do you
-                  consent to sharing your data with them?
+              {/* terms and conditions */}
+              <div className="my-4 pt-4">
+                <p className="mb-2 mt-4 text-xl font-[550]">
+                  For registering and attending this event, our partner,
+                  Starknet Foundation has something for you. Do you consent to
+                  sharing your data with them?
                 </p>
 
                 <label className="flex items-center space-x-3 cursor-pointer">
@@ -521,21 +579,8 @@ const Anambra = () => {
                   />
                   <span className="text-gray-300">No</span>
                 </label>
-
-                {/* .... */}
-                <p className="italics py-4 text-gray-300">
-                  When you submit this form, you'll be shown link to a WHATSAPP
-                  group created for this roadshow, join in there to keep in
-                  touch ahead of the event. 𝗠𝗮𝗸𝗲 𝘀𝘂𝗿𝗲 𝘁𝗼 𝗼𝗯𝘀𝗲𝗿𝘃𝗲 𝘁𝗵𝗲 𝗽𝗮𝗴𝗲 𝗶𝘁
-                  𝘀𝗵𝗼𝘄𝘀 𝘆𝗼𝘂 𝗰𝗮𝗿𝗲𝗳𝘂𝗹𝗹𝘆 𝗮𝗳𝘁𝗲𝗿 𝘀𝘂𝗯𝗺𝗶𝘁𝘁𝗶𝗻𝗴 𝘁𝗵𝗶𝘀 𝗳𝗼𝗿𝗺 𝘁𝗼 𝘀𝗲𝗲 𝘁𝗵𝗲
-                  𝗴𝗿𝗼𝘂𝗽 𝗹𝗶𝗻𝗸. It will be sent to your mail too. NB: If the
-                  WhatsApp group link isn't working, try the one sent to your
-                  email, copy it and paste on your browser and it should work.
-                  But if it still doesn't work, just send a message about it to
-                  our Telegram group and tag the admins, they'll add you to the
-                  WhatsApp group directly.
-                </p>
               </div>
+
               <button
                 type="submit"
                 disabled={isLoading || !formData.email}
@@ -543,7 +588,7 @@ const Anambra = () => {
                 disabled:cursor-not-allowed uppercase px-6 py-3 mt-6 rounded-full
                 transition-colors duration-200 font-medium"
               >
-                {isLoading ? "Processing..." : "Submit"}
+                {isLoading ? "submitting..." : "Submit"}
               </button>
             </div>
           )}
@@ -577,4 +622,4 @@ const Anambra = () => {
   );
 };
 
-export default Anambra;
+export default Ibadan;
