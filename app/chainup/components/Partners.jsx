@@ -34,7 +34,7 @@ const Partners = () => {
     <div className="text-center">
       <h1 className="font-semibold text-2xl m-10">Our Partners</h1>
 
-      <div className="flex flex-wrap justify-center items-center m-10 p-5">
+      <div className="flex flex-wrap justify-center items-center md:m-10 m-4 p-2 md:p-5">
         {partners.map((partner) => {
           return (
             <Image
@@ -42,7 +42,7 @@ const Partners = () => {
               alt={partner.name}
               width={"10px"}
               height={"10px"}
-              className="p-5 w-40"
+              className="p-5 w-32 md:w-40"
             />
           );
         })}

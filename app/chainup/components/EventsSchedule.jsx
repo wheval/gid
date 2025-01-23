@@ -95,17 +95,17 @@ const EventsSchedule = () => {
             {/* date */}
             <div className="text-lg font-lato">
               {event.date}
-              <span className="text-gray-500 px-4">{event.day}</span>
+              <span className="text-gray-500 px-2">{event.day}</span>
             </div>
             <div className=" flex flex-col mt-4 lg:flex-row w-full ">
               {/* this div contains all 3 main components */}
 
-              <div className=" flex flex-col items-center justify-center md:justify-between md:flex-row bg-white rounded-lg shadow-md px-5">
+              <div className=" flex flex-col md:items-center items-start justify-start md:justify-between md:flex-row bg-white rounded-lg shadow-md px-5">
                 {/* Left Section */}
-                <div className="p-6 flex-1 text-center md:text-left">
-                  <div className="flex flex-col items-center md:items-start gap-4">
+                <div className="p-6 flex-1 text-left ">
+                  <div className="flex flex-col items-start md:items-center gap-4">
                     {/* Event time and title*/}
-                    <div className="flex items-center md:items-start md:text-left gap-2  text-center">
+                    <div className="flex items-center md:items-start md:text-left gap-2 ">
                       <div className="">
                         <div className="text-xl mt-1 font-lato text-gray-500">
                           {event.time}
@@ -117,21 +117,21 @@ const EventsSchedule = () => {
                     </div>
 
                     {/* Event Details */}
-                    <div className="flex-1 items-center md:items-start">
+                    <div className="flex-1 items-start justify-start">
                       {/* Countdown Timer */}
 
                       <EventCountDown newDate={event.date2} />
 
                       {/* Location */}
                       <div className="flex items-start gap-2 font-lato">
-                        <FaLocationDot className="text-gray-500 mt-1" />
+                        <FaLocationDot className="border p-1.5 rounded-lg bg-gray-100 text-3xl text-gray-500" />
                         <p className="text-gray-500 max-w-sm">
                           {event.location}
                         </p>
                       </div>
 
                       {/* Registration Info */}
-                      <div className="mt-4 flex items-center justify-center md:justify-start gap-4">
+                      <div className="mt-4 flex justify-start gap-4">
                         <span className="text-green-500 rounded-xl bg-green-200 px-2 py-1 font-lato">
                           Free Access
                         </span>
@@ -157,11 +157,13 @@ const EventsSchedule = () => {
                 </div>
 
                 {/* Right Section - 1 Image */}
-                <div className="flex">
+                <div
+                  className="flex"
+                >
                   <Image
                     src={event.image}
                     alt={event.title}
-                    className="scale-75 md:scale-100 object-cover rounded-lg !max-h[285px] w-[305px]"
+                    className="scale-90 object-cover rounded-lg !max-h[285px] w-[305px]"
                   />
                 </div>
               </div>

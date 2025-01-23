@@ -7,35 +7,33 @@ import RegisterPopup from "./RegisterPopup";
 
 const Hero = () => {
   return (
-    <div
-      className="bg-cover bg-center h-fit object-contain w-full p-10"
-      style={{ backgroundImage: `url(${ChainUpHeroBg.src})` }}
-    >
-      <div className="flex flex-col lg:flex-row items-center justify-between h-full space-y-6 lg:space-y-0  pt-20">
-        <div className=" text-white text-center lg:text-left p-6 mt-20 lg:mt-64 ">
-          <h2 className="text-white text-4xl lg:text-5xl font-[550]">
+    <div className="relative w-full h-fit p-2 lg:p-10">
+      <div 
+        className="absolute top-0 left-0 w-full h-full blur-[4px] bg-cover bg-center"
+        style={{ backgroundImage: `url(${ChainUpHeroBg.src})` }}
+      ></div>
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between h-full space-y-6 lg:space-y-0 lg:pt-20">
+        <div className="text-white text-center lg:text-left p-6 mt-10 lg:mt-64">
+          <h2 className="text-white pt-40 md:pt-0  text-4xl lg:text-5xl font-[550]">
             Chain Up Roadshows
           </h2>
 
           <div className="mt-10 flex flex-wrap justify-center lg:justify-start max-w-sm text-lg">
             {["Ibadan", "Kaduna", "Benin", "Anambra", "Enugu"].map(
               (location, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center lg:justify-start"
-                >
+                <div key={index} className="flex items-center justify-center lg:justify-start">
                   <MdLocationPin className="text-white mr-2" />
-                  <span className="text-white text-[1.7rem] pb-2 font-lato pr-4">
+                  <span className="text-white text-lg md:text-[1.7rem] pb-2 font-lato pr-4">
                     {location}
                   </span>
                 </div>
               )
             )}
           </div>
-          <div className="mx-auto text-center lg:text-left mt-10">
+          <div className="mx-auto text-center lg:text-left lg:mt-10">
             <RegisterPopup
               className=""
-              buttonClassName="  bg-[#A20812] hover:text-[#A20812] hover:outline-[#A20812]"
+              buttonClassName="bg-[#A20812] hover:text-[#A20812] hover:outline-[#A20812]"
             />
           </div>
         </div>
@@ -50,7 +48,7 @@ const Hero = () => {
 
 const ChainUpRoadShowsCard = () => {
   return (
-    <div className="w-full bg-white rounded-3xl p-8 shadow-lg overflow-hidden transition-transform transform">
+    <div className="w-full bg-white rounded-3xl p-4 md:p-8 shadow-lg overflow-hidden transition-transform transform">
       <div className="relative w-full h-56">
         <Image
           src={ChainUpRoadshows}
@@ -72,14 +70,14 @@ const ChainUpRoadShowsCard = () => {
         <div className="mt-6 flex justify-between gap-8">
           <div className="flex flex-col items-center w-full sm:w-auto">
             <p className="text-gray-400">Mission</p>
-            <h2 className="text-black font-semibold text-4xl font-[family-name:var(--font-abhaya-libre)] ">
+            <h2 className="text-black font-semibold text-4xl font-[family-name:var(--font-abhaya-libre)]">
               1
             </h2>
           </div>
 
           <div className="flex flex-col items-center w-full sm:w-auto">
             <p className="text-gray-400">Cities</p>
-            <h2 className="text-black font-[family-name:var(--font-abhaya-libre)]  font-semibold text-4xl">
+            <h2 className="text-black font-[family-name:var(--font-abhaya-libre)] font-semibold text-4xl">
               5
             </h2>
           </div>

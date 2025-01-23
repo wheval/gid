@@ -35,13 +35,13 @@ const EventCountDown = ({ newDate }) => {
   const padNumber = (num) => num.toString().padStart(2, "0");
 
   return (
-    <div className="flex font-lato items-center justify-center md:justify-start  gap-4 mb-4">
-      <div className="text-center">
-        <FaClock />
+    <div className="flex font-lato justify-start  gap-4 mb-4">
+      <div className="text-center flex items-center gap-2">
+        <FaClock className="border p-1.5 rounded-lg bg-gray-100 text-3xl"/>
       </div>
       <div className="text-center">
         <div className="text-sm mt-1">Days</div>
-        <div className="bg-gray-100 p-2 rounded">
+        <div className=" p-2 rounded">
           <span className="text-lg font-[family-name:var(--font-abhaya-libre)]">
             {timeLeft.days}
           </span>
@@ -49,7 +49,7 @@ const EventCountDown = ({ newDate }) => {
       </div>
       <div className="text-center">
         <div className="text-sm mt-1">Hours</div>
-        <div className="bg-gray-100 p-2 rounded">
+        <div className=" p-2 rounded">
           <span className="text-lg font-[family-name:var(--font-abhaya-libre)]">
             {padNumber(timeLeft.hours)}
           </span>
@@ -57,7 +57,7 @@ const EventCountDown = ({ newDate }) => {
       </div>
       <div className="text-center">
         <div className="text-sm mt-1">Minutes</div>
-        <div className="bg-gray-100 p-2 rounded">
+        <div className=" p-2 rounded">
           <span className="text-lg font-[family-name:var(--font-abhaya-libre)]">
             {padNumber(timeLeft.minutes)}
           </span>
@@ -65,7 +65,7 @@ const EventCountDown = ({ newDate }) => {
       </div>
       <div className="text-center">
         <div className="text-sm mt-1">Seconds</div>
-        <div className="bg-gray-100 p-2 rounded">
+        <div className=" p-2 rounded">
           <span className="text-lg font-[family-name:var(--font-abhaya-libre)]">
             {padNumber(timeLeft.seconds)}
           </span>

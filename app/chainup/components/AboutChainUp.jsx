@@ -6,7 +6,9 @@ import RegisterPopup from "./RegisterPopup";
 
 const AboutChainUp = () => {
   return (
-    <div className="flex flex-col space-between p-20 md:flex-row bg-[#FAB622]">
+    <div className="flex flex-col space-between p-10 lg:p-20 md:flex-row bg-[#FAB622]">
+      <h2 className="font-bold text-4xl block md:hidden">Chain Up</h2>
+
       <div className="w-full md:min-w-[48%]">
         <Image
           src={AboutChainUpImg}
@@ -17,14 +19,14 @@ const AboutChainUp = () => {
       </div>
       {/* Div with background image */}
       <div
-        className="about-chain-up md:px-10 pt-12 md:pt-0"
+        className="about-chain-up md:px-10 pt-12 md:pt-0 text-justify"
         style={{
           backgroundImage: `url(${BackgroundDesign.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <h2 className="font-bold text-4xl">Chain Up</h2>
+        <h2 className="font-bold text-4xl  hidden md:block">Chain Up</h2>
 
         <p>
           The GIDA Chain-Up Roadshows are a series of blockchain-focused events
