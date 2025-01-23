@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import AboutChainUpImg from "../../../public/assets/about-chain-up.png";
+import BackgroundDesign from "../../../public/assets/chainup/background-design.png";
 import RegisterPopup from "./RegisterPopup";
 
 const AboutChainUp = () => {
@@ -14,7 +15,15 @@ const AboutChainUp = () => {
           className="rounded-3xl p-3 w-full"
         />
       </div>
-      <div className="about-chain-up md:px-10 pt-12 md:pt-0">
+      {/* Div with background image */}
+      <div
+        className="about-chain-up md:px-10 pt-12 md:pt-0"
+        style={{
+          backgroundImage: `url(${BackgroundDesign.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <h2 className="font-bold text-4xl">Chain Up</h2>
 
         <p>
@@ -42,7 +51,7 @@ const AboutChainUp = () => {
         <br />
         <RegisterPopup
           className=""
-          buttonClassName="  bg-black hover:text-black hover:outline-black"
+          buttonClassName="bg-black hover:text-black hover:outline-black"
         />
       </div>
     </div>

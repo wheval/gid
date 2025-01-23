@@ -51,10 +51,10 @@ const RegisterPopup = ({ className = "", buttonClassName = "" }) => {
                 <Link
                   key={index}
                   href={location.href}
-                  className="flex items-center gap-2 px-4 py-3 hover:bg-[#A20812] hover:text-white text-black rounded-lg transition-colors mb-2 last:mb-0"
+                  className="flex group items-center gap-2 px-4 py-3 hover:bg-[#A20812] hover:text-white text-black rounded-lg transition-colors mb-2 last:mb-0"
                 >
-                  <FaBuilding className="text-lg" />
-                  <span className="font-medium">{location.name}</span>
+                  <FaBuilding className="text-lg text-red-500 group-hover:text-white" />
+                  <span className=" group-hover:text-white font-medium">{location.name}</span>
                 </Link>
               ))}
             </div>

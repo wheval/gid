@@ -8,12 +8,12 @@ import RegisterPopup from "./RegisterPopup";
 const Hero = () => {
   return (
     <div
-      className="bg-cover bg-center h-fit w-full p-10"
+      className="bg-cover bg-center h-fit object-contain w-full p-10"
       style={{ backgroundImage: `url(${ChainUpHeroBg.src})` }}
     >
       <div className="flex flex-col lg:flex-row items-center justify-between h-full space-y-6 lg:space-y-0  pt-20">
-        <div className=" text-white lg:text-left p-6 mt-64 ">
-          <h2 className="text-white text-3xl lg:text-5xl font-[550]">
+        <div className=" text-white text-center lg:text-left p-6 mt-20 lg:mt-64 ">
+          <h2 className="text-white text-4xl lg:text-5xl font-[550]">
             Chain Up Roadshows
           </h2>
 
@@ -25,15 +25,19 @@ const Hero = () => {
                   className="flex items-center justify-center lg:justify-start"
                 >
                   <MdLocationPin className="text-white mr-2" />
-                  <span className="text-white text-[1.7rem] pb-2 font-lato pr-4">{location}</span>
+                  <span className="text-white text-[1.7rem] pb-2 font-lato pr-4">
+                    {location}
+                  </span>
                 </div>
               )
             )}
           </div>
-          <RegisterPopup
-            className=""
-            buttonClassName="  bg-[#A20812] hover:text-[#A20812] hover:outline-[#A20812]"
-          />
+          <div className="mx-auto text-center lg:text-left mt-10">
+            <RegisterPopup
+              className=""
+              buttonClassName="  bg-[#A20812] hover:text-[#A20812] hover:outline-[#A20812]"
+            />
+          </div>
         </div>
 
         <div className="text-center lg:text-left w-fit lg:w-[40%] p-6 rounded-lg">

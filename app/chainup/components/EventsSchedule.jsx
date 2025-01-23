@@ -36,7 +36,7 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP IBADAN",
       location: "Seminar Room, ICC, University Of Ibadan Second Gate, Ibadan",
-      registered: 100,
+      registered: 230,
       image: IbadanImg,
       loc: IBImg,
       registerUrl: "/register/ibadan",
@@ -49,7 +49,7 @@ const EventsSchedule = () => {
       title: "CHAIN UP BENIN",
       location:
         "FAGCOOP Restaurant (upstairs), University of Benin, Benin City, Edo State",
-      registered: 100,
+      registered: 230,
       image: BeninImg,
       loc: BNIImg,
       registerUrl: "register/benin",
@@ -62,7 +62,7 @@ const EventsSchedule = () => {
       title: "CHAIN UP ANAMBRA",
       location:
         "Nawé Schools, Fab Amich House, 89 Club Road, Regina, Opposite Obalaku/Awka, Anambra State",
-      registered: 100,
+      registered: 230,
       image: AnambraImg,
       loc: ANImg,
       registerUrl: "/register/anambra",
@@ -74,8 +74,8 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP ENUGU",
       location:
-        "Lion Science Park, Off Sullivan Chime Drive, Greenhouse Gate, UNN Campus, Enugu State",
-      registered: 100,
+        "Princess Alexandria Auditorium (PAA), University of Nigeria, Nsukka, Enugu State",
+      registered: 230,
       image: EnuguImg,
       loc: ENUImg,
       registerUrl: "/register/enugu",
@@ -93,11 +93,11 @@ const EventsSchedule = () => {
         {eventsScheduleData.map((event, index) => (
           <div key={index} className=" p-6 mb-4">
             {/* date */}
-            <div className="text-lg">
+            <div className="text-lg font-lato">
               {event.date}
-              <span className="text-gray-600 pl-2">{event.day}</span>
+              <span className="text-gray-500 px-4">{event.day}</span>
             </div>
-            <div className=" flex flex-col lg:flex-row w-full ">
+            <div className=" flex flex-col mt-4 lg:flex-row w-full ">
               {/* this div contains all 3 main components */}
 
               <div className=" flex flex-col items-center justify-center md:justify-between md:flex-row bg-white rounded-lg shadow-md px-5">
@@ -105,9 +105,9 @@ const EventsSchedule = () => {
                 <div className="p-6 flex-1 text-center md:text-left">
                   <div className="flex flex-col items-center md:items-start gap-4">
                     {/* Event time and title*/}
-                    <div className="flex items-center gap-2  text-center">
+                    <div className="flex items-center md:items-start md:text-left gap-2  text-center">
                       <div className="">
-                        <div className="text-xl mt-1 text-gray-600">
+                        <div className="text-xl mt-1 font-lato text-gray-500">
                           {event.time}
                         </div>
                         <h2 className="text-xl font-[550] mb-4">
@@ -123,18 +123,20 @@ const EventsSchedule = () => {
                       <EventCountDown newDate={event.date2} />
 
                       {/* Location */}
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-start gap-2 font-lato">
                         <FaLocationDot className="text-gray-500 mt-1" />
-                        <p className="text-gray-600 max-w-sm">
+                        <p className="text-gray-500 max-w-sm">
                           {event.location}
                         </p>
                       </div>
 
                       {/* Registration Info */}
                       <div className="mt-4 flex items-center justify-center md:justify-start gap-4">
-                        <span className="text-green-500">Free Access</span>
-                        <span className="text-gray-600">
-                          <span className="font-[550] pr-2">
+                        <span className="text-green-500 rounded-xl bg-green-200 px-2 py-1 font-lato">
+                          Free Access
+                        </span>
+                        <span className="text-gray-500">
+                          <span className="font-[550] pr-2 font-[family-name:var(--font-abhaya-libre)] text-2xl ">
                             {event.registered}
                           </span>
                           Registered
@@ -142,7 +144,7 @@ const EventsSchedule = () => {
                       </div>
 
                       {/* Register Button */}
-                      <div className="mt-4 ">
+                      <div className="mt-6">
                         <Link
                           href={event.registerUrl}
                           className=" bg-[#A20812] text-white px-6 py-3 rounded-full hover:bg-[#8a0710] transition-colors "
@@ -168,7 +170,7 @@ const EventsSchedule = () => {
                 <Image
                   src={event.loc}
                   alt={`${event.title} Location`}
-                  className=" w-[500] lg:w-[390px] scale-75 md:scale-100 object-cover rounded-lg !max-h-[285px] h-[285px]"
+                  className=" w-[500] lg:w-[390px] scale-75 md:scale-100 object-cover rounded-lg !max-h-[285px] h-[285px] hidden md:flex"
                 />
               </div>
             </div>
