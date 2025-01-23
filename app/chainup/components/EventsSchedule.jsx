@@ -48,11 +48,11 @@ const EventsSchedule = () => {
       console.error("Failed to fetch registered users:", error);
     }
   };
-  
+
   useEffect(() => {
     fetchRegisteredUsers();
   }, []);
-  
+
   const eventsScheduleData = [
     {
       date: "January 25, 2025",
@@ -60,7 +60,7 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP KADUNA",
       location: "The Budl Grid, 19 Algeria Crescent, Barnawa, Kaduna",
-      registered: attendeeCounts[2],
+      registered: attendeeCounts[0],
       image: KadunaImg,
       loc: KADImg,
       registerUrl: "/register/kaduna",
@@ -72,7 +72,7 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP IBADAN",
       location: "Seminar Room, ICC, University Of Ibadan Second Gate, Ibadan",
-      registered: attendeeCounts[0],
+      registered: attendeeCounts[1],
       image: IbadanImg,
       loc: IBImg,
       registerUrl: "/register/ibadan",
@@ -85,7 +85,7 @@ const EventsSchedule = () => {
       title: "CHAIN UP BENIN",
       location:
         "FAGCOOP Restaurant (upstairs), University of Benin, Benin City, Edo State",
-      registered: attendeeCounts[1],
+      registered: attendeeCounts[2],
       image: BeninImg,
       loc: BNIImg,
       registerUrl: "register/benin",

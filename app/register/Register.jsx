@@ -84,26 +84,15 @@ const Register = () => {
     e.preventDefault();
     if (!formData.firstName) {
       setErrorMsq("First name is required");
-
-      return;
-    } else if (!/^[a-zA-Z]+$/.test(formData.firstName.split(" ")[0])) {
-      setErrorMsq("First name must contain only letters");
-
       return;
     }
     if (!formData.lastName) {
       setErrorMsq("Last name is required");
-
-      return;
-    } else if (!/^[a-zA-Z]+$/.test(formData.lastName.split(" ")[0])) {
-      setErrorMsq("Last name must contain only letters");
-
       return;
     }
 
     if (!formData.phone) {
       setErrorMsq("Phone number is required");
-
       return;
     } else if (!/^\d{10,15}$/.test(formData.phone)) {
       setErrorMsq("Phone number must be 10-15 digits long");
@@ -113,7 +102,6 @@ const Register = () => {
 
     if (!formData.gender) {
       setErrorMsq("Gender is required");
-
       return;
     }
 
