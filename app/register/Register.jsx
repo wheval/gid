@@ -180,7 +180,7 @@ const Register = () => {
       console.log("JSON Payload:", jsonData);
 
       const response = await fetch(
-        "https://api.gida.academy/events/chain-up-roadshow-cairo/register",
+        "https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register",
         {
           method: "POST",
           body: jsonData,

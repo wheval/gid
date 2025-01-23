@@ -611,6 +611,7 @@ const Ibadan = () => {
           email={mail}
           onClose={handleCloseModal}
           whatsapp={"https://chat.whatsapp.com/FMTEu0QCfHuBybXC6xTjWx"}
+          eventText={'Chain Up Ibadan Roadshow'}
         />
       )}
       {errorMsg && (
