@@ -28,14 +28,14 @@ const RegisterSuccess = ({ email, onClose, whatsapp, eventText }) => {
         <div className="flex flex-col gap-2 w-full justify-center items-center">
           <a
             href={whatsapp}
-            className="flex justify-center items-center bg-red-500 hover:bg-red-600 text-white mb-2 rounded-md py-1.5 px-4 w-max gap-2"
+            className="flex justify-center items-center w-full bg-red-500 hover:bg-red-600 text-white rounded-md py-1.5 px-4 gap-2"
           >
             <FaWhatsapp size={28} />
             <p>Join the group for all Registrants</p>
           </a>
           <a
             href="http://t.me/OfficialGIDAConvo"
-            className="flex justify-center items-center bg-[#229ed9] hover:bg-sky-500 text-white  rounded-md py-1.5 px-4 gap-2"
+            className="flex justify-center items-center w-full bg-[#229ed9] hover:bg-sky-500 text-white  rounded-md py-1.5 px-4 gap-2"
           >
             <FaTelegram size={28} />
             <p>Join our telegram community</p>
