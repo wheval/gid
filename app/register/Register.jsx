@@ -86,7 +86,7 @@ const Register = () => {
       setErrorMsq("First name is required");
 
       return;
-    } else if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
+    } else if (!/^[a-zA-Z]+$/.test(formData.firstName.split(" ")[0])) {
       setErrorMsq("First name must contain only letters");
 
       return;
@@ -95,7 +95,7 @@ const Register = () => {
       setErrorMsq("Last name is required");
 
       return;
-    } else if (!/^[a-zA-Z]+$/.test(formData.lastName)) {
+    } else if (!/^[a-zA-Z]+$/.test(formData.lastName.split(" ")[0])) {
       setErrorMsq("Last name must contain only letters");
 
       return;
@@ -310,7 +310,7 @@ const Register = () => {
                   type="text"
                   name="firstName"
                   placeholder="First name"
-                  value={formData.firstName}
+                  value={formData.firstName.split(" ")[0]}
                   onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
@@ -318,7 +318,7 @@ const Register = () => {
                   type="text"
                   name="lastName"
                   placeholder="Last name"
-                  value={formData.lastName}
+                  value={formData.lastName.split(" ")[0]}
                   onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
@@ -572,6 +572,7 @@ const Register = () => {
           email={mail}
           onClose={handleCloseModal}
           whatsapp={"https://chat.whatsapp.com/Jj7isikeRUxGhNKiB8bCT7"}
+          eventText={"Cairo Bootcamp 2.0"}
         />
       )}
       {errorMsg && (
