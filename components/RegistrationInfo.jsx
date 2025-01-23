@@ -1,13 +1,30 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 import Countdown from "./Countdown";
+import { useEffect, useState } from "react";
 
 const RegistrationInfo = () => {
+
+  const [registrants, setRegistrants] = useState(0)
+
+  const fetchRegistrants = async () => {
+    const res = await fetch('https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/participants?offset=0&limit=20')
+    const data = await res.json()
+    const noOfRegistrants = data.data.length
+    setRegistrants(noOfRegistrants)
+  }
+
+  useEffect(() => {
+    fetchRegistrants()
+  }, [])
+
   return (
     <section>
       <div className="bg-[#BD1522] w-full flex justify-evenly items-center py-16 flex-col md:flex-row">
         <div className="font-bold text-center text-white">
-          <div className=" text-2xl md:text-5xl">000</div>
+          <div className=" text-2xl md:text-5xl">{registrants}</div>
           <div className="text-lg">Registrants</div>
         </div>
         <div className="text-gray-400 hidden md:block">|</div>
