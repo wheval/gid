@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FaLocationDot } from "react-icons/fa6";
-
+import { useState, useEffect } from "react";
 import KadunaImg from "../../../public/assets/chainup/kaduna.jpg";
 import KADImg from "../../../public/assets/chainup/Rectangle191.jpg";
 import IbadanImg from "../../../public/assets/chainup/ibadan.jpg";
@@ -17,6 +17,42 @@ import Link from "next/link";
 import EventCountDown from "./EventCountDown";
 
 const EventsSchedule = () => {
+  const [attendeeCounts, setAttendeeCounts] = useState([0, 0, 0, 0, 0]);
+  const fetchRegisteredUsers = async () => {
+    try {
+      const response = await fetch(
+        "https://api.gida.academy/events/chain-up-roadshows"
+      );
+      if (!response.ok) {
+        console.log(`Error: ${response.status} ${response.statusText}`);
+      }
+      const result = await response.json();
+
+      if (
+        result.data &&
+        Array.isArray(result.data) &&
+        result.data.length >= 4
+      ) {
+        const counts = [
+          result.data[0]?._count?.attendees ?? 0,
+          result.data[1]?._count?.attendees ?? 0,
+          result.data[2]?._count?.attendees ?? 0,
+          result.data[3]?._count?.attendees ?? 0,
+          result.data[4]?._count?.attendees ?? 0,
+        ];
+        setAttendeeCounts(counts);
+      } else {
+        console.error("Unexpected response structure:", result);
+      }
+    } catch (error) {
+      console.error("Failed to fetch registered users:", error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchRegisteredUsers();
+  }, []);
+  
   const eventsScheduleData = [
     {
       date: "January 25, 2025",
@@ -24,7 +60,7 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP KADUNA",
       location: "The Budl Grid, 19 Algeria Crescent, Barnawa, Kaduna",
-      registered: 0,
+      registered: attendeeCounts[2],
       image: KadunaImg,
       loc: KADImg,
       registerUrl: "/register/kaduna",
@@ -36,7 +72,7 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP IBADAN",
       location: "Seminar Room, ICC, University Of Ibadan Second Gate, Ibadan",
-      registered: 230,
+      registered: attendeeCounts[0],
       image: IbadanImg,
       loc: IBImg,
       registerUrl: "/register/ibadan",
@@ -48,8 +84,8 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP BENIN",
       location:
-        "FAGCOOP Restaurant (upstairs), University of Benin, Benin City, Edo State",
-      registered: 230,
+        "FAGCOOP Restaurant (upstairs), University of Benin, Benin City, Edo State",
+      registered: attendeeCounts[1],
       image: BeninImg,
       loc: BNIImg,
       registerUrl: "register/benin",
@@ -62,7 +98,7 @@ const EventsSchedule = () => {
       title: "CHAIN UP ANAMBRA",
       location:
         "Nawé Schools, Fab Amich House, 89 Club Road, Regina, Opposite Obalaku/Awka, Anambra State",
-      registered: 230,
+      registered: attendeeCounts[3],
       image: AnambraImg,
       loc: ANImg,
       registerUrl: "/register/anambra",
@@ -74,8 +110,8 @@ const EventsSchedule = () => {
       time: "10:00 AM",
       title: "CHAIN UP ENUGU",
       location:
-        "Princess Alexandria Auditorium (PAA), University of Nigeria, Nsukka, Enugu State",
-      registered: 230,
+        "Princess Alexandra Auditorium (PAA), University of Nigeria, Nsukka, Enugu State",
+      registered: attendeeCounts[4],
       image: EnuguImg,
       loc: ENUImg,
       registerUrl: "/register/enugu",
@@ -83,6 +119,7 @@ const EventsSchedule = () => {
     },
   ];
 
+  // Rest of the component remains the same
   return (
     <div className="schedule-container bg-[#F0F0F0] md:p-10">
       <h1 className="schedule-title font-semibold text-2xl p-10">
@@ -170,7 +207,7 @@ const EventsSchedule = () => {
                 <Image
                   src={event.loc}
                   alt={`${event.title} Location`}
-                  className=" w-[500] lg:w-[390px] scale-75 md:scale-100 object-cover rounded-lg !max-h-[285px] h-[285px] hidden md:flex"
+                  className=" w-[500] lg:w-[390px] scale-75 md:scale-100 object-cover rounded-lg !max-h-[285px] h-[285px] hidden lg:flex"
                 />
               </div>
             </div>
