@@ -6,7 +6,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import KadunaImg from "../../../public/assets/chainup/kaduna.jpg";
 import KADImg from "../../../public/assets/chainup/Rectangle191.jpg";
 import IbadanImg from "../../../public/assets/chainup/ibadan.jpg";
-import IBImg from "../../../public/assets/chainup/Rectangle190.jpg";
+import IBImg from "../../../public/assets/chainup/rectangle190.jpg";
 import BeninImg from "../../../public/assets/chainup/benin.jpg";
 import BNIImg from "../../../public/assets/chainup/Rectangle187.png";
 import AnambraImg from "../../../public/assets/chainup/anambra.jpg";
