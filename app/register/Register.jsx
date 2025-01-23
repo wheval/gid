@@ -180,7 +180,7 @@ const Register = () => {
       console.log("JSON Payload:", jsonData);
 
       const response = await fetch(
-        "https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register",
+        "https://api.gida.academy/events/chain-up-roadshow-cairo/register",
         {
           method: "POST",
           body: jsonData,
@@ -218,7 +218,7 @@ const Register = () => {
         console.log("Failed to submit form:", response.status);
         console.log("Failed to submit form:", await response.text());
         if (response?.status == 400) {
-          setErrorMsq("All fields are required");
+          setErrorMsq("Unexpected error occured");
         }
       }
     } catch (error) {

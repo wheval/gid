@@ -157,9 +157,7 @@ const EventsSchedule = () => {
                 </div>
 
                 {/* Right Section - 1 Image */}
-                <div
-                  className="flex"
-                >
+                <div className="flex">
                   <Image
                     src={event.image}
                     alt={event.title}
