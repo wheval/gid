@@ -142,18 +142,11 @@ const Register = () => {
       setErrorMsg("Github Link is required");
 
       return;
-    } else if (/^https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]*$/.test(formData.githubUrl)) {
-      setErrorMsg("Invalid github url. Check field placeholder")
-
-      return;
     }
 
     if (!formData.starknetAddress) {
       setErrorMsg("Starknet Wallet is required");
 
-      return;
-    } else if (!/^0x[a-fA-F0-9]{64,66}$/.test(formData.starknetAddress)) {
-      setErrorMsg("Input a correct Starknet Wallet address")
       return;
     }
 
