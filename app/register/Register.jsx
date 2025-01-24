@@ -142,13 +142,19 @@ const Register = () => {
       setErrorMsg("Github Link is required");
 
       return;
+    } else if (/^https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]*$/.test(formData.githubUrl)) {
+      setErrorMsg("Invalid github url. Check field placeholder")
+
+      return;
     }
+
     if (!formData.starknetAddress) {
       setErrorMsg("Starknet Wallet is required");
 
       return;
     } else if (!/^0x[a-fA-F0-9]{64,66}$/.test(formData.starknetAddress)) {
       setErrorMsg("Input a correct Starknet Wallet address")
+      return;
     }
 
     try {
@@ -163,11 +169,11 @@ const Register = () => {
         }
       });
 
-      console.log("FormData object:", [...data.entries()]); // Debugging purpose
+      // console.log("FormData object:", [...data.entries()]); // Debugging purpose
 
       // If your API expects JSON, convert FormData to a JSON object
       const jsonData = JSON.stringify(Object.fromEntries(data.entries()));
-      console.log("JSON Payload:", jsonData);
+      // console.log("JSON Payload:", jsonData);
 
       const response = await fetch(
         "https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register",
@@ -378,7 +384,7 @@ const Register = () => {
                 <input
                   type="text"
                   name="github"
-                  placeholder="Enter your GitHub profile link"
+                  placeholder="https://github.com/exampleUser"
                   value={formData.githubUrl}
                   onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"

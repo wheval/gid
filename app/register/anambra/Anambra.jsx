@@ -43,7 +43,7 @@ const Ibadan = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [errorMsg, setErrorMsq] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const [mail, setMail] = useState("");
   const router = useRouter();
   const handleChange = (e) => {
@@ -68,73 +68,73 @@ const Ibadan = () => {
   const updateFormFields = (e) => {
     e.preventDefault();
     if (!formData.email) {
-      setErrorMsq("Email is required");
+      setErrorMsg("Email is required");
       return;
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      setErrorMsq("Please enter a valid email address");
+      setErrorMsg("Please enter a valid email address");
       return;
     }
-    setErrorMsq("");
+    setErrorMsg("");
     setShowFields(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.firstName) {
-      setErrorMsq("First name is required");
+      setErrorMsg("First name is required");
 
       return;
     } else if (!/^[a-zA-Z]+$/.test(formData.firstName)) {
-      setErrorMsq("First name must contain only letters");
+      setErrorMsg("First name must contain only letters");
 
       return;
     }
     if (!formData.lastName) {
-      setErrorMsq("Last name is required");
+      setErrorMsg("Last name is required");
 
       return;
     } else if (!/^[a-zA-Z]+$/.test(formData.lastName)) {
-      setErrorMsq("Last name must contain only letters");
+      setErrorMsg("Last name must contain only letters");
 
       return;
     }
 
     if (!formData.phone) {
-      setErrorMsq("Phone number is required");
+      setErrorMsg("Phone number is required");
 
       return;
     } else if (!/^\d{10,15}$/.test(formData.phone)) {
-      setErrorMsq("Phone number must be 10-15 digits long");
+      setErrorMsg("Phone number must be 10-15 digits long");
 
       return;
     }
 
     if (!formData.gender) {
-      setErrorMsq("Gender is required");
+      setErrorMsg("Gender is required");
 
       return;
     }
 
     if (!formData.status) {
-      setErrorMsq("Status is required");
+      setErrorMsg("Status is required");
 
       return;
     }
     if (!formData.proficiency) {
-      setErrorMsq("Proficiency level is required");
+      setErrorMsg("Proficiency level is required");
       return;
     }
 
     if (!formData.stack || formData.stack.length === 0) {
-      setErrorMsq("Please select at least one technology stack");
+      setErrorMsg("Please select at least one technology stack");
       return;
     }
     if (!formData.attendance || formData.stack.attendance === 0) {
-      setErrorMsq("Please specify if you will attend or not");
+      setErrorMsg("Please specify if you will attend or not");
       return;
     }
     if (!formData.terms) {
-      setErrorMsq("Please agree to the Terms and Conditions to proceed.");
+      setErrorMsg("Please agree to the Terms and Conditions to proceed.");
       return;
     }
     try {
@@ -191,12 +191,12 @@ const Ibadan = () => {
         console.log("Failed to submit form:", response.status);
         console.log("Failed to submit form:", await response.text());
         if (response?.status == 400) {
-          setErrorMsq("Unexpected error occured");
+          setErrorMsg("Unexpected error occured");
         }
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      setErrorMsq("An error occurred while submitting the form.");
+      setErrorMsg("An error occurred while submitting the form.");
     } finally {
       setIsLoading(false);
     }
