@@ -40,13 +40,13 @@ const Register = () => {
     state: "",
     otherState: "",
     city: "",
-    github: "",
-    starknet: "",
+    githubUrl: "",
+    starknetAddress: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [errorMsg, setErrorMsq] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const [mail, setMail] = useState("");
   const router = useRouter();
   const handleChange = (e) => {
@@ -70,83 +70,85 @@ const Register = () => {
   const updateFormFields = (e) => {
     e.preventDefault();
     if (!formData.email) {
-      setErrorMsq("Email is required");
+      setErrorMsg("Email is required");
       return;
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      setErrorMsq("Please enter a valid email address");
+      setErrorMsg("Please enter a valid email address");
       return;
     }
-    setErrorMsq("");
+    setErrorMsg("");
     setShowFields(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.firstName) {
-      setErrorMsq("First name is required");
+      setErrorMsg("First name is required");
       return;
     }
     if (!formData.lastName) {
-      setErrorMsq("Last name is required");
+      setErrorMsg("Last name is required");
       return;
     }
 
     if (!formData.phone) {
-      setErrorMsq("Phone number is required");
+      setErrorMsg("Phone number is required");
       return;
     } else if (!/^\d{10,15}$/.test(formData.phone)) {
-      setErrorMsq("Phone number must be 10-15 digits long");
+      setErrorMsg("Phone number must be 10-15 digits long");
 
       return;
     }
 
     if (!formData.gender) {
-      setErrorMsq("Gender is required");
+      setErrorMsg("Gender is required");
       return;
     }
 
     if (!formData.status) {
-      setErrorMsq("Status is required");
+      setErrorMsg("Status is required");
 
       return;
     }
 
     if (!formData.proficiency) {
-      setErrorMsq("Proficiency level is required");
+      setErrorMsg("Proficiency level is required");
       return;
     }
 
     if (!formData.stack || formData.stack.length === 0) {
-      setErrorMsq("Please select at least one technology stack");
+      setErrorMsg("Please select at least one technology stack");
       return;
     }
 
     if (!formData.country) {
-      setErrorMsq("Country is required");
+      setErrorMsg("Country is required");
 
       return;
     }
 
     if (!formData.state && !formData.otherState) {
-      setErrorMsq("Please provide a state or other state");
+      setErrorMsg("Please provide a state or other state");
 
       return;
     }
 
     if (!formData.city) {
-      setErrorMsq("City is required");
+      setErrorMsg("City is required");
 
       return;
     }
-    if (!formData.github) {
-      setErrorMsq("Github Link is required");
+    if (!formData.githubUrl) {
+      setErrorMsg("Github Link is required");
 
       return;
     }
-    if (!formData.starknet) {
-      setErrorMsq("Starknet Wallet is required");
+    if (!formData.starknetAddress) {
+      setErrorMsg("Starknet Wallet is required");
 
       return;
+    } else if (!/^0x[a-fA-F0-9]{64,66}$/.test(formData.starknetAddress)) {
+      setErrorMsg("Input a correct Starknet Wallet address")
     }
 
     try {
@@ -199,19 +201,19 @@ const Register = () => {
           state: "",
           otherState: "",
           city: "",
-          github: "",
-          starknet: "",
+          githubUrl: "",
+          starknetAddress: "",
         });
       } else {
         console.log("Failed to submit form:", response.status);
         console.log("Failed to submit form:", await response.text());
         if (response?.status == 400) {
-          setErrorMsq("Unexpected error occured");
+          setErrorMsg("Unexpected error occured");
         }
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      setErrorMsq("An error occurred while submitting the form.");
+      setErrorMsg("An error occurred while submitting the form.");
     } finally {
       setIsLoading(false);
     }
@@ -377,7 +379,7 @@ const Register = () => {
                   type="text"
                   name="github"
                   placeholder="Enter your GitHub profile link"
-                  value={formData.github}
+                  value={formData.githubUrl}
                   onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
@@ -484,7 +486,7 @@ const Register = () => {
                     type="text"
                     name="starknet"
                     placeholder="Enter your Starknet Wallet Address from Argent / Braavos "
-                    value={formData.starknet}
+                    value={formData.starknetAddress}
                     onChange={handleChange}
                     className="border bg-transparent px-4 w-full py-2 rounded-lg"
                   />{" "}
