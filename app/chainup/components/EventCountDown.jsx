@@ -4,10 +4,10 @@ import { FaClock } from "react-icons/fa6";
 
 const EventCountDown = ({ newDate }) => {
   const calculateTimeLeft = () => {
-    const targetDate = new Date(newDate).getTime();
+    const targetDate = new Date(`${newDate}T10:00:00`).getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
-
+  
     if (difference <= 0) {
       return {
         days: 0,
@@ -16,7 +16,7 @@ const EventCountDown = ({ newDate }) => {
         seconds: 0,
       };
     }
-
+  
     return {
       days: Math.floor(difference / (1000 * 60 * 60 * 24)),
       hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
@@ -24,7 +24,7 @@ const EventCountDown = ({ newDate }) => {
       seconds: Math.floor((difference / 1000) % 60),
     };
   };
-
+  
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   // Update the countdown every second
@@ -37,7 +37,7 @@ const EventCountDown = ({ newDate }) => {
   return (
     <div className="flex font-lato justify-start  gap-4 mb-4">
       <div className="text-center flex items-center gap-2">
-        <FaClock className="border p-1.5 rounded-lg bg-gray-100 text-3xl"/>
+        <FaClock className="border p-1.5 rounded-lg bg-gray-100 text-3xl" />
       </div>
       <div className="text-center">
         <div className="text-sm mt-1">Days</div>
