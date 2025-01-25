@@ -376,7 +376,7 @@ const Register = () => {
                 </select>
                 <input
                   type="text"
-                  name="github"
+                  name="githubUrl"
                   placeholder="https://github.com/exampleUser"
                   value={formData.githubUrl}
                   onChange={handleChange}
@@ -483,7 +483,7 @@ const Register = () => {
                 <div>
                   <input
                     type="text"
-                    name="starknet"
+                    name="starknetAddress"
                     placeholder="Enter your Starknet Wallet Address from Argent / Braavos "
                     value={formData.starknetAddress}
                     onChange={handleChange}
