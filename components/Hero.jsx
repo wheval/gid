@@ -64,7 +64,7 @@ const Hero = () => {
         <div className="text-sm md:text-base bg-black flex items-center justify-center w-full text-center py-4 mt-12 gap-8">
           <div className="flex items-center gap-2">
             <MdOutlineCalendarMonth className="inline ml-2" />
-            <span>14th Jan - 14th Feb 2025</span>
+            <span>24th Feb - 14th Apr 2025</span>
           </div>
 
           <div className="flex items-center gap-2">
