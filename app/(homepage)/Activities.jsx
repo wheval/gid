@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 const Activities = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [hoveredImage, setHoveredImage] = useState(null);
   
   const images = [
     { id: 1, src: '/assets/activities1.png' },
@@ -19,22 +20,28 @@ const Activities = () => {
       if (!isPaused) {
         nextSlide();
       }
-    }, 3000); // Change slides every 3 seconds
+    }, 3000); 
 
     return () => clearInterval(timer);
   }, [isPaused]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex + 2;
+      return nextIndex >= images.length ? 0 : nextIndex;
+    });
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = prevIndex - 2;
+      return nextIndex < 0 ? images.length - 2 : nextIndex;
+    });
   };
+
+  // Ensure we always have a valid pair of images
+  const currentImageIndex = currentIndex;
+  const nextImageIndex = (currentIndex + 1) % images.length;
 
   return (
     <div className="w-full lg:p-16 flex flex-col overflow-hidden items-center justify-center">
@@ -60,65 +67,51 @@ const Activities = () => {
         >
           <img 
             src="/assets/leftarrow.png" 
-            className='absolute w-14 left-2 md:-left-8 top-1/2 -translate-y-1/2 z-20 cursor-pointer hover:scale-110 transition-transform'
+            className='absolute w-14 left-2 md:-left-8 top-1/2 -translate-y-1/2 z-30 cursor-pointer hover:scale-110 transition-transform'
             onClick={prevSlide}
             alt="Previous" 
           />
           
           <div className="relative w-full h-96 flex items-center justify-center">
-            {images.map((image, index) => {
-              const isActive = index === currentIndex;
-              const isPrevious = index === (currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-              const currentPairIndex = Math.floor(currentIndex/2) * 2;
-              const isFirstOfPair = index === currentPairIndex;
-              const isSecondOfPair = index === currentPairIndex + 1;
-              
-              return (
-                <>
-                  {isFirstOfPair && (
-                    <div
-                      key={`left-${image.id}${index}`}
-                      className={`absolute left-[2%] transform rotate-[-12deg] w-96 h-96 transition-all duration-500 ease-in-out ${
-                        isActive || isSecondOfPair
-                          ? 'opacity-100 translate-x-0 z-10' 
-                          : isPrevious
-                            ? 'opacity-0 translate-x-full z-0'
-                            : 'opacity-0 -translate-x-full z-0'
-                      }`}
-                    >
-                      <img
-                        src={images[currentPairIndex].src}
-                        className="w-full h-full lg:scale-125 object-contain"
-                        alt={`Activities ${currentPairIndex + 1}`}
-                      />
-                    </div>
-                  )}
-                  {isFirstOfPair && (
-                    <div
-                      key={`right-${image.id}`}
-                      className={`absolute right-[9%] transform rotate-[12deg] w-96 h-96 transition-all duration-500 ease-in-out ${
-                        isActive || isSecondOfPair
-                          ? 'opacity-100 translate-x-0 z-10' 
-                          : isPrevious
-                            ? 'opacity-0 translate-x-full z-0'
-                            : 'opacity-0 -translate-x-full z-0'
-                      }`}
-                    >
-                      <img
-                        src={images[currentPairIndex + 1].src}
-                        className="w-full h-full lg:scale-125 object-contain"
-                        alt={`Activities ${currentPairIndex + 2}`}
-                      />
-                    </div>
-                  )}
-                </>
-              );
-            })}
+            <div
+              className={`absolute left-[2%] transform rotate-[-10deg] w-96 h-96 transition-all duration-700 ease-out`}
+              onMouseEnter={() => setHoveredImage('left')}
+              onMouseLeave={() => setHoveredImage(null)}
+              style={{
+                zIndex: hoveredImage === 'left' ? 20 : 10,
+                opacity: hoveredImage === 'right' ? 0.7 : 1,
+                transform: `rotate(-10deg) scale(${hoveredImage === 'left' ? 1.05 : 1})`,
+                transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-out 0.1s'
+              }}
+            >
+              <img
+                src={images[currentImageIndex].src}
+                className="w-full h-full lg:scale-125 object-contain transition-opacity duration-500"
+                alt={`Activities ${currentImageIndex + 1}`}
+              />
+            </div>
+            <div
+              className={`absolute right-[9%] transform rotate-[10deg] w-96 h-96 transition-all duration-700 ease-out`}
+              onMouseEnter={() => setHoveredImage('right')}
+              onMouseLeave={() => setHoveredImage(null)}
+              style={{
+                zIndex: hoveredImage === 'right' ? 20 : 10,
+                opacity: hoveredImage === 'left' ? 0.7 : 1,
+                transform: `rotate(10deg) scale(${hoveredImage === 'right' ? 1.05 : 1})`,
+                transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-out 0.1s'
+              }}
+            >
+              <img
+                src={images[nextImageIndex].src}
+                className="w-full h-full lg:scale-125 object-contain transition-opacity duration-500"
+                alt={`Activities ${nextImageIndex + 1}`}
+              />
+            </div>
           </div>
 
           <img 
             src="/assets/rightarrow.png" 
-            className='absolute w-14 right-2 top-1/2 -translate-y-1/2 z-20 cursor-pointer hover:scale-110 transition-transform'
+            className='absolute w-14 right-2 top-1/2 -translate-y-1/2 z-30 cursor-pointer hover:scale-110 transition-transform'
             onClick={nextSlide}
             alt="Next" 
           />

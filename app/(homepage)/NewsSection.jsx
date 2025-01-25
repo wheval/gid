@@ -97,7 +97,7 @@ const NewsSection = () => {
                                         key={index}
                                         className='flex-[0_0_85%] lg:flex-[0_0_40%] h-full rounded-[40px] overflow-hidden relative'
                                     >
-                                        <Image src={news.image} width={595} height={200} alt='' />
+                                        <a className='h-[200px] overflow-hidden' href={news.link}><Image src={news.image} className='hover:scale-105 transition' width={595} height={200} alt='' /></a>
                                         <div className='bg-white h-full font-lato text-black p-4'>
                                             <p className='lg:text-xl font-medium leading-6 h-[50px] mt-2 mb-8'>{news.title}</p>
                                             <div className='flex gap-2 items-center justify-between'>
