@@ -85,7 +85,7 @@ const NewsSection = () => {
               style={{ width: `${progressPercentage}%` }}
             ></div>
           </div>
-            </div>
+          </div>
 
         </div>
         <Image src="/assets/circle_news_section.svg" className='absolute w-[200px] h-[200px] lg:w-[600px] lg:h-[596px] top-[-15%] left-[-10%] lg:top-[-46%] lg:left-[-25%] xl:top-[-360px]' width={600} height={596} alt='' />

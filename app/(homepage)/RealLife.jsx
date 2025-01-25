@@ -25,8 +25,31 @@ const testimonies = [
         title: 'Crypto Trader',
         image: '/assets/testimonies/03.png',
         description: "They broke down complex concepts into bite-sized pieces, making even the most intricate algorithms feel surprisingly relatable. It wasn't just theory, though. We got our hands dirty, building real-world projects that pushed our limits and ignited our creativity."
+    },  
+]
+
+const playTestimonies = [
+    {
+        name: 'Sharon',
+        title: 'Forex Trader',
+        image: '/assets/testimonies/person1.png',
+    },
+    {
+        name: 'Paul',
+        title: 'Blockchain Developer',
+        image: '/assets/testimonies/person2.png',
+    },
+    {
+        name: 'Raul',
+        title: 'Web Developer',
+        image: '/assets/testimonies/person3.png',
     },
 ]
+
+
+
+
+
 
 const RealLife = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -69,6 +92,35 @@ const RealLife = () => {
                         <h3 className="font-semibold uppercase text-[2rem] lg:text-[3.125rem]">Real Life, Real Results</h3>
                         <p className="font-lato">See how our bootcamps and course have created beautiful blockchain success stories</p>
                     </div>
+                    
+                    {/* Video Testimonials */}
+                    <div className="flex gap-4 overflow-x-auto pb-4 px-4 lg:px-0 snap-x snap-mandatory">
+                        {playTestimonies.map((testimony, index) => (
+                            <PlayCard
+                                key={index}
+                                {...testimony}
+                            />
+                        ))}
+                    </div>
+                        
+                    {/* Screenshot */}
+                    <div>
+                        <div>
+                            
+                        </div>
+                        {/* Progress bar container */}
+                        <div className="rounded-lg px-8 sm:px-0 flex mt-12 flex-col w-full">
+                            <div className="h-[1px] left-0 bg-gray-300 rounded-lg w-full"></div>
+                            <div
+                            className="border-white h-[5px] mt-[-3px] bg-white transition-all duration-300 ease-in-out"
+                            // style={{ width: `${progressPercentage}%` }}
+                            ></div>
+                        </div>   
+                    </div>
+
+
+
+                    {/* Testimonials Sections */}
                     <div className="relative">
                         {currentIndex > 0 && (
                             <button 
@@ -140,4 +192,19 @@ const Card = ({name, title, image, description}) => {
     )
 }
 
+ 
+const PlayCard = ({name, title, image}) => {
+    return (
+            <div className="flex relative rounded-[20px] overflow-hidden items-center gap-4 min-w-[85vw] lg:min-w-0 snap-center">
+                <Image src={image} height={494} width={626} alt={name} className="object-cover w-full h-[400px] lg:h-[494px] lg:w-[626px]" />   
+                <div className="flex justify-between absolute w-full bg-black/50 bottom-0 backdrop-blur-[10px] p-4 items-center gap-4">
+                    <div className="flex flex-col justify-start">
+                        <p>{name}</p>
+                        <p className="capitalize font-lato">{title}</p>
+                    </div>
+                    <Image src="/assets/icons/play.svg" alt="" width={30} height={30} />
+                </div>
+            </div>
+    )
+}
 export default RealLife

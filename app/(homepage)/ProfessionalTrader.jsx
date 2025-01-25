@@ -18,7 +18,7 @@ const ProfessionalTrader = () => {
       </div>
       
       <div className='relative w-full overflow-hidden bg-[#FEF8F3] py-12 lg:py-24'>
-        <div className='flex gap-8 mb-4 lg:mb-0 animate-scroll-testimonies hover:animate-pause whitespace-nowrap'>
+        <div className='flex relative z-10 gap-8 mb-4 lg:mb-0 animate-scroll-testimonies hover:animate-pause whitespace-nowrap'>
           <div className='flex gap-4 lg:gap-10 shrink-0'>
             {testimonies.map((item, index) => (
               <Image 
@@ -46,6 +46,7 @@ const ProfessionalTrader = () => {
             ))}
           </div>
         </div>
+        <Image src="/assets/traders/wigline.svg" className='absolute top-[50%] lg:top-[33%] z-0 left-[-2%] right-[-2%]' alt='' width={1750} height={279} /> 
       </div>
     </>
   )
