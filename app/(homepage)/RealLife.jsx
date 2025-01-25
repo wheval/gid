@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 const testimonies = [
     {
@@ -46,43 +49,75 @@ const playTestimonies = [
     },
 ]
 
-
-
-
-
+const screenshotTestimonies = [
+   "/assets/testimonies/screenshot.png",
+   "/assets/testimonies/screenshot2.png",
+   "/assets/testimonies/screenshot2.png",
+]
 
 const RealLife = () => {
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const [maxIndex, setMaxIndex] = useState(0)
-    const [isMobile, setIsMobile] = useState(false)
+    const autoplayOptions = {
+        delay: 3000,
+        rootNode: (emblaRoot) => emblaRoot.parentElement,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+    };
+
+    // Video testimonials carousel (only for mobile)
+    const [videoEmblaRef, videoEmblaApi] = useEmblaCarousel(
+        {
+            slidesToScroll: 1,
+            align: "center",
+            containScroll: "trimSnaps",
+            loop: true,
+        },
+        [Autoplay(autoplayOptions)]
+    );
+
+    // Text testimonials carousel
+    const [textEmblaRef, textEmblaApi] = useEmblaCarousel(
+        {
+            slidesToScroll: 1,
+            align: "start",
+            containScroll: "trimSnaps",
+            loop: true,
+        },
+        [Autoplay({ ...autoplayOptions, delay: 4000 })]
+    );
+
+    // screenshot carousel
+    const [screenshotEmblaRef, screenshotEmblaApi] = useEmblaCarousel(
+        {
+            slidesToScroll: 1,
+            align: "start",
+            containScroll: "trimSnaps",
+            loop: true,
+        },
+        [Autoplay({ ...autoplayOptions, delay: 2000 })]
+    );
+
+    const [selectedScreenshotIndex, setSelectedScreenshotIndex] = useState(0);
+    const [screenshotScrollSnaps, setScreenshotScrollSnaps] = useState([]);
+
+    const scrollPrev = useCallback(() => {
+        if (textEmblaApi) textEmblaApi.scrollPrev();
+    }, [textEmblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (textEmblaApi) textEmblaApi.scrollNext();
+    }, [textEmblaApi]);
 
     useEffect(() => {
-        const handleResize = () => {
-            const isMobileView = window.innerWidth < 1024;
-            setIsMobile(isMobileView)
-            
-            // Calculate max index based on screen size and container width
-            const slideWidth = isMobileView ? window.innerWidth * 0.85 : 400
-            const containerWidth = isMobileView ? window.innerWidth - 32 : 1200
-            const visibleSlides = Math.floor(containerWidth / (slideWidth + 24))
-            
-            // For desktop, add one less to maxIndex to prevent empty space
-            const adjustment = isMobileView ? 0 : 1
-            setMaxIndex(Math.max(0, testimonies.length - visibleSlides - adjustment))
-        }
+        if (!screenshotEmblaApi) return;
 
-        handleResize()
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
+        setScreenshotScrollSnaps(screenshotEmblaApi.scrollSnapList());
+        screenshotEmblaApi.on("select", () => {
+            setSelectedScreenshotIndex(screenshotEmblaApi.selectedScrollSnap());
+        });
+    }, [screenshotEmblaApi]);
 
-    const handleNext = () => {
-        setCurrentIndex(prev => Math.min(prev + 1, maxIndex))
-    }
-
-    const handlePrev = () => {
-        setCurrentIndex(prev => Math.max(prev - 1, 0))
-    }
+    // progress percentage
+    const progressPercentage = ((selectedScreenshotIndex + 1) / screenshotScrollSnaps.length) * 100;
 
     return (
         <section className="bg-primary text-white py-10 lg:px-20 lg:py-12 overflow-hidden">
@@ -94,88 +129,89 @@ const RealLife = () => {
                     </div>
                     
                     {/* Video Testimonials */}
-                    <div className="flex gap-4 overflow-x-auto pb-4 px-4 lg:px-0 snap-x snap-mandatory">
-                        {playTestimonies.map((testimony, index) => (
-                            <PlayCard
-                                key={index}
-                                {...testimony}
-                            />
-                        ))}
-                    </div>
-                        
-                    {/* Screenshot */}
-                    <div>
-                        <div>
-                            
+                    <div className="overflow-hidden lg:overflow-visible" ref={videoEmblaRef}>
+                        <div className="flex gap-4 lg:gap-8 lg:flex-wrap lg:justify-between">
+                            {playTestimonies.map((testimony, index) => (
+                                <div key={index} className="flex-[0_0_85%] first:ml-4 first:lg:m-0 lg:flex-[0_0_auto] lg:w-[400px]">
+                                    <PlayCard {...testimony} />
+                                </div>
+                            ))}
                         </div>
-                        {/* Progress bar container */}
+                    </div>
+                            
+                    {/* Screenshot Testimonials */}
+                    <div className="w-full">
+                        <div className="overflow-hidden" ref={screenshotEmblaRef}>
+                            <div className="flex w-full justify-between">
+                                {[...screenshotTestimonies, ...screenshotTestimonies].map((screenshot, index) => (
+                                    <div key={index} className="flex-[0_0_300px] mx-2">
+                                        <Image 
+                                            src={screenshot} 
+                                            width={300} 
+                                            height={600} 
+                                            className="object-cover" 
+                                            alt="Screenshot testimony"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        {/* Progress bar */}
                         <div className="rounded-lg px-8 sm:px-0 flex mt-12 flex-col w-full">
                             <div className="h-[1px] left-0 bg-gray-300 rounded-lg w-full"></div>
                             <div
-                            className="border-white h-[5px] mt-[-3px] bg-white transition-all duration-300 ease-in-out"
-                            // style={{ width: `${progressPercentage}%` }}
+                                className="border-white h-[5px] mt-[-3px] bg-white transition-all duration-300 ease-in-out"
+                                style={{ width: `${progressPercentage}%` }} // the progress bar is for the screenshot testimonies
                             ></div>
-                        </div>   
+                        </div>
                     </div>
 
-
-
-                    {/* Testimonials Sections */}
+                    {/* Text Testimonials Section */}
                     <div className="relative">
-                        {currentIndex > 0 && (
-                            <button 
-                                onClick={handlePrev}
-                                className="absolute z-10 top-[40%] left-0 lg:left-[-2%] transition-opacity"
-                            >
-                                <Image
-                                    src="/assets/testimonies/arrow_left.svg"
-                                    alt="Previous"
-                                    width={50}
-                                    height={50}
-                                    className="transform rotate-180 -mt-2"
-                                />
-                            </button>
-                        )}
-                        
-                        <div className="w-full px-4 lg:px-0 overflow-hidden">
-                            <div 
-                                className="flex gap-6 transition-transform duration-500 ease-in-out"
-                                style={{ 
-                                    transform: `translateX(-${currentIndex * (isMobile ? window.innerWidth * 0.85 + 24 : 424)}px)`
-                                }}
-                            >
+                        <button 
+                            onClick={scrollPrev}
+                            className="absolute z-10 top-[40%] left-0 lg:left-[-2%] transition-opacity"
+                        >
+                            <Image
+                                src="/assets/testimonies/arrow_left.svg"
+                                alt="Previous"
+                                width={50}
+                                height={50}
+                                className="transform rotate-180 -mt-2"
+                            />
+                        </button>
+
+                        <div className="overflow-hidden px-4 lg:px-0" ref={textEmblaRef}>
+                            <div className="flex gap-6">
                                 {testimonies.map((testimony, index) => (
-                                    <Card 
-                                        key={index} 
-                                        {...testimony}
-                                    />
+                                    <div key={index} className="flex-[0_0_85%] lg:flex-[0_0_400px] first:ml-4 lg:first:ml-0y">
+                                        <Card {...testimony} />
+                                    </div>
                                 ))}
                             </div>
                         </div>
 
-                        {currentIndex < maxIndex && (
-                            <button 
-                                onClick={handleNext}
-                                className="absolute z-10 top-[40%] right-0 lg:right-[-2%] transition-opacity"
-                            >
-                                <Image
-                                    src="/assets/testimonies/arrow_right.svg"
-                                    alt="Next"
-                                    width={50}
-                                    height={50}
-                                />
-                            </button>
-                        )}
+                        <button 
+                            onClick={scrollNext}
+                            className="absolute z-10 top-[40%] right-0 lg:right-[-2%] transition-opacity"
+                        >
+                            <Image
+                                src="/assets/testimonies/arrow_right.svg"
+                                alt="Next"
+                                width={50}
+                                height={50}
+                            />
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 const Card = ({name, title, image, description}) => {
     return (
-        <div className="bg-white rounded-3xl w-[85vw] lg:w-[400px] shrink-0 font-lato gap-4 pt-4 px-4 pb-2 text-black flex flex-col">  
+        <div className="bg-white rounded-3xl w-[85vw] lg:w-[400px] h-full shrink-0 font-lato gap-4 pt-4 px-4 pb-2 text-black flex flex-col">  
             <div className="flex items-center gap-4">
                 <div className="overflow-hidden h-[40px] w-[40px] lg:h-[70px] lg:w-[70px] rounded-full">
                     <Image src={image} height={70} width={70} alt={name} className="w-full h-full object-contain" />   
@@ -196,7 +232,7 @@ const Card = ({name, title, image, description}) => {
 const PlayCard = ({name, title, image}) => {
     return (
             <div className="flex relative rounded-[20px] overflow-hidden items-center gap-4 min-w-[85vw] lg:min-w-0 snap-center">
-                <Image src={image} height={494} width={626} alt={name} className="object-cover w-full h-[400px] lg:h-[494px] lg:w-[626px]" />   
+                <Image src={image} height={626} width={496} alt={name} className="object-cover w-full h-[400px] lg:h-[494px] lg:w-full" />   
                 <div className="flex justify-between absolute w-full bg-black/50 bottom-0 backdrop-blur-[10px] p-4 items-center gap-4">
                     <div className="flex flex-col justify-start">
                         <p>{name}</p>

@@ -122,7 +122,7 @@ export default function Home() {
           <FifaSection />
           <RealLife />
           <TeamSection />
-          <div className="relative overflow-hidden">
+          <div className="relative w-full overflow-hidden">
             <NewsSection/>
             <Partnership />
           </div>

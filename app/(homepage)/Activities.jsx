@@ -77,7 +77,7 @@ const Activities = () => {
                 <>
                   {isFirstOfPair && (
                     <div
-                      key={`left-${image.id}`}
+                      key={`left-${image.id}${index}`}
                       className={`absolute left-[2%] transform rotate-[-12deg] w-96 h-96 transition-all duration-500 ease-in-out ${
                         isActive || isSecondOfPair
                           ? 'opacity-100 translate-x-0 z-10' 

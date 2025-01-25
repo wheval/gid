@@ -36,13 +36,13 @@ const team = [
 
 const TeamSection = () => {
 return (
-    <div className="w-full py-12 px-8 lg:p-16 bg-[#EDF0FC] relative">
+    <div className="w-full py-12 px-8 lg:py-16 lg:px-20 bg-[#EDF0FC] relative">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[rgba(247,195,56,0.5)] to-[rgba(255,75,89,0.5)] blur-[190px]"></div>
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[rgba(247,195,56,0.5)] to-[rgba(255,75,89,0.5)] blur-[190px]"></div>
             <div className="max-w-screen-2xl mx-auto text-center relative z-10">
                     <h3 className="font-semibold text-black text-[2.5rem]">MEET THE TEAM</h3>
                     <p className="font-lato text-[1.1rem] lg:text-[1.5rem] mb-10">Get familiar with the power house making things happen at GIDA</p>
-                    <div className="flex md:flex-row md:flex-wrap xl:flex-nowrap flex-col gap-8 justify-center items-center">
+                    <div className="flex md:flex-row md:flex-wrap xl:flex-nowrap flex-col gap-6 justify-center items-center">
                             {
                                     team.map((teamMember) => (
                                             <MemberCard key={teamMember.name} name={teamMember.name} role={teamMember.role} image={teamMember.image} socials={teamMember.socials} />
@@ -71,7 +71,7 @@ const MemberCard = ({name, role, image, socials}) => {
     <div className="rounded-[40px] bg-accent relative overflow-hidden max-h-[600px] h-[550px]">
         <Image src={`/assets/team/${image}`} className="relative z-20" alt={`${name}'s photo`} width={487} height={600} />
         <Image src="/assets/icons/bg_box.svg" className="absolute top-[-6%] left-[-5%] z-10" alt="" width={483} height={374} />
-        <div className="absolute bottom-0 bg-primary flex flex-col items-center z-30 gap-2 w-full p-4 text-white">
+        <div className="absolute bottom-0 bg-primary flex flex-col items-center z-30 gap-2 w-full px-2 py-4 text-white">
             <p className="uppercase text-[1.875rem] font-semibold">{name}</p>
             <img alt="" src="/assets/icons/long_line.svg" width={324} />
             <p className="font-lato font-semibold text-[1.25rem]">{role}</p>
