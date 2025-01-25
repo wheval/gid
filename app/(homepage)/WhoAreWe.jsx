@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 const WhoAreWe = () => {
 return (
@@ -43,7 +43,7 @@ return (
             </div>
             <Image src="/assets/boxes_group_3.svg" width={170} height={64} className='absolute left-0 -bottom-2' />
     </div>
-)
-}
+  );
+};
 
-export default WhoAreWe
+export default WhoAreWe;

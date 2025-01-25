@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { GoPlus } from "react-icons/go";
 import { LuMinus } from "react-icons/lu";
+
 const Curriculum = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex2, setActiveIndex2] = useState(null);
 
   const weeks = [
     {
@@ -69,6 +71,9 @@ const Curriculum = () => {
         "- Declaring vs Deploying Contracts",
       ],
     },
+  ];
+
+  const weeks2 = [
     {
       week: "Week 5",
       title: "Advanced Starknet Contract Development",
@@ -120,47 +125,91 @@ const Curriculum = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl lg:max-w-5xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Curriculum</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {weeks.map((item, index) => (
-          <div
-            key={index}
-            className="bg-yellow-500 text-black p-4 rounded-md shadow-md"
-          >
-            <h2
-              className="font-[550] cursor-pointer flex justify-between"
-              onClick={() =>
-                setActiveIndex(activeIndex === index ? null : index)
-              }
+      <div className="flex flex-col md:flex-row gap-4 items-start justify-between w-full">
+        {/* week 1-4 */}
+        <div className="grid grid-cols-1 gap-4 w-full md:w-[48%]">
+          {weeks.map((item, index) => (
+            <div
+              key={index}
+              className="bg-yellow-500 text-black p-4 rounded-md shadow-md w-full"
             >
-              {item.week}
-              <span className="!font-[100]">
-                {activeIndex === index ? <LuMinus /> : <GoPlus/>}
-              </span>
-            </h2>
-            <p
-              className="mb-2 cursor-pointer"
-              onClick={() =>
-                setActiveIndex(activeIndex === index ? null : index)
-              }
+              <h2
+                className="font-[550] cursor-pointer flex justify-between"
+                onClick={() =>
+                  setActiveIndex(activeIndex === index ? null : index)
+                }
+              >
+                {item.week}
+                <span className="!font-[100]">
+                  {activeIndex === index ? <LuMinus /> : <GoPlus />}
+                </span>
+              </h2>
+              <p
+                className="mb-2 cursor-pointer"
+                onClick={() =>
+                  setActiveIndex(activeIndex === index ? null : index)
+                }
+              >
+                {item.title}
+              </p>
+              {activeIndex === index && (
+                <ul className="mt-2 px-4">
+                  {item.details.map((detail, idx) => (
+                    <li
+                      key={idx}
+                      className={detail.startsWith("-") ? "" : "font-[550]"}
+                    >
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+        {/* week 5-8 */}
+        <div className="grid grid-cols-1 gap-4 w-full md:w-[48%]">
+          {weeks2.map((item, index2) => (
+            <div
+              key={index2}
+              className="bg-yellow-500 text-black p-4 rounded-md shadow-md w-full"
             >
-              {item.title}
-            </p>
-            {activeIndex === index && (
-              <ul className="mt-2 px-4">
-                {item.details.map((detail, idx) => (
-                  <li
-                    key={idx}
-                    className={detail.startsWith("-") ? "" : "font-[550]"}
-                  >
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
+              <h2
+                className="font-[550] cursor-pointer flex justify-between"
+                onClick={() =>
+                  setActiveIndex2(activeIndex2 === index2 ? null : index2)
+                }
+              >
+                {item.week}
+                <span className="!font-[100]">
+                  {activeIndex2 === index2 ? <LuMinus /> : <GoPlus />}
+                </span>
+              </h2>
+              <p
+                className="mb-2 cursor-pointer"
+                onClick={() =>
+                  setActiveIndex2(activeIndex2 === index2 ? null : index2)
+                }
+              >
+                {item.title}
+              </p>
+              {activeIndex2 === index2 && (
+                <ul className="mt-2 px-4">
+                  {item.details.map((detail, idx) => (
+                    <li
+                      key={idx}
+                      className={detail.startsWith("-") ? "" : "font-[550]"}
+                    >
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

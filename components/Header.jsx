@@ -11,7 +11,7 @@ const Header = () => {
   
   return (
     <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm sm:text-base  max-w-[90vw] z-50">
-      <div className="flex justify-between items-center gap-8 px-8 sm:px-16 py-3 sm:py-4 rounded-[50px] bg-white/25 bg-opacity-50 backdrop-blur-[900px] z-50">
+      <div className="flex justify-between items-center gap-8 px-5 sm:px-16 py-3 sm:py-4 rounded-[50px] bg-white/25 bg-opacity-50 backdrop-blur-[900px] z-50">
         <div className="flex-shrink-0">
           <Link href="/">
             <Image
@@ -41,9 +41,9 @@ const Header = () => {
           </Link>
           <Link
             href="/cairo"
-            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-2 sm:px-4 py-1.5 sm:py-2 rounded-full font-[550]"
+            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-1 sm:px-4 py-1.5 sm:py-2 rounded-full font-[550]"
           >
-            register
+            bootcamp
           </Link>
         </div>
       </div>

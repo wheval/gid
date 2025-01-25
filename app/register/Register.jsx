@@ -40,11 +40,13 @@ const Register = () => {
     state: "",
     otherState: "",
     city: "",
+    githubUrl: "",
+    starknetAddress: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showFields, setShowFields] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [errorMsg, setErrorMsq] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
   const [mail, setMail] = useState("");
   const router = useRouter();
   const handleChange = (e) => {
@@ -65,17 +67,91 @@ const Register = () => {
     setSuccess(false);
     router.push("/cairo");
   };
-
   const updateFormFields = (e) => {
     e.preventDefault();
+    if (!formData.email) {
+      setErrorMsg("Email is required");
+      return;
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setErrorMsg("Please enter a valid email address");
+      return;
+    }
+    setErrorMsg("");
     setShowFields(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    if (!formData.firstName) {
+      setErrorMsg("First name is required");
+      return;
+    }
+    if (!formData.lastName) {
+      setErrorMsg("Last name is required");
+      return;
+    }
+
+    if (!formData.phone) {
+      setErrorMsg("Phone number is required");
+      return;
+    } else if (!/^\d{10,15}$/.test(formData.phone)) {
+      setErrorMsg("Phone number must be 10-15 digits long");
+
+      return;
+    }
+
+    if (!formData.gender) {
+      setErrorMsg("Gender is required");
+      return;
+    }
+
+    if (!formData.status) {
+      setErrorMsg("Status is required");
+
+      return;
+    }
+
+    if (!formData.proficiency) {
+      setErrorMsg("Proficiency level is required");
+      return;
+    }
+
+    if (!formData.stack || formData.stack.length === 0) {
+      setErrorMsg("Please select at least one technology stack");
+      return;
+    }
+
+    if (!formData.country) {
+      setErrorMsg("Country is required");
+
+      return;
+    }
+
+    if (!formData.state && !formData.otherState) {
+      setErrorMsg("Please provide a state or other state");
+
+      return;
+    }
+
+    if (!formData.city) {
+      setErrorMsg("City is required");
+
+      return;
+    }
+    if (!formData.githubUrl) {
+      setErrorMsg("Github Link is required");
+
+      return;
+    }
+
+    if (!formData.starknetAddress) {
+      setErrorMsg("Starknet Wallet is required");
+
+      return;
+    }
 
     try {
+      setIsLoading(true);
       const data = new FormData();
 
       Object.entries(formData).forEach(([key, value]) => {
@@ -86,19 +162,19 @@ const Register = () => {
         }
       });
 
-      console.log("FormData object:", [...data.entries()]); // Debugging purpose
+      // console.log("FormData object:", [...data.entries()]); // Debugging purpose
 
       // If your API expects JSON, convert FormData to a JSON object
       const jsonData = JSON.stringify(Object.fromEntries(data.entries()));
-      console.log("JSON Payload:", jsonData);
+      // console.log("JSON Payload:", jsonData);
 
       const response = await fetch(
         "https://api.gida.academy/bootcamps/f049acd2-7e7f-4bed-93b7-c1789153a7bb/register",
         {
           method: "POST",
-          body: jsonData, // Use jsonData instead of data if the server expects JSON
+          body: jsonData,
           headers: {
-            "Content-Type": "application/json", // Required when sending JSON
+            "Content-Type": "application/json",
             Accept: "application/json",
           },
         }
@@ -110,38 +186,40 @@ const Register = () => {
         setSuccess(true);
         setMail(formData.email);
 
-        // setFormData({
-        //   email: "",
-        //   firstName: "",
-        //   lastName: "",
-        //   phone: "",
-        //   gender: "",
-        //   status: "",
-        //   institution: "",
-        //   proficiency: "",
-        //   stack: "",
-        //   country: "",
-        //   state: "",
-        //   otherState: "",
-        //   city: "",
-        // });
+        setFormData({
+          email: "",
+          firstName: "",
+          lastName: "",
+          phone: "",
+          gender: "",
+          status: "",
+          institution: "",
+          proficiency: "",
+          stack: "",
+          country: "",
+          state: "",
+          otherState: "",
+          city: "",
+          githubUrl: "",
+          starknetAddress: "",
+        });
       } else {
         console.log("Failed to submit form:", response.status);
         console.log("Failed to submit form:", await response.text());
         if (response?.status == 400) {
-          setErrorMsq("All fields are required");
+          setErrorMsg("Unexpected error occured");
         }
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      setErrorMsq("An error occurred while submitting the form.");
+      setErrorMsg("An error occurred while submitting the form.");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <main className=" text-white relative min-h-screen">
+    <main className=" text-white relative min-h-screen pb-4">
       {/* Background Image */}
       <div className="fixed inset-0 -z-10">
         <Image
@@ -221,7 +299,7 @@ const Register = () => {
                   type="text"
                   name="firstName"
                   placeholder="First name"
-                  value={formData.firstName}
+                  value={formData.firstName.split(" ")[0]}
                   onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
@@ -229,7 +307,7 @@ const Register = () => {
                   type="text"
                   name="lastName"
                   placeholder="Last name"
-                  value={formData.lastName}
+                  value={formData.lastName.split(" ")[0]}
                   onChange={handleChange}
                   className="border bg-transparent px-4 py-2 rounded-lg"
                 />
@@ -296,12 +374,22 @@ const Register = () => {
                   <option value="intermediate">Intermediate</option>
                   <option value="professional">Professional</option>
                 </select>
+                <input
+                  type="text"
+                  name="githubUrl"
+                  placeholder="https://github.com/exampleUser"
+                  value={formData.githubUrl}
+                  onChange={handleChange}
+                  className="border bg-transparent px-4 py-2 rounded-lg"
+                />
               </div>
               {/* choose stack */}
               <div>
-                <h1 className="text-xl font-bold my-5">Choose Your Stack</h1>
+                <h1 className="text-xl font-bold mt-12 mb-1">
+                  What{"'"}s your current Stack?
+                </h1>
                 <div>
-                  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Frontend Developer */}
                     <label className="flex items-center space-x-3 cursor-pointer">
                       <input
@@ -361,6 +449,48 @@ const Register = () => {
                 </div>
               </div>
 
+              {/* starknet */}
+              <div>
+                <h1 className="text-xl font-bold mb-3 mt-12">
+                  Submit link to your Starknet mainnet wallet address.
+                </h1>
+                <p className="mb-2 text-sm">
+                  We'll be airdropping you an onchain NFT Certificate upon
+                  successful completion of the bootcamp.
+                </p>
+                <p className="pb-4 text-sm">
+                  NB: You can get a starknet wallet from
+                  <a
+                    href="https://argent.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-blue-500 px-2"
+                  >
+                    Argent
+                  </a>
+                  or
+                  <a
+                    href="http://braavos.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-blue-500 px-2"
+                  >
+                    Braavos
+                  </a>
+                  wallets. The apps are on playstore/app store, and on chrome
+                  extensions store.
+                </p>
+                <div>
+                  <input
+                    type="text"
+                    name="starknetAddress"
+                    placeholder="Enter your Starknet Wallet Address from Argent / Braavos "
+                    value={formData.starknetAddress}
+                    onChange={handleChange}
+                    className="border bg-transparent px-4 w-full py-2 rounded-lg"
+                  />{" "}
+                </div>
+              </div>
               {/* bootcamp location */}
               <div>
                 <h1 className="text-xl font-bold mt-8 mb-4 capitalize">
@@ -408,7 +538,7 @@ const Register = () => {
                 disabled:cursor-not-allowed uppercase px-6 py-3 mt-6 rounded-full
                 transition-colors duration-200 font-medium"
               >
-                {isLoading ? "Processing..." : "Submit"}
+                {isLoading ? "submitting..." : "Submit"}
               </button>
             </div>
           )}
@@ -426,7 +556,14 @@ const Register = () => {
           )}
         </form>
       </div>
-      {success && <RegisterSuccess email={mail} onClose={handleCloseModal} />}
+      {success && (
+        <RegisterSuccess
+          email={mail}
+          onClose={handleCloseModal}
+          whatsapp={"https://chat.whatsapp.com/Jj7isikeRUxGhNKiB8bCT7"}
+          eventText={"Cairo Bootcamp 2.0"}
+        />
+      )}
       {errorMsg && (
         <div className="mb-8 mx-2 font-[550] text-center text-red-500 mt-1">
           {" "}
