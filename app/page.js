@@ -22,6 +22,7 @@ const GidaMOT = dynamic(() => import('./(homepage)/GidaMOT'), { suspense: true }
 const ProfessionalTrader = dynamic(() => import('./(homepage)/ProfessionalTrader'), { suspense: true });
 const Footer = dynamic(() => import('@/components/Footer'), { suspense: true });import NewsSection from "./(homepage)/NewsSection";
 import FromBlog from './(homepage)/FromBlog';
+import RealLife from './(homepage)/RealLife';
 
 
 export default function Home() {
@@ -119,9 +120,12 @@ export default function Home() {
           <UpcomingEvents />
           <BootcampSection />
           <FifaSection />
+          <RealLife />
           <TeamSection />
-          <NewsSection/>
-          <Partnership />
+          <div className="relative overflow-hidden">
+            <NewsSection/>
+            <Partnership />
+          </div>
           <FromBlog />
           <Newsletter />
           <ReadyToLearn />

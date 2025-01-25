@@ -15,7 +15,7 @@ return (
                 </div>
                 <div className='flex gap-4'>
                     <Link href="/cairo"><button className="bg-[#900A15] hover:bg-[#a20b17] text-white font-semibold px-[21px] py-[12px] rounded-full">Our Bootcamps</button></Link> 
-                    <Link href="/events"> <button className="bg-white hover:bg-[#ddd] text-primary font-semibold px-[21px] py-[12px] rounded-full">Our Events</button></Link>
+                    <Link href="/chainup"> <button className="bg-white hover:bg-[#ddd] text-primary font-semibold px-[21px] py-[12px] rounded-full">Our Events</button></Link>
                 </div>
             </div>
     </div>
