@@ -20,7 +20,9 @@ const UpcomingEvents = dynamic(() => import('./(homepage)/UpcomingEvents'), { su
 const BootcampSection = dynamic(() => import('./(homepage)/BootcampSection'), { suspense: true });
 const GidaMOT = dynamic(() => import('./(homepage)/GidaMOT'), { suspense: true });
 const ProfessionalTrader = dynamic(() => import('./(homepage)/ProfessionalTrader'), { suspense: true });
-const Footer = dynamic(() => import('@/components/Footer'), { suspense: true });
+const Footer = dynamic(() => import('@/components/Footer'), { suspense: true });import NewsSection from "./(homepage)/NewsSection";
+import FromBlog from './(homepage)/FromBlog';
+
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +37,7 @@ export default function Home() {
       }
 
       let loadedImages = 0;
-      const maxTimeout = 5000; // 10 seconds timeout
+      const maxTimeout = 5000; // 5 seconds timeout
 
       const updateProgress = () => {
         loadedImages++;
@@ -118,7 +120,9 @@ export default function Home() {
           <BootcampSection />
           <FifaSection />
           <TeamSection />
+          <NewsSection/>
           <Partnership />
+          <FromBlog />
           <Newsletter />
           <ReadyToLearn />
           <Footer />

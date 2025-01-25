@@ -1,8 +1,9 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Activities = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   
   const images = [
     { id: 1, src: '/assets/activities1.png' },
@@ -12,6 +13,16 @@ const Activities = () => {
     { id: 5, src: '/assets/activities1.png' },
     { id: 6, src: '/assets/activities2.png' },
   ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!isPaused) {
+        nextSlide();
+      }
+    }, 3000); // Change slides every 3 seconds
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
@@ -35,14 +46,18 @@ const Activities = () => {
           </h1>
           <a
             href=""
-            className="text-red-900 hover:text-blue-700 border-red-900 border-2 py-[12px] px-[21px] rounded-full"
+            className="text-primary hover:text-blue-700 border-primary border-2 py-[12px] px-[21px] rounded-full"
           >
             Learn more
           </a>
         </div>
 
         {/* Image Carousel Section */}
-        <div className="min-h-[60vh] w-full md:w-1/2 relative flex items-center justify-center">
+        <div 
+          className="min-h-[60vh] w-full md:w-1/2 relative flex items-center justify-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <img 
             src="/assets/leftarrow.png" 
             className='absolute w-14 left-2 md:-left-8 top-1/2 -translate-y-1/2 z-20 cursor-pointer hover:scale-110 transition-transform'

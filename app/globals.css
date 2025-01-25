@@ -32,3 +32,16 @@ body {
 .animate-infinite-scroll:hover {
   animation-play-state: paused;
 }
+
+@keyframes scroll-testimonies {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1900px); 
+  }
+}
+
+.animate-scroll-testimonies {
+  animation: scroll-testimonies 20s linear infinite;
+}

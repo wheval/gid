@@ -40,7 +40,7 @@ const GidaMOT = () => {
               />
               <p>Occasional Trading Signals (Crypto & Forex)</p>
           </div>
-          <a href="/" className='p-4 bg-red-900 rounded-full text-white mt-8 inline-block'>Subscribe to the MOT league</a>
+          <a href="/" className='p-4 px-8 font-clash bg-primary rounded-full text-white mt-8 inline-block'>Subscribe to the MOT league</a>
         </div>
         <div className=''>
               <img
