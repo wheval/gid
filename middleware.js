@@ -1,5 +1,5 @@
 export function middleware(request) {
-    const { pathname } = request.nextUrl
+    const { pathname } = request.nextUrl;
   
     // Convert the pathname to lowercase if it contains uppercase letters
     if (pathname !== pathname.toLowerCase()) {
