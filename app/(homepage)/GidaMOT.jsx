@@ -1,4 +1,5 @@
 import React from 'react'
+import { masterOfTrading } from '../utils/constants'
 
 const GidaMOT = () => {
   return (
@@ -40,13 +41,16 @@ const GidaMOT = () => {
               />
               <p>Occasional Trading Signals (Crypto & Forex)</p>
           </div>
-          <a href="/" className='p-4 px-8 font-clash bg-primary rounded-full text-white mt-8 inline-block'>Subscribe to the MOT league</a>
+          <div className="flex align-center gap-3">
+            <a href={masterOfTrading.playground} target="_blank" rel="noopener noreferrer" className='p-4 px-8 font-clash text-primary rounded-full bg-white border mt-8 inline-block'>MOT Free Playground</a>
+            <a href={masterOfTrading.league} target="_blank" rel="noopener noreferrer" className='p-4 px-8 font-clash bg-primary rounded-full text-white mt-8 inline-block'>Subscribe to the MOT league</a>
+          </div>
         </div>
         <div className=''>
               <img
                   src="/assets/MOT.png"
                   alt=""
-                  className=''
+                  className='w-[80%]'
               />
         </div>
       </div>

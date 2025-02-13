@@ -3,33 +3,8 @@ import Image from 'next/image'
 import React, { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { newsData } from '../utils/constants';
 
-const newsData = [
-    {
-        image: "/assets/in_the_news/01.png",
-        title: "GIDA partners with AAX Exchange to host I can trade crypto trading bootcamp...",
-        avatar_profile: "/assets/in_the_news/avatars/01.png",
-        by: "Crypto Asset Buyer",
-        date: "Dec 15, 2023",
-        link: "#"
-    },
-    {
-        image: "/assets/in_the_news/02.png",
-        title: "Future of Remote Work, Starknet Africa to host a webinar on the future of remote work...",
-        avatar_profile: "/assets/in_the_news/avatars/02.png",
-        by: "Starknet Africa",
-        date: "Dec 16, 2023",
-        link: "#"
-    },
-    {
-        image: "/assets/in_the_news/03.png",
-        title: "Web3 Conference Africa, GIDA to host a conference on web3...",
-        avatar_profile: "/assets/in_the_news/avatars/03.png",
-        by: "Mike Johnson",
-        date: "Dec 17, 2023",
-        link: "#"
-    },
-];
 
 const NewsSection = () => {
     const autoplayOptions = {

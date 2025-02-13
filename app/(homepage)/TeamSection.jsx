@@ -1,38 +1,5 @@
 import Image from "next/image"
-
-const team = [
-    {
-        name: "Okoye Kevin Chibouyim",
-        role: "Founder and CEO, GIDA",
-        image: "kevin.png",
-        socials: {
-            x: "kevin",
-            tg: "kevin",
-            ln: "kevin",
-        }
-    },
-    {
-        name: "Miracle Jeremiah Ogbuehi",
-        role: "Head of Admin, GIDA",
-        image: "jeremiah.png",
-        socials: {
-            x: "",
-            tg: "kevin",
-            ln: "kevin",
-        }
-    },
-    {
-        name: "FRANCIS KELECHuKWU DIKE",
-        role: "Project Manager, GIDA",
-        image: "francis.png",
-        socials: {
-            x: "kevin",
-            tg: "kevin",
-            ln: "kevin",
-        }
-    },
-]
-
+import { teamSocials } from "../utils/constants"
 
 const TeamSection = () => {
 return (
@@ -44,8 +11,8 @@ return (
                     <p className="font-lato text-[1.1rem] lg:text-[1.5rem] mb-10">Get familiar with the power house making things happen at GIDA</p>
                     <div className="flex md:flex-row md:flex-wrap xl:flex-nowrap flex-col gap-6 justify-center items-center">
                             {
-                                    team.map((teamMember) => (
-                                            <MemberCard key={teamMember.name} name={teamMember.name} role={teamMember.role} image={teamMember.image} socials={teamMember.socials} />
+                                    teamSocials.map((teamMember) => (
+                                            <MemberCard key={teamMember.name} {...teamMember} />
                                     ))
                             }
                     </div>
@@ -77,14 +44,14 @@ const MemberCard = ({name, role, image, socials}) => {
             <p className="font-lato font-semibold text-[1.25rem]">{role}</p>
             <img alt="" src="/assets/icons/short_line.svg" width={201} />
             <div className="flex items-center justify-center gap-2">
-                <a target="_blank" href={`https://x.com/${socials.x}`}>
-                    <Image src="/assets/icons/x.svg" width={30} height={30} />
+                <a target="_blank" rel="noopener noreferrer" href={`https://x.com/${socials.x}`}>
+                    <Image src="/assets/icons/x.svg" alt="X/Twitter" width={30} height={30} />
                 </a>
-                <a target="_blank" href={`https://t.me/${socials.tg}`}>
-                    <Image src="/assets/icons/tg.svg" width={30} height={30} />
+                <a target="_blank" rel="noopener noreferrer" href={`https://t.me/${socials.tg}`}>
+                    <Image src="/assets/icons/tg.svg" alt="Telegram" width={30} height={30} />
                 </a>
-                <a target="_blank" href={`https://linkedin.com/in/${socials.ln}`}>
-                    <Image src="/assets/icons/ln.svg" width={30} height={30} />
+                <a target="_blank" rel="noopener noreferrer" href={`https://linkedin.com/in/${socials.ln}`}>
+                    <Image src="/assets/icons/ln.svg" alt="LinkedIn" width={30} height={30} />
                 </a>
             </div>
         </div>

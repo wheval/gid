@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { gidaSocials } from "../app/utils/constants";
 
 const Footer = () => {
   const handleSubmit = (e) => {
@@ -64,7 +65,7 @@ const Footer = () => {
           <ul className="space-y-2 text-gray-100">
             <li>
               <Link
-                href="https://instagram.com"
+                href={gidaSocials.instagram}
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,7 +75,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="https://linkedin.com"
+                href={gidaSocials.linkedin}
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -84,7 +85,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="https://facebook.com"
+                href={gidaSocials.facebook}
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -94,7 +95,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="https://t.me"
+                href={gidaSocials.telegram}
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -104,7 +105,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="https://youtube.com"
+                href={gidaSocials.youtube}
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -114,7 +115,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="https://twitter.com"
+                href={gidaSocials.twitter}
                 className="hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
