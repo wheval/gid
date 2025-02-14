@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import AutoScroll from 'embla-carousel-auto-scroll'
 
 const ProfessionalTrader = () => {
   const testimonies = [
@@ -12,34 +11,21 @@ const ProfessionalTrader = () => {
     { src: "/assets/traders/05.png", top: "40px" },
   ];
 
-  const [emblaRef] = useEmblaCarousel(
-    { 
-      loop: true,
-      dragFree: true,
-      containScroll: 'trimSnaps',
-      skipSnaps: true,
-    }, 
-    [
-      AutoScroll({
-        playOnInit: true,
-        speed: 2, 
-        stopOnInteraction: false,
-        stopOnMouseEnter: false,
-        stopOnFocusIn: false,
-        stopOnInteraction: false,
-        startDelay: 10,
-      })
-    ]
-  )
+  const [emblaRef] = useEmblaCarousel({ 
+    loop: true,
+    dragFree: true,
+    containScroll: 'trimSnaps',
+    skipSnaps: true,
+  })
 
   return (
     <>
-      <div className='text-center px-4 py-8 lg:h-full flex gap-6 flex-col items-center justify-center pt-16 bg-[#FEF8F3]'>
-        <h1 className='text-[2rem] tracking-tight leading-[1.1] lg:tracking-normal lg:leading-none lg:text-4xl font-semibold'>
+      <div className='text-center px-4 py-6 lg:h-full flex gap-6 flex-col items-center justify-center bg-[#FEF8F3]'>
+        <h2 className='text-[2rem] tracking-tight leading-[1.1] lg:tracking-normal lg:leading-none lg:text-4xl font-semibold'>
           We Train You to Become a Professional Trader 💹
-        </h1>
+        </h2>
         <p className='text-base font-lato lg:text-xl'>
-          See some snippets of win & happenings in the Masters of Trading League below
+          See some snippets of wins & happenings in the Masters of Trading League below
         </p>
       </div>
       
@@ -53,8 +39,8 @@ const ProfessionalTrader = () => {
                   className='relative w-[300px] lg:w-[400px]'
                   style={{ top: item.top }}
                   alt='Our student traders testimonies'
-                  width={400}
-                  height={700}
+                  width={934}
+                  height={1588}
                 />
               </div>
             ))}

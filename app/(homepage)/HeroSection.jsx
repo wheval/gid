@@ -1,3 +1,4 @@
+import Button from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -11,11 +12,11 @@ return (
                 </div>
                 <div className='text-center flex flex-col gap-4 items-center justify-center'>
                         <h1 className='lg:text-[3.125rem] text-[2rem] leading-tight sm:leading-normal lg:w-[20ch] font-bold'>Spreading Adoption Through Proper <span className='bg-accent rounded-full px-4'>Education</span></h1>
-                        <p className="text-[1.25rem] sm:text-[1.5rem] lg:text-[1.875rem] font-lato lg:w-[50ch]">We&apos;ve been committed to driving tech, digital literacy and Blockchain / Web3 adoption in Africa since 2020</p>
+                        <p className="sm:text-[1.5rem] lg:text-[1.875rem] font-lato lg:w-[50ch]">We&apos;ve been committed to driving tech, digital literacy and Blockchain / Web3 adoption in Africa since 2020</p>
                 </div>
                 <div className='flex gap-4'>
-                    <Link href="/cairo"><button className="bg-[#900A15] hover:bg-[#a20b17] text-white font-semibold px-[21px] py-[12px] rounded-full">Our Bootcamps</button></Link> 
-                    <Link href="/chainup"> <button className="bg-white hover:bg-[#ddd] text-primary font-semibold px-[21px] py-[12px] rounded-full">Our Events</button></Link>
+                    <Link href="/cairo"><Button variant='primary'>Our Bootcamps</Button></Link>
+                    <Link href="/chainup"><Button variant='secondary'>Our Events</Button></Link>
                 </div>
             </div>
     </div>

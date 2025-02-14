@@ -1,3 +1,4 @@
+import { H2 } from '@/components/ui/typography'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -27,10 +28,10 @@ const posts = [
 
 const FromBlog = () => {
   return (
-    <section className='w-full bg-primary text-white'>
-        <div className='max-w-screen-2xl mx-auto px-4 md:px-12 lg:px-24 py-16'>
+    <section className='w-full bg-primary text-white px-4 md:px-12 lg:px-20 flex flex-col items-center'>
+        <div className='max-w-screen-2xl mx-auto py-16'>
             <div>
-                <h3 className='capitalize text-center text-[2.5rem] font-semibold mb-8 lg:text-[3.125rem]'>FROM OUR BLOG</h3>
+                <H2 className="mb-8 text-center">FROM OUR BLOG</H2>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12'>
                 {posts.map((post, index) => (

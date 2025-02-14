@@ -12,7 +12,7 @@ const WhyWeDifferent = () => {
         </div>
         <div className="py-7 px-8 lg:px-0 bg-accent flex items-center justify-center h-full">
           <div className="py-2 lg:px-16 lg:ml-10 flex flex-col gap-4">
-              <h1 className="text-3xl lg:text-[3.125rem] lg:leading-[1.5] lg:w-[10ch] font-semibold">Why GIDA Is Different</h1>
+              <h2 className="text-3xl lg:text-[3.125rem] lg:leading-[1.5] lg:w-[10ch] font-semibold">Why GIDA Is Different</h2>
               <div className="px-4 lg:px-6 font-lato  border-l-4 border-black flex flex-col jusfify-between gap-4 lg:gap-8">
                   <div className="">
                       <h2 className="font-medium tracking-tight text-[1.25rem] lg:text-[1.5rem]">Live Classes</h2>

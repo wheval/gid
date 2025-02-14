@@ -1,4 +1,7 @@
+import Button from "@/components/ui/button";
+import { H2 } from "@/components/ui/typography";
 import Image from "next/image";
+import Link from "next/link";
 
 const WhoAreWe = () => {
 return (
@@ -6,7 +9,7 @@ return (
             <div className="max-w-[1440px] mb-4 lg:mb-4 mx-auto w-full flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
                     <div className='flex flex-col items-start gap-6 flex-1'>
                             <div className='flex flex-col gap-4'>
-                                    <h2 className='font-semibold capitalize text-[2.5rem]'>WHO ARE WE?</h2>
+                                    <H2 className="lg:mb-6">WHO ARE WE?</H2>
                                     <p className='font-lato lg:lg:text-[1.25rem] max-w-[47ch] tracking-[1%]'>GIDA™ is an Edu-Tech platform & academy empowering the next generation of tech talents. We train people via both virtual and IRL sessions aimed at raising blockchain experts, Web3 users and seasoned builders.</p>  
                     
                                     <p className='font-lato lg:text-[1.25rem] max-w-[44ch] tracking-[1%]'>We&apos;ve got thriving developer community, traders community, DEFI community and other sub-communities relevant in web3.</p>
@@ -26,8 +29,8 @@ return (
                                     </div>
                             </div>
                             <div className='flex items-center gap-x-4 mt-4'>
-                                    <button className="bg-white hover:bg-[#ddd] text-primary font-semibold px-[21px] py-[12px] rounded-full">About Us</button>
-                                    <button className="bg-transparent border-white border hover:bg-[#5d5757] capitalize text-white font-semibold px-[21px] py-[12px] rounded-full">Our community</button>
+                                <Link href=""><Button variant="secondary">About Us</Button></Link>
+                                <Link href=""><Button variant="strokeSecondary">Our community</Button></Link>
                             </div>
                     </div>
                     <div className='flex-1'>

@@ -35,13 +35,13 @@ const Header = () => {
         <div className="flex gap-1 sm:gap-2 uppercase">
           <Link
             href="/chainup"
-            className="bg-gradient-to-r from-[#F7C338] hover:from-[#d1c195] to-[#FF4B59] hover:to-[#ee3f4d] text-white rounded-full uppercase font-[550] px-2 sm:px-4 py-1.5 sm:py-2"
+            className="bg-gradient-to-r from-[#F7C338] hover:from-[#d1c195] to-[#FF4B59] hover:to-[#ee3f4d] text-white rounded-full uppercase font-[550] px-2 sm:px-4 py-1 sm:py-2"
           >
             chain up
           </Link>
           <Link
             href="/cairo"
-            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-1 sm:px-4 py-1.5 sm:py-2 rounded-full font-[550]"
+            className="bg-[#900A15] hover:bg-[#a20b17] uppercase px-2 py-1 sm:px-4 sm:py-2 rounded-full font-[550]"
           >
             bootcamp
           </Link>

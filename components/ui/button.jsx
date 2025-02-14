@@ -1,25 +1,32 @@
 const Button = ({ 
     children, 
     variant = "primary", 
+    weight = "semibold",
     className = "",
     type = "button",
     onClick,
     disabled = false,
     ...props 
 }) => {
-    const baseStyles = "font-medium px-[15px] py-[12px] rounded-full transition-colors duration-200";
+    const baseStyles = "px-[21px] capitalize py-[12px] rounded-full transition-colors duration-200";
     const variants = {
-        primary: "bg-[#900A15] hover:bg-[#a20b17] text-white",
-        secondary: "bg-white hover:bg-[#ddd] text-primary border border-primary",
-        stroke: "bg-transparent hover:bg-[#900A15] text-[#900A15] hover:text-white border border-[#900A15]",
-        strokePrimary: "bg-transparent hover:bg-[#900A15] text-[#900A15] hover:text-white border border-[#900A15]",
-        strokeSecondary: "bg-transparent hover:bg-[#ddd] text-primary hover:text-primary border border-primary"
+        primary: "bg-primary hover:bg-[#a20b17] text-white",
+        secondary: "bg-white hover:bg-[#ddd] text-primary",
+        stroke: "bg-transparent hover:bg-primary text-primary hover:text-white border border-primary",
+        strokePrimary: "bg-transparent hover:bg-primary text-primary hover:text-white border border-primary",
+        strokeSecondary: "bg-transparent hover:bg-[#ddd] text-white hover:text-primary border border-white"
     };
+    const weights = {
+        normal: "font-normal",
+        medium: "font-medium",
+        semibold: "font-semibold",
+        bold: "font-bold"
+    }
 
     return (
         <button
             type={type}
-            className={`${baseStyles} ${variants[variant]} ${className}`}
+            className={`${baseStyles} ${variants[variant]} ${weights[weight]} ${className}`}
             onClick={onClick}
             disabled={disabled}
             {...props}

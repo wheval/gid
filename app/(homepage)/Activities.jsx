@@ -1,4 +1,5 @@
 "use client"
+import Button from '@/components/ui/button';
 import React, { useState } from 'react';
 
 const Activities = () => {
@@ -27,15 +28,10 @@ const Activities = () => {
       <div className="flex flex-col w-full md:flex-row items-center lg:max-w-screen-2xl mx-auto gap-8">
         {/* Text Content */}
         <div className="flex flex-col items-start p-8 md:text-left md:w-1/2">
-          <h1 className="text-5xl font-semibold lg:w-[15ch] lg:leading-[1.15] mb-8 lg:p-0">
+          <h2 className="text-3xl lg:text-5xl font-semibold lg:w-[15ch] lg:leading-[1.15] mb-8 lg:p-0">
             Some Activities from our Developer Community &gt;&gt;
-          </h1>
-          <a
-            href=""
-            className="text-red-900 hover:text-blue-700 border-red-900 border-2 p-2 rounded-full"
-          >
-            Learn more
-          </a>
+          </h2>
+            <Button variant='strokePrimary' weight='medium'>Learn more</Button>
         </div>
 
         {/* Image Carousel Section */}

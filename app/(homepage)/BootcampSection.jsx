@@ -39,8 +39,8 @@ const bootcamps = [
 
 export default function BootcampSection() {
   return (
-    <section className="py-12 px-4 md:px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-12 w-full px-4 lg:px-20 md:px-6 ">
+      <div className="mx-auto max-w-screen-2xl">
         <h5 className="text-4xl md:text-5xl font-semibold mb-12">
           Learn Faster, Not Longer With
           <span className="block mt-2">Smarter Trainings At GIDA</span>
@@ -48,7 +48,7 @@ export default function BootcampSection() {
 
         <p className="text-2xl font-semibold mb-6">Our Bootcamps</p>
 
-        <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 lg:max-w-6xl lg:grid-cols-5 lg:grid-rows-2">
+        <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 lg:grid-cols-5 lg:grid-rows-2">
           {bootcamps.map((bootcamp, index) => (
             <div
               key={index}
@@ -75,7 +75,7 @@ export default function BootcampSection() {
 
               <div className="flex flex-col gap-3 justify-between">
                 <div className="px-2">
-                  <h3 className="text-xl font-semibold mb-2">{bootcamp.title}</h3>
+                  <h3 className={`text-xl lg:text-[1.75rem] ${index ==0 && "lg:mb-4"} font-medium mb-2`}>{bootcamp.title}</h3>
                   <p className="text-gray-600 text-sm font-lato mb-4">{bootcamp.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {bootcamp.technologies.map((tech) => (
@@ -112,7 +112,7 @@ export default function BootcampSection() {
                     </div>}
                     <Link
                       href="#"
-                      className="block w-full text-center font-medium rounded-full py-2 px-4 bg-primary hover:bg-red-900 text-white transition-colors"
+                      className="block w-full text-center font-medium rounded-full py-3 px-4 bg-primary hover:bg-red-900 text-white transition-colors"
                     >
                       Learn More
                     </Link>

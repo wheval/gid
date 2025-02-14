@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { newsData } from '../utils/constants';
+import { H2 } from '@/components/ui/typography';
 
 
 const NewsSection = () => {
@@ -50,9 +51,9 @@ const NewsSection = () => {
         <>
             <section className='bg-primary px-4 lg:px-20 py-8 sm:py-16 relative overflow-hidden'>
                 <div className="max-w-screen-2xl mx-auto flex flex-col gap-10 sm:gap-20 items-center justify-center">
-                    <div className="text-center">
-                        <h1 className='font-semibold text-[2rem] lg:text-[3.125rem] text-white'>IN THE NEWS</h1>
-                        <p className='text-white font-lato text-sm sm:text-base lg:text-[1.5rem] tracking-tighter'>See some of the exploits</p>
+                    <div className="text-center text-white">
+                        <H2 className='lg:mb-4'>IN THE NEWS</H2>
+                        <p className='text-white font-lato sm:text-base lg:text-2xl tracking-tight'>See some of our exploits</p>
                     </div>
 
                     <div className="relative w-full">
@@ -70,12 +71,12 @@ const NewsSection = () => {
                                 {newsData.map((news, index) => (
                                     <div
                                         key={index}
-                                        className='flex-[0_0_85%] lg:flex-[0_0_40%] h-full rounded-[40px] overflow-hidden relative'
+                                        className='flex-[0_0_90%] lg:flex-[0_0_40%] h-full rounded-[40px] overflow-hidden relative'
                                     >
-                                        <a className='h-[200px] overflow-hidden' href={news.link}><Image src={news.image} className='hover:scale-105 transition' width={595} height={200} alt='' /></a>
+                                        <div className="lg:h-[200px] max-h-[120px] lg:max-h-[200px] overflow-hidden cursor-pointer"><a className='cursor-pointer' target='_blank' href={news.link}><Image src={news.image} className='hover:scale-105 cursor-pointer transition h-auto w-full' width={595} height={200} alt='' /></a></div>
                                         <div className='bg-white h-full font-lato text-black p-4'>
-                                            <p className='lg:text-xl font-medium leading-6 h-[50px] mt-2 mb-8'>{news.title}</p>
-                                            <div className='flex gap-2 items-center justify-between'>
+                                            <a href={news.link} target='_blank'><p className='lg:text-xl font-medium leading-6 h-[50px] mt-2 mb-8'>{news.title}</p></a>
+                                            <div className='flex gap-2 items-center lg:mt-12 justify-between'>
                                                 <div className='flex items-center'>
                                                     <div className='w-8 lg:w-[70px] lg:h-[70px] h-8 rounded-full overflow-hidden mr-2'>
                                                         <Image src={news.avatar_profile} alt="" layout='responsive' width={70} height={70} />
@@ -85,7 +86,7 @@ const NewsSection = () => {
                                                         <p className='text-sm lg:text-base'>{news.date}</p>
                                                     </div>
                                                 </div>
-                                                <div className='flex justify-end items-end h-full'><a className='text-primary px-3 py-1 lg:mt-8 rounded-full text-sm lg:text-base hover:bg-opacity-90' href={news.link}>Read more</a></div>
+                                                <div className='flex justify-end items-end h-full'><a className='text-primary px-3 py-1 lg:mt-8 rounded-full text-sm lg:text-base hover:bg-opacity-90' target='_blank' href={news.link}>Read more</a></div>
                                             </div>
                                         </div>
                                     </div>
