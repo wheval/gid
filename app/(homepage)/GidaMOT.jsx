@@ -51,7 +51,7 @@ const GidaMOT = () => {
               <img
                   src="/assets/MOT.png"
                   alt=""
-                  className='w-[80%]'
+                  className='lg:w-[80%]'
               />
         </div>
       </div>

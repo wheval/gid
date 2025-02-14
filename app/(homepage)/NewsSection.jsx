@@ -73,7 +73,7 @@ const NewsSection = () => {
                                         key={index}
                                         className='flex-[0_0_90%] lg:flex-[0_0_40%] h-full rounded-[40px] overflow-hidden relative'
                                     >
-                                        <div className="lg:h-[200px] max-h-[120px] lg:max-h-[200px] overflow-hidden cursor-pointer"><a className='cursor-pointer' target='_blank' href={news.link}><Image src={news.image} className='hover:scale-105 cursor-pointer transition h-auto w-full' width={595} height={200} alt='' /></a></div>
+                                        <div className="xl:h-[200px] max-h-[120px] lg:max-h-[200px] overflow-hidden cursor-pointer"><a className='cursor-pointer' target='_blank' href={news.link}><Image src={news.image} className='hover:scale-105 cursor-pointer transition h-auto w-full' width={595} height={200} alt='' /></a></div>
                                         <div className='bg-white h-full font-lato text-black p-4'>
                                             <a href={news.link} target='_blank'><p className='lg:text-xl font-medium leading-6 h-[50px] mt-2 mb-8'>{news.title}</p></a>
                                             <div className='flex gap-2 items-center lg:mt-12 justify-between'>
@@ -86,7 +86,7 @@ const NewsSection = () => {
                                                         <p className='text-sm lg:text-base'>{news.date}</p>
                                                     </div>
                                                 </div>
-                                                <div className='flex justify-end items-end h-full'><a className='text-primary px-3 py-1 lg:mt-8 rounded-full text-sm lg:text-base hover:bg-opacity-90' target='_blank' href={news.link}>Read more</a></div>
+                                                <div className='flex justify-end items-end h-full'><a className='text-primary px-3 py-1 lg:mt-8 rounded-full text-sm lg:text-base hover:underline hover:bg-opacity-90' target='_blank' href={news.link}>Read more</a></div>
                                             </div>
                                         </div>
                                     </div>

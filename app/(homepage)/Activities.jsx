@@ -25,7 +25,7 @@ const Activities = () => {
 
   return (
     <div className="w-full lg:p-16 flex flex-col overflow-hidden items-center justify-center min-h-screen">
-      <div className="flex flex-col w-full md:flex-row items-center lg:max-w-screen-2xl mx-auto gap-8">
+      <div className="flex flex-col w-full md:flex-row items-center lg:max-w-screen-2xl mx-auto gap-x-8">
         {/* Text Content */}
         <div className="flex flex-col items-start p-8 md:text-left md:w-1/2">
           <h2 className="text-3xl lg:text-5xl font-semibold lg:w-[15ch] lg:leading-[1.15] mb-8 lg:p-0">

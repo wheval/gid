@@ -31,8 +31,8 @@ const Supporters = () => {
           </div>
         </div>
         <div className='overflow-hidden mt-[20px] lg:mt-[50px] w-full'>
-          <Image src="/assets/boxes_group.svg" width={1890} height={104} className='max-w-[1890px] w-[1890px] h-[104px]' />
-          <Image src="/assets/boxes_group_2.svg" width={1890} height={104} className='max-w-[1890px] mt-[-45px] w-[1890px] h-[104px]' />
+          <Image src="/assets/boxes_group.svg" width={1890} height={104} className='max-w-[1890px] ml-[-12%] md:ml-0 w-[1890px] h-[104px]' />
+          <Image src="/assets/boxes_group_2.svg" width={1890} height={104} className='max-w-[1890px] ml-[-12%] md:ml-0 mt-[-45px] w-[1890px] h-[104px]' />
         </div>
     </div>
   )

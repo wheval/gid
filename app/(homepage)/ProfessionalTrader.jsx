@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 
 const ProfessionalTrader = () => {
@@ -16,6 +15,7 @@ const ProfessionalTrader = () => {
     dragFree: true,
     containScroll: 'trimSnaps',
     skipSnaps: true,
+    align: "start"
   })
 
   return (

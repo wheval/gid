@@ -10,7 +10,7 @@ return (
             <div className="max-w-screen-2xl mx-auto text-center relative z-10">
                     <H2 className="text-black">MEET THE TEAM</H2>
                     <p className="font-lato lg:text-[1.5rem] mb-10">Get familiar with the power house making things happen at GIDA</p>
-                    <div className="flex md:flex-row md:flex-wrap xl:flex-nowrap flex-col gap-6 justify-between items-center">
+                    <div className="flex md:flex-row md:flex-wrap xl:flex-nowrap flex-col gap-6 justify-center xl:justify-between items-center">
                             {
                                     teamSocials.map((teamMember) => (
                                             <MemberCard key={teamMember.name} {...teamMember} />

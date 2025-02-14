@@ -157,12 +157,12 @@ const RealLife = () => {
                         <div className="overflow-hidden" ref={screenshotEmblaRef}>
                             <div className="flex w-full justify-between">
                                 {[...screenshotTestimonies, ...screenshotTestimonies].map((screenshot, index) => (
-                                    <div key={index} className="flex-[0_0_300px] mx-2">
+                                    <div key={index} className="flex-[0_0_300px] xl:flex-[0_0_450px] mx-2">
                                         <Image 
                                             src={screenshot} 
-                                            width={300} 
+                                            width={450} 
                                             height={600} 
-                                            className="object-cover" 
+                                            className="object-cover w-[300px] h-auto xl:w-[450px]" 
                                             alt="Screenshot testimony"
                                         />
                                     </div>
@@ -196,7 +196,7 @@ const RealLife = () => {
                     <div className="overflow-hidden px-4 lg:px-0" ref={textEmblaRef}>
                         <div className="flex gap-6">
                             {[...testimonies, ...testimonies].map((testimony, index) => (
-                                <div key={index} className="flex-[0_0_85%] lg:flex-[0_0_400px] first:ml-4 lg:first:ml-0y">
+                                <div key={index} className="flex-[0_0_85%] sm:flex-[0_0_400px] first:ml-4 lg:first:ml-0y">
                                     <Card {...testimony} />
                                 </div>
                             ))}

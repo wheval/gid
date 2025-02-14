@@ -11,7 +11,7 @@ const Header = () => {
   
   return (
     <div className="fixed text-white top-5 left-0 right-0 mx-auto text-sm sm:text-base  max-w-[90vw] z-50">
-      <div className="flex justify-between items-center gap-8 px-5 sm:px-16 py-3 sm:py-4 rounded-[50px] bg-white/25 bg-opacity-50 backdrop-blur-[900px] z-50">
+      <div className="flex justify-between items-center gap-8 px-5 lg:px-16 py-3 sm:py-4 rounded-[50px] bg-white/25 bg-opacity-50 backdrop-blur-[900px] z-50">
         <div className="flex-shrink-0">
           <Link href="/">
             <Image
@@ -19,7 +19,7 @@ const Header = () => {
               width={2000}
               height={2000}
               alt="hero"
-              className="w-16 sm:w-24"
+              className="w-[5rem] sm:w-24"
             />
           </Link>
         </div>

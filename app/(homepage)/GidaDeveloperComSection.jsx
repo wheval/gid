@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const GidaDeveloperComSection = () => {
   return (
-    <div className="px-8 py-10 lg:p-20">
+    <div className="px-8 lg:py-10 lg:p-20">
       <div className="grid lg:grid-cols-2 grid-rows-auto mt-10 lg:mt-8 gap-8 max-w-screen-2xl mx-auto items-center">
         <div className="w-full">
           <img

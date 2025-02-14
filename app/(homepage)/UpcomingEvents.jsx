@@ -11,7 +11,7 @@ return (
                             </h3>
                             <p className="font-lato text-sm sm:text-base lg:mt-[-10px] lg:text-[1.5rem] lg:w-[55ch] tracking-tighter capitalize">See all our events tailored to help you accelerate faster in your tech journey</p>
                     </div>
-                        <div className="relative scale-90 sm:scale-100">
+                        <div className="relative scale-90 sm:scale-75 xl:scale-100">
                             <div className="w-full shadow-sm max-w-full lg:max-w-[1050px] lg:w-[1050px] rounded-[28px] relative z-30 overflow-hidden flex flex-col items-center justify-center">
                                     <Image src="/assets/chain-up-roadshows-all-city.png" className="max-w-full w-full" width={1259} height={612} alt="" />
                                     <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-12 bg-white text-black px-4 py-3 lg:mt-4 lg:px-4 lg:py-4 min-w-full">

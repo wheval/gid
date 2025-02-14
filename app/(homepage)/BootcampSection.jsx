@@ -1,3 +1,4 @@
+import { H2 } from "@/components/ui/typography";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -41,12 +42,10 @@ export default function BootcampSection() {
   return (
     <section className="py-12 w-full px-4 lg:px-20 md:px-6 ">
       <div className="mx-auto max-w-screen-2xl">
-        <h5 className="text-4xl md:text-5xl font-semibold mb-12">
-          Learn Faster, Not Longer With
-          <span className="block mt-2">Smarter Trainings At GIDA</span>
-        </h5>
-
-        <p className="text-2xl font-semibold mb-6">Our Bootcamps</p>
+        <h3 className="text-2xl lg:w-[24ch] md:text-5xl font-semibold mb-6 lg:mb-12">
+          Learn Faster, Not Longer With Smarter Trainings At GIDA
+        </h3>
+        <p className="text-[1.25rem] md:text-2xl font-semibold mb-6">Our Bootcamps</p>
 
         <div className="grid gap-x-6 gap-y-4 md:grid-cols-2 lg:grid-cols-5 lg:grid-rows-2">
           {bootcamps.map((bootcamp, index) => (
@@ -54,7 +53,7 @@ export default function BootcampSection() {
               key={index}
               className={`bg-white ${index ===0 ? "lg:flex-col" : "lg:flex lg:gap-3"} rounded-[40px] p-4 gap-3 shadow-sm overflow-hidden border flex flex-col lg:flex-row justify-between border-gray-200 ${index === 0 ? "lg:row-start-1 lg:row-span-2 lg:col-span-2" : index === 1 ? "lg:col-start-3 lg:col-span-3" : index === 2 ? "lg:col-start-3 lg:col-span-3" : ""}`}
             >
-              <div className="relative rounded-3xl overflow-hidden">
+              <div className="relative w-full h-[300px] lg:w-auto lg:h-auto rounded-3xl overflow-hidden">
                 <span
                   className={`absolute top-4 left-4 font-lato z-10 px-3 py-1 rounded-full text-sm font-medium text-white ${
                     bootcamp.status === "Upcoming"

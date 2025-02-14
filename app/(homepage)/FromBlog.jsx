@@ -33,7 +33,7 @@ const FromBlog = () => {
             <div>
                 <H2 className="mb-8 text-center">FROM OUR BLOG</H2>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-4 xl:gap-x-12 gap-y-12'>
                 {posts.map((post, index) => (
                     <div key={index} className={`${index === 0 ? "lg: lg:row-span-2" : ""} flex flex-col gap-2 lg:gap-4`}>
                         <div className={`overflow-hidden h-[200px] rounded-md lg:h-full ${index === 0 ? "lg:h-auto" : ""}`}>
